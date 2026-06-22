@@ -21,7 +21,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
 .nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
 .nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
-.nav-name{font-family:var(--fd);font-size:1rem;color:var(--white)}
+
 .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
 .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--gb)}
@@ -157,8 +157,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem}
 .fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
-.fb-mark{width:32px;height:32px;border-radius:7px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gd)}
-.fb-name{font-family:var(--fd);color:var(--white);font-size:.95rem}
+.fb-logo-img{width:48px;height:48px;border-radius:9px;object-fit:cover;flex-shrink:0}
+.fb-name-block{display:flex;flex-direction:column;line-height:1.1}
+.fb-name-top{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.13em;text-transform:uppercase}
+.fb-name-mid{font-family:var(--fd);font-size:1.15rem;color:var(--white);font-style:italic;line-height:1.05}
+.fb-name-bot{font-size:.55rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+
 .fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
 .fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
 .fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
@@ -176,8 +180,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-brand">
-    <img src="Logo-icon.png" alt="ZGIH Logo" style="width:38px;height:38px;border-radius:8px;object-fit:cover;flex-shrink:0"/>
-    <span class="nav-name">Zamboanga Green Innovation Hub</span>
+    <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
+    <div class="nav-name-block">
+      <span class="nav-name-top">ZAMBOANGA</span>
+      <span class="nav-name-mid">GREEN</span>
+      <span class="nav-name-bot">INNOVATION HUB</span>
+    </div>
   </a>
   <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
   <ul class="nav-links">
@@ -943,7 +951,14 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="fb-brand"><div class="fb-logo"><img src="Logo-icon.png" alt="ZGIH" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0"/><span class="fb-name">Zamboanga Green Innovation Hub</span></div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p></div>
+    <div class="fb-brand"><div class="fb-logo">
+        <img src="Logo-icon.png" alt="ZGIH" class="fb-logo-img"/>
+        <div class="fb-name-block">
+          <span class="fb-name-top">ZAMBOANGA</span>
+          <span class="fb-name-mid">GREEN</span>
+          <span class="fb-name-bot">INNOVATION HUB</span>
+        </div>
+      </div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p></div>
     <div class="fc"><h4>Website</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Green Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
     <div class="fc"><h4>CSR & EPR</h4><ul><li><a href="csr.html">Overview</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="csr.html#packages">Packages</a></li><li><a href="csr.html#partners">Partners</a></li><li><a href="csr.html#contact">Start a Program</a></li></ul></div>
     <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li><li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li></ul></div>
