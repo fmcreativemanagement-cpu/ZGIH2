@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CSR Services — ZGIH</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="apple-touch-icon" href="favicon-64.png"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;
+  --sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;
+  --fd:"DM Serif Display",Georgia,serif;--fb:"Inter",system-ui,sans-serif;--fm:"Space Mono",monospace
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
+.nav-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo-img{width:52px;height:52px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.nav-name-block{display:flex;flex-direction:column;line-height:1.1}
+.nav-name-top{font-family:var(--fb);font-size:.62rem;font-weight:700;color:rgba(76,175,125,.9);letter-spacing:.13em;text-transform:uppercase}
+.nav-name-mid{font-family:var(--fd);font-size:1.3rem;color:var(--white);font-style:italic;line-height:1.05}
+.nav-name-bot{font-family:var(--fb);font-size:.58rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gb)}
+.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.38rem .95rem;border-radius:6px;font-weight:700!important}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
+@media(max-width:860px){.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--gd);flex-direction:column;align-items:flex-start;padding:5rem 2rem 2rem;gap:.4rem;z-index:300}.nav-links.open{display:flex}.nav-links a{color:var(--white);font-size:1.05rem;padding:.7rem 0;width:100%}.hamburger{display:flex;z-index:400}}
+
+/* ── HERO ── */
+.hero{background:var(--gd);padding:5.5rem 4% 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 85% 40%,rgba(76,175,125,.13),transparent 70%);pointer-events:none}
+.hero-leaf{position:absolute;pointer-events:none;opacity:.05}
+.l1{right:-60px;top:-40px;width:320px;height:320px;background:var(--gb);border-radius:70% 30% 70% 30%/30% 60% 40% 70%;transform:rotate(20deg)}
+.l2{left:-40px;bottom:-50px;width:220px;height:220px;background:var(--gold);border-radius:50% 70% 40% 60%/60% 40% 70% 50%;transform:rotate(-12deg)}
+.hero-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding-bottom:4rem}
+.eyebrow{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.eyebrow::before{content:"";display:block;width:20px;height:2px;background:var(--gb)}
+.hero h1{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.4rem);color:var(--white);line-height:1.12;margin-bottom:1.1rem}
+.hero h1 em{color:var(--gb);font-style:italic}
+.hero p{color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.8;max-width:460px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn-p{background:var(--gb);color:var(--gd);padding:.85rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s}
+.btn-p:hover{background:var(--gold);transform:translateY(-1px)}
+.btn-o{border:1.5px solid rgba(255,255,255,.3);color:var(--white);padding:.85rem 1.8rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
+.btn-o:hover{border-color:var(--gb);background:rgba(76,175,125,.1)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hstat{background:rgba(255,255,255,.06);border:1px solid rgba(76,175,125,.2);border-radius:12px;padding:1.3rem 1.4rem;transition:border-color .2s}
+.hstat:hover{border-color:rgba(76,175,125,.5)}
+.hstat strong{display:block;font-family:var(--fd);font-size:2rem;color:var(--gb);line-height:1;margin-bottom:.3rem}
+.hstat.gold strong{color:var(--gold)}
+.hstat span{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4}
+
+/* ── SHARED SECTION STYLES ── */
+.section{padding:5rem 4%}
+.sec-inner{max-width:1240px;margin:0 auto}
+.stag{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--gm);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:"";display:block;width:18px;height:2px;background:var(--gb)}
+.stag.center{justify-content:center}.stag.center::after{content:"";display:block;width:18px;height:2px;background:var(--gb)}
+h2.sh{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.7rem);color:var(--gd);line-height:1.18;margin-bottom:.7rem}
+h2.sh em{color:var(--gm);font-style:italic}
+.slead{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:620px}
+
+/* ── SERVICES OVERVIEW ── */
+.overview-section{background:var(--sand)}
+.overview-intro{text-align:center;margin-bottom:3.5rem}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,60,46,.1)}
+.svc-card.featured{background:linear-gradient(155deg,var(--gd) 0%,var(--gm) 100%);border-color:transparent}
+.svc-top{padding:2rem 1.8rem 1.5rem;border-bottom:1px solid var(--border);flex:1}
+.svc-card.featured .svc-top{border-color:rgba(76,175,125,.25)}
+.svc-icon{font-size:2.2rem;margin-bottom:1rem;display:block}
+.svc-card h3{font-family:var(--fd);font-size:1.15rem;color:var(--gd);margin-bottom:.55rem}
+.svc-card.featured h3{color:var(--white)}
+.svc-card p{font-size:.86rem;color:var(--muted);line-height:1.7}
+.svc-card.featured p{color:rgba(255,255,255,.72)}
+.svc-foot{padding:1.2rem 1.8rem;display:flex;align-items:center;justify-content:space-between}
+.svc-tag{font-family:var(--fm);font-size:.62rem;font-weight:700;padding:.22rem .7rem;border-radius:10px;letter-spacing:.05em}
+.svc-tag.csr{background:#e8f5e9;color:#2e7d32}
+.svc-tag.highlight{background:rgba(76,175,125,.2);color:var(--gb)}
+.svc-link{font-size:.82rem;font-weight:600;color:var(--gm);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:gap .2s}
+.svc-link:hover{gap:.6rem}
+.svc-card.featured .svc-link{color:var(--gb)}
+
+/* ── SERVICE DETAIL CARDS ── */
+.detail-section{background:var(--white)}
+.detail-block{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;padding:4rem 0;border-bottom:1px solid var(--border)}
+.detail-block:last-child{border-bottom:none}
+.detail-block.reverse{direction:rtl}
+.detail-block.reverse > *{direction:ltr}
+.detail-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gm);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem;background:var(--sand);padding:.35rem .9rem;border-radius:20px}
+.detail-block h3{font-family:var(--fd);font-size:1.5rem;color:var(--gd);margin-bottom:.8rem;line-height:1.25}
+.detail-block h3 em{color:var(--gm);font-style:italic}
+.detail-block .detail-lead{font-size:.95rem;color:var(--muted);line-height:1.78;margin-bottom:1.4rem}
+.detail-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.detail-list li{font-size:.87rem;color:var(--ink);display:flex;align-items:flex-start;gap:.7rem;line-height:1.55}
+.detail-list li::before{content:"✓";color:var(--gb);font-weight:700;flex-shrink:0;margin-top:.1rem}
+.detail-cta{display:inline-flex;align-items:center;gap:.45rem;background:var(--gd);color:var(--white);padding:.75rem 1.6rem;border-radius:8px;font-weight:700;font-size:.87rem;text-decoration:none;transition:background .2s,transform .15s}
+.detail-cta:hover{background:var(--gm);transform:translateY(-1px)}
+.detail-visual{border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--gd),var(--gm));display:flex;align-items:center;justify-content:center;min-height:280px;position:relative}
+.detail-visual .vis-icon{font-size:5rem;opacity:.3;position:absolute}
+.detail-visual .vis-content{position:relative;z-index:1;padding:2rem;width:100%}
+.vis-stat{background:rgba(255,255,255,.08);border:1px solid rgba(76,175,125,.25);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:.8rem;last-child:margin-bottom:0}
+.vis-stat strong{display:block;font-family:var(--fd);font-size:1.6rem;color:var(--gb);line-height:1;margin-bottom:.25rem}
+.vis-stat.gold strong{color:var(--gold)}
+.vis-stat span{font-size:.78rem;color:rgba(255,255,255,.65)}
+
+/* ── PROCESS ── */
+.process-section{background:var(--sand)}
+.process-intro{text-align:center;margin-bottom:3.5rem}
+/* Vertical timeline */
+.timeline{max-width:860px;margin:0 auto;position:relative;padding-left:3rem}
+.timeline::before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gb),var(--gold))}
+.tl-item{position:relative;margin-bottom:2.5rem}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-2.6rem;top:.3rem;width:40px;height:40px;border-radius:50%;background:var(--gd);border:3px solid var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;z-index:1;box-shadow:0 0 0 3px var(--gb)}
+.tl-body{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.8rem;margin-left:.5rem}
+.tl-phase{font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gm);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.tl-body h4{font-family:var(--fd);font-size:1.1rem;color:var(--gd);margin-bottom:.5rem}
+.tl-body p{font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:.9rem}
+.tl-steps{display:flex;flex-direction:column;gap:.4rem}
+.tl-step{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;color:var(--ink);line-height:1.5}
+.tl-step::before{content:"→";color:var(--gb);font-weight:700;flex-shrink:0;margin-top:.05rem}
+.tl-duration{display:inline-block;margin-top:.9rem;font-family:var(--fm);font-size:.62rem;color:var(--muted);background:var(--sand);padding:.25rem .75rem;border-radius:20px;letter-spacing:.05em}
+/* Deliverable box */
+.tl-deliverable{margin-top:.9rem;background:var(--gd);border-radius:10px;padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start}
+.tl-deliverable .di{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
+.tl-deliverable p{font-size:.81rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0}
+.tl-deliverable strong{color:var(--gb);display:block;margin-bottom:.2rem;font-size:.82rem}
+
+/* ── RESPONSIBILITY MATRIX ── */
+.matrix-section{background:var(--white)}
+.matrix-wrap{background:var(--sand);border-radius:18px;overflow:hidden;border:1px solid var(--border)}
+.matrix-head{display:grid;grid-template-columns:2.5fr 1fr 1fr;background:var(--gd);padding:.9rem 1.5rem;gap:1rem}
+.matrix-head span{font-family:var(--fm);font-size:.63rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.08em;text-transform:uppercase}
+.matrix-row{display:grid;grid-template-columns:2.5fr 1fr 1fr;padding:.8rem 1.5rem;gap:1rem;border-bottom:1px solid var(--border);align-items:center}
+.matrix-row:last-child{border-bottom:none}
+.matrix-row:nth-child(odd){background:var(--white)}
+.matrix-row .task{font-size:.87rem;color:var(--gd);font-weight:500}
+.chk{text-align:center;font-size:.95rem}
+
+/* ── DOCS CHECKLIST ── */
+.docs-section{background:var(--sand)}
+.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.doc-card{background:var(--white);border-radius:12px;padding:1.3rem;border:1px solid var(--border);display:flex;align-items:flex-start;gap:.9rem;transition:border-color .2s,transform .2s}
+.doc-card:hover{border-color:var(--gb);transform:translateY(-2px)}
+.doc-ico{font-size:1.5rem;flex-shrink:0;margin-top:.05rem}
+.doc-card h4{font-family:var(--fd);font-size:.95rem;color:var(--gd);margin-bottom:.25rem}
+.doc-card p{font-size:.8rem;color:var(--muted);line-height:1.6}
+
+/* ── FAQ ── */
+.faq-section{background:var(--gd);padding:5rem 4%}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-section h2{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--white);margin-bottom:.5rem}
+.faq-section .faq-sub{color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:2.5rem;line-height:1.7}
+.faq-item{border:1px solid rgba(76,175,125,.2);border-radius:12px;margin-bottom:.8rem;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:1.1rem 1.4rem;background:rgba(255,255,255,.05);border:none;font-family:var(--fb);font-size:.92rem;font-weight:600;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background .2s}
+.faq-q:hover,.faq-q.open{background:rgba(76,175,125,.1)}
+.faq-q .arr{color:var(--gb);transition:transform .3s;flex-shrink:0;font-size:.8rem}
+.faq-q.open .arr{transform:rotate(180deg)}
+.faq-a{display:none;padding:1rem 1.4rem 1.3rem;font-size:.87rem;color:rgba(255,255,255,.72);line-height:1.75;background:rgba(255,255,255,.03)}
+.faq-a.show{display:block}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{background:linear-gradient(135deg,var(--gb) 0%,var(--gm) 100%);padding:5rem 4%;text-align:center}
+.bottom-cta h2{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3rem);color:var(--gd);margin-bottom:1rem;line-height:1.15}
+.bottom-cta p{color:rgba(26,60,46,.75);font-size:1rem;max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
+.bottom-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-dark{background:var(--gd);color:var(--white);padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .2s,transform .15s}
+.btn-dark:hover{background:#0f2419;transform:translateY(-1px)}
+.btn-white{background:var(--white);color:var(--gd);padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:opacity .2s}
+.btn-white:hover{opacity:.88}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.5rem}
+.fb-brand{display:flex;flex-direction:column;gap:.8rem}
+.fb-logo-row{display:flex;align-items:center;gap:.75rem}
+.fb-logo-img{width:48px;height:48px;border-radius:9px;object-fit:cover;flex-shrink:0}
+.fb-name-block{display:flex;flex-direction:column;line-height:1.1}
+.fb-name-top{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.13em;text-transform:uppercase}
+.fb-name-mid{font-family:var(--fd);font-size:1.15rem;color:var(--white);font-style:italic;line-height:1.05}
+.fb-name-bot{font-size:.55rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+.fb-brand p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.6);max-width:230px}
+.footer-socials{display:flex;gap:.6rem}
+.footer-socials a{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.65);transition:background .2s,color .2s;text-decoration:none;font-size:.8rem}
+.footer-socials a:hover{background:var(--gb);color:var(--gd)}
+.fc h4{color:var(--white);font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.9rem;padding-bottom:.45rem;border-bottom:1px solid rgba(76,175,125,.2)}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s}
+.fc a:hover{color:var(--gb)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;font-size:.76rem;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:.5rem}
+.footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:var(--gb)}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}.detail-block{grid-template-columns:1fr}
+  .detail-block.reverse{direction:ltr}.docs-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}.matrix-head,.matrix-row{grid-template-columns:2fr 1fr 1fr}
+}
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr}.docs-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}.section{padding:3.5rem 5%}
+  .hero{padding:4.5rem 5% 0}.timeline{padding-left:2.5rem}
+  .matrix-head,.matrix-row{grid-template-columns:1.8fr 1fr 1fr;padding:.7rem .9rem;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
+    <div class="nav-name-block">
+      <span class="nav-name-top">ZAMBOANGA</span>
+      <span class="nav-name-mid">GREEN</span>
+      <span class="nav-name-bot">INNOVATION HUB</span>
+    </div>
+  </a>
+  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="members.html">Members &amp; News</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="education.html">Learn</a></li>
+    <li><a href="csr.html" class="active nav-cta">CSR / EPR</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-leaf l1"></div>
+  <div class="hero-leaf l2"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">CSR Services — Deep Dive</p>
+      <h1>How ZGIH delivers <em>real impact</em><br/>for your company</h1>
+      <p>A transparent, detailed look at every CSR service ZGIH offers — what we do, how we do it, what we deliver, and exactly how your company benefits. From collection drives to community livelihoods, nothing is left vague.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-p">Explore Services →</a>
+        <a href="#process" class="btn-o">See the Process</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>750+ kg</strong><span>Solid waste diverted from landfills since 2024</span></div>
+      <div class="hstat gold"><strong>5+</strong><span>Corporate &amp; institutional partners on board</span></div>
+      <div class="hstat"><strong>50+</strong><span>Community members reached through CSR programs</span></div>
+      <div class="hstat gold"><strong>100%</strong><span>Documented — every kg, every peso, every person</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW GRID -->
+<section class="section overview-section" id="services">
+  <div class="sec-inner">
+    <div class="overview-intro">
+      <p class="stag center">Our CSR Services</p>
+      <h2 class="sh" style="text-align:center">Six ways your company<br/>can <em>create impact</em> with ZGIH</h2>
+      <p class="slead" style="margin:0 auto;text-align:center">Each service is fully documented, co-branded, and reported. All can be combined into a custom program tailored to your company's goals.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">♻️</span>
+          <h3>Plastic Waste Collection &amp; Diversion</h3>
+          <p>Organized, documented clean-up drives in barangays and along Zamboanga's coastline — diverting plastic waste from landfills and the sea, in your company's name.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag csr">CSR</span>
+          <a href="#service-1" class="svc-link">Details →</a>
+        </div>
+      </div>
+      <div class="svc-card featured">
+        <div class="svc-top">
+          <span class="svc-icon">🌿</span>
+          <h3>Green Livelihood Sponsorship</h3>
+          <p>Sponsor community artisans — primarily women and youth — who upcycle collected waste into saleable products. Fund real jobs while reducing waste.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag highlight">Most Impactful</span>
+          <a href="#service-2" class="svc-link">Details →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">🏫</span>
+          <h3>Eco-Education Programs</h3>
+          <p>Branded environmental education delivered in public schools and barangays — workshops, materials, and student activities under your company's CSR banner.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag csr">CSR</span>
+          <a href="#service-3" class="svc-link">Details →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">🌊</span>
+          <h3>Coastal &amp; Mangrove Restoration</h3>
+          <p>Sponsor mangrove planting and marine clean-ups along Zamboanga's coastline — with geo-tagged documentation and survival rate tracking.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag csr">CSR</span>
+          <a href="#service-4" class="svc-link">Details →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">📣</span>
+          <h3>Employee Engagement Events</h3>
+          <p>Meaningful volunteer days and team events — coastal clean-ups, upcycling workshops, school visits — that connect your employees to real community impact.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag csr">CSR</span>
+          <a href="#service-5" class="svc-link">Details →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">📊</span>
+          <h3>Impact Documentation &amp; Reporting</h3>
+          <p>Full ESG-ready reporting — waste certificates, photo documentation, beneficiary records, and quarterly impact reports. Included in every program, no extra cost.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="svc-tag csr">CSR</span>
+          <a href="#service-6" class="svc-link">Details →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE DETAILS -->
+<section class="section detail-section">
+  <div class="sec-inner">
+
+    <!-- Service 1 -->
+    <div class="detail-block" id="service-1">
+      <div>
+        <span class="detail-badge">♻️ Service 01</span>
+        <h3>Plastic Waste<br/><em>Collection &amp; Diversion</em></h3>
+        <p class="detail-lead">ZGIH organizes structured, documented collection drives in target barangays and along Zamboanga's coast. All waste is sorted, weighed, photographed, and routed to accredited recyclers or ZGIH's upcycling workshop — with full chain-of-custody records.</p>
+        <ul class="detail-list">
+          <li>Clean-up events in coastal areas, barangays, or school grounds</li>
+          <li>On-site sorting by material type — plastic, paper, metal, glass</li>
+          <li>Calibrated weighing and real-time data recording per event</li>
+          <li>Waste routed to accredited recyclers with receipt documentation</li>
+          <li>Co-branded tarpaulins and event materials at every site</li>
+          <li>Official Waste Diversion Certificate issued within 5 days</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Start This Service →</a>
+      </div>
+      <div class="detail-visual">
+        <div class="vis-icon">♻️</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>750+ kg</strong><span>Total waste diverted since ZGIH's founding in 2024</span></div>
+          <div class="vis-stat gold"><strong>5+</strong><span>Clean-up events organized across Zamboanga City</span></div>
+          <div class="vis-stat"><strong>3</strong><span>Waste categories tracked: plastic, paper, and coastal debris</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="detail-block reverse" id="service-2">
+      <div>
+        <span class="detail-badge">🌿 Service 02</span>
+        <h3>Green Livelihood<br/><em>Sponsorship</em></h3>
+        <p class="detail-lead">Your sponsorship funds the wages of community artisans — mostly women and out-of-school youth — who are trained by ZGIH to transform collected waste into handcrafted, saleable eco-products. Every artisan is profiled and reported on.</p>
+        <ul class="detail-list">
+          <li>Artisans recruited from target barangays and trained by ZGIH</li>
+          <li>Products made from upcycled plastic sachets, paper, and natural materials</li>
+          <li>Sponsor funds a fixed monthly stipend per artisan supported</li>
+          <li>Products sold through ZGIH's Green Store and community markets</li>
+          <li>Individual artisan profiles and income data in your impact report</li>
+          <li>Option to co-brand products or receive a batch as program deliverable</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Sponsor Artisans →</a>
+      </div>
+      <div class="detail-visual" style="background:linear-gradient(135deg,#2E6B4F,#C9A84C)">
+        <div class="vis-icon">👩‍🎨</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>15+</strong><span>Community artisans trained in upcycling since 2024</span></div>
+          <div class="vis-stat gold"><strong>200+</strong><span>Eco-products made and sold through ZGIH channels</span></div>
+          <div class="vis-stat"><strong>80%</strong><span>Of artisans are women from low-income barangays</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="detail-block" id="service-3">
+      <div>
+        <span class="detail-badge">🏫 Service 03</span>
+        <h3>Eco-Education<br/><em>Programs</em></h3>
+        <p class="detail-lead">ZGIH brings structured, DepEd-aligned environmental education into Zamboanga City's public schools. Sessions cover solid waste management, plastic science, the 3Rs, and local environmental action — branded with your company's CSR identity.</p>
+        <ul class="detail-list">
+          <li>Sessions delivered for Grades 7–12 by certified ZGIH educators</li>
+          <li>Curriculum covers solid waste basics, plastics, 3Rs, and local ecology</li>
+          <li>Student attendance sheets and pre/post quiz results documented</li>
+          <li>Co-branded learning materials and certificates for students</li>
+          <li>School garden or segregation system set-up (extended programs)</li>
+          <li>Principal endorsement letters and school partnership certificates</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Bring Eco-Ed to Schools →</a>
+      </div>
+      <div class="detail-visual" style="background:linear-gradient(135deg,#1A3C2E,#3A7D8C)">
+        <div class="vis-icon">🎓</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>3</strong><span>Public schools engaged in ZGIH eco-education since 2024</span></div>
+          <div class="vis-stat gold"><strong>400+</strong><span>Students reached through environmental education sessions</span></div>
+          <div class="vis-stat"><strong>5</strong><span>Learning modules covering waste, plastics, and action skills</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="detail-block reverse" id="service-4">
+      <div>
+        <span class="detail-badge">🌊 Service 04</span>
+        <h3>Coastal &amp; Mangrove<br/><em>Restoration</em></h3>
+        <p class="detail-lead">Zamboanga is a city of the sea. ZGIH partners with local fisherfolk organizations to restore mangroves, clean shorelines, and monitor marine biodiversity — giving your company a visible, lasting conservation legacy in one of the Philippines' most biodiverse coastal areas.</p>
+        <ul class="detail-list">
+          <li>Mangrove seedlings sourced from DENR-accredited nurseries</li>
+          <li>Planting events co-organized with fisherfolk communities as stewards</li>
+          <li>GPS coordinates recorded for every grove — survival tracked quarterly</li>
+          <li>Partner company recognized with a named mangrove restoration site</li>
+          <li>Before-and-after photo documentation of each coastal site</li>
+          <li>Marine debris classification for coastal biodiversity insights</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Restore Zamboanga's Coast →</a>
+      </div>
+      <div class="detail-visual" style="background:linear-gradient(135deg,#0a3d62,#1A3C2E)">
+        <div class="vis-icon">🌊</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>200+</strong><span>Mangrove seedlings planted since ZGIH's launch</span></div>
+          <div class="vis-stat gold"><strong>2</strong><span>Coastal barangays actively supported through conservation</span></div>
+          <div class="vis-stat"><strong>85%</strong><span>Mangrove survival rate tracked and reported quarterly</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="detail-block" id="service-5">
+      <div>
+        <span class="detail-badge">📣 Service 05</span>
+        <h3>Employee<br/><em>Engagement Events</em></h3>
+        <p class="detail-lead">Connect your employees to real community impact through ZGIH-organized volunteer days. Whether it's a coastal clean-up, a school visit, or a hands-on upcycling workshop, your team leaves with a genuine sense of purpose — and ZGIH documents everything.</p>
+        <ul class="detail-list">
+          <li>Full event logistics managed by ZGIH — your team just shows up</li>
+          <li>Options: coastal clean-up, school eco-session, upcycling workshop</li>
+          <li>Volunteer certificates issued to each participating employee</li>
+          <li>Group photos and documentation package provided</li>
+          <li>Minimum group size: 10 employees; no maximum</li>
+          <li>Can be combined with any other service for full CSR day experience</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Plan a Volunteer Day →</a>
+      </div>
+      <div class="detail-visual" style="background:linear-gradient(135deg,#2E6B4F,#1A3C2E)">
+        <div class="vis-icon">🙌</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>80+</strong><span>Volunteers who've participated in ZGIH events since 2024</span></div>
+          <div class="vis-stat gold"><strong>4</strong><span>Types of volunteer events available for corporate teams</span></div>
+          <div class="vis-stat"><strong>3 wks</strong><span>Recommended advance booking for corporate volunteer days</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="detail-block reverse" id="service-6">
+      <div>
+        <span class="detail-badge">📊 Service 06</span>
+        <h3>Impact Documentation<br/><em>&amp; Reporting</em></h3>
+        <p class="detail-lead">Every ZGIH program comes with rigorous, ESG-ready documentation. We track every kilogram of waste, every artisan employed, every student reached — and package it into quarterly and final reports your sustainability team can use directly.</p>
+        <ul class="detail-list">
+          <li>Quarterly impact reports with photos, data, and KPI summaries</li>
+          <li>Official Waste Diversion Certificates signed by ZGIH Executive Director</li>
+          <li>Full chain-of-custody documentation for all waste processed</li>
+          <li>Beneficiary profiles and income records for livelihood programs</li>
+          <li>High-resolution photo and video archive of all program activities</li>
+          <li>Final annual report formatted for ESG and sustainability disclosures</li>
+        </ul>
+        <a href="csr.html#contact" class="detail-cta">Start a Documented Program →</a>
+      </div>
+      <div class="detail-visual" style="background:linear-gradient(135deg,#1A3C2E,#6B3FA0)">
+        <div class="vis-icon">📋</div>
+        <div class="vis-content">
+          <div class="vis-stat"><strong>Quarterly</strong><span>Progress reports sent to all active partners</span></div>
+          <div class="vis-stat gold"><strong>5 days</strong><span>Turnaround for Waste Diversion Certificates after each event</span></div>
+          <div class="vis-stat"><strong>100%</strong><span>Of programs include full photo and data documentation</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STEP-BY-STEP PROCESS -->
+<section class="section process-section" id="process">
+  <div class="sec-inner">
+    <div class="process-intro">
+      <p class="stag center">How It Works</p>
+      <h2 class="sh" style="text-align:center">The ZGIH process —<br/><em>step by step</em></h2>
+      <p class="slead" style="text-align:center;margin:0 auto">From first inquiry to final report, here is exactly how ZGIH designs and delivers every CSR program. No surprises, no vague deliverables.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot">💬</div>
+        <div class="tl-body">
+          <p class="tl-phase">Phase 1 · Weeks 1–2</p>
+          <h4>Discovery &amp; Partnership Agreement</h4>
+          <p>We start with a free 30-minute discovery call to understand your company's sustainability goals, preferred program type, budget range, and timeline. Once aligned, ZGIH prepares a Memorandum of Agreement (MOA) and assigns a dedicated Program Officer to your account.</p>
+          <div class="tl-steps">
+            <span class="tl-step">Initial inquiry via website, Facebook, or email</span>
+            <span class="tl-step">Discovery call with ZGIH Program Officer (within 2 business days)</span>
+            <span class="tl-step">Custom program proposal sent within 5 business days</span>
+            <span class="tl-step">MOA drafted, reviewed, and co-signed by both parties</span>
+          </div>
+          <div class="tl-deliverable">
+            <span class="di">📋</span>
+            <p><strong>You receive:</strong> Signed MOA · Program overview document · Assigned Program Officer · Welcome kit with co-branding guidelines</p>
+          </div>
+          <span class="tl-duration">⏱ Timeline: 1–2 weeks from first contact</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🗺️</div>
+        <div class="tl-body">
+          <p class="tl-phase">Phase 2 · Weeks 2–4</p>
+          <h4>Program Design &amp; Planning</h4>
+          <p>ZGIH maps the target communities, sets clear KPIs aligned to your ESG framework, and builds a month-by-month activity calendar. We define exactly who is responsible for what — on both sides.</p>
+          <div class="tl-steps">
+            <span class="tl-step">Mapping of target barangays, schools, or coastal areas</span>
+            <span class="tl-step">Baseline waste audit to establish pre-program benchmarks</span>
+            <span class="tl-step">KPI framework agreed (environmental, social, and reporting KPIs)</span>
+            <span class="tl-step">12-month activity calendar finalized and shared</span>
+          </div>
+          <div class="tl-deliverable">
+            <span class="di">📋</span>
+            <p><strong>You receive:</strong> Program Operational Plan · Activity Calendar · KPI Framework · Target community map · Responsibility matrix</p>
+          </div>
+          <span class="tl-duration">⏱ Timeline: 2–4 weeks after MOA signing</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">📢</div>
+        <div class="tl-body">
+          <p class="tl-phase">Phase 3 · Weeks 3–5</p>
+          <h4>Community Mobilization</h4>
+          <p>ZGIH activates its community networks — engaging Barangay Captains, fisherfolk groups, school principals, and volunteer organizations. We run an IEC (Information-Education-Communication) campaign so residents understand the program before it begins.</p>
+          <div class="tl-steps">
+            <span class="tl-step">Formal consultation with Barangay Captains and community leaders</span>
+            <span class="tl-step">Barangay endorsement letters and resolutions secured</span>
+            <span class="tl-step">IEC campaign: flyers, announcements, co-branded materials distributed</span>
+            <span class="tl-step">Community volunteers recruited and oriented</span>
+          </div>
+          <div class="tl-deliverable">
+            <span class="di">📋</span>
+            <p><strong>You receive:</strong> Community endorsement letters · IEC material copies · Volunteer roster · Co-branded tarpaulins installed in target areas</p>
+          </div>
+          <span class="tl-duration">⏱ Timeline: Overlaps with Phase 2; completed before first event</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🚀</div>
+        <div class="tl-body">
+          <p class="tl-phase">Phase 4 · Month 1 onward (recurring)</p>
+          <h4>Program Implementation</h4>
+          <p>Collection drives, livelihood sessions, school workshops, or coastal restoration events are executed on schedule. Every event is documented in real time — weights, photos, volunteer counts, and GPS data — by ZGIH's field documentation officer.</p>
+          <div class="tl-steps">
+            <span class="tl-step">Events executed per the activity calendar (monthly or quarterly)</span>
+            <span class="tl-step">All waste sorted, weighed, and recorded on-site per material type</span>
+            <span class="tl-step">Before-and-after photography and video captured at every event</span>
+            <span class="tl-step">Waste transported to accredited recyclers with chain-of-custody records</span>
+            <span class="tl-step">Waste Diversion Certificate issued within 5 business days per event</span>
+          </div>
+          <div class="tl-deliverable">
+            <span class="di">📋</span>
+            <p><strong>Per event:</strong> Waste Diversion Certificate · Event waste log by material · Photo/video package · Volunteer count records · GPS-tagged location data</p>
+          </div>
+          <span class="tl-duration">⏱ Timeline: Ongoing throughout the program period</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">📈</div>
+        <div class="tl-body">
+          <p class="tl-phase">Phase 5 · Quarterly + End of Program</p>
+          <h4>Impact Reporting &amp; Program Close</h4>
+          <p>Every three months, partners receive a structured progress report. At program close, ZGIH produces a comprehensive Final Impact Report — ESG-ready, with all certificates, photos, and data in one polished document. The partner is publicly recognized on ZGIH's platforms.</p>
+          <div class="tl-steps">
+            <span class="tl-step">Quarterly reports with KPI progress, photos, and budget summary</span>
+            <span class="tl-step">Mid-program review call at the 6-month mark (for annual programs)</span>
+            <span class="tl-step">Final Impact Report delivered within 30 days of program close</span>
+            <span class="tl-step">Certificate of Partnership signed by ZGIH Executive Director</span>
+            <span class="tl-step">Partner featured on ZGIH website, social media, and annual report</span>
+          </div>
+          <div class="tl-deliverable">
+            <span class="di">📋</span>
+            <p><strong>Final deliverables:</strong> Comprehensive Impact Report (ESG-ready) · Certificate of Partnership · Full waste certificates · Photo archive · Social media recognition</p>
+          </div>
+          <span class="tl-duration">⏱ Final report: within 30 days of program end</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSIBILITY MATRIX -->
+<section class="section matrix-section">
+  <div class="sec-inner">
+    <div style="margin-bottom:2rem">
+      <p class="stag">Roles &amp; Responsibilities</p>
+      <h2 class="sh">Who does what — <em>clearly defined</em></h2>
+      <p class="slead">No confusion about who handles which part of the program. Here is the full responsibility matrix for every standard ZGIH CSR program.</p>
+    </div>
+    <div class="matrix-wrap">
+      <div class="matrix-head">
+        <span>Activity</span><span style="text-align:center">ZGIH</span><span style="text-align:center">Partner</span>
+      </div>
+      <div class="matrix-row"><span class="task">Program Officer coordination &amp; communication</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Community engagement &amp; barangay coordination</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Equipment, logistics &amp; event setup</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Volunteer recruitment &amp; training</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">IEC materials &amp; co-branded content production</span><span class="chk">✅</span><span class="chk">Logo/assets</span></div>
+      <div class="matrix-row"><span class="task">Budget disbursement per agreed schedule</span><span class="chk">—</span><span class="chk">✅</span></div>
+      <div class="matrix-row"><span class="task">Branding review &amp; approvals</span><span class="chk">Drafts</span><span class="chk">✅ Approves</span></div>
+      <div class="matrix-row"><span class="task">On-site waste weighing &amp; data recording</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Chain-of-custody documentation</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Quarterly &amp; final impact report production</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Report review &amp; ESG disclosure integration</span><span class="chk">—</span><span class="chk">✅</span></div>
+      <div class="matrix-row"><span class="task">Public recognition &amp; partner directory listing</span><span class="chk">✅</span><span class="chk">—</span></div>
+      <div class="matrix-row"><span class="task">Program renewal discussion (60 days before end)</span><span class="chk">✅ Initiates</span><span class="chk">✅ Decides</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTATION CHECKLIST -->
+<section class="section docs-section">
+  <div class="sec-inner">
+    <div style="margin-bottom:2rem">
+      <p class="stag center">What You Get</p>
+      <h2 class="sh" style="text-align:center">Every document <em>included</em><br/>in your program</h2>
+      <p class="slead" style="text-align:center;margin:0 auto">No hidden extras. These deliverables are standard across all ZGIH CSR programs.</p>
+    </div>
+    <div class="docs-grid">
+      <div class="doc-card"><span class="doc-ico">📄</span><div><h4>Memorandum of Agreement</h4><p>Formal signed contract outlining targets, timeline, and obligations for both parties.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">⚖️</span><div><h4>Waste Diversion Certificates</h4><p>Official certificate per collection event, signed by ZGIH Executive Director, issued within 5 days.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">📊</span><div><h4>Quarterly Impact Reports</h4><p>Structured progress reports with KPIs, photos, waste data, beneficiary counts, and budget summary.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">📸</span><div><h4>Photo &amp; Video Archive</h4><p>High-resolution before-and-after photos and event videos from every program activity.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">🔗</span><div><h4>Chain-of-Custody Records</h4><p>Full documentation trail from collection point to recycler or upcycling workshop.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">👥</span><div><h4>Beneficiary &amp; Volunteer Records</h4><p>Signed attendance sheets, artisan profiles, and community impact data per program.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">🌿</span><div><h4>Community Endorsement Letters</h4><p>Signed endorsements from Barangay Captains and community leaders in target areas.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">📑</span><div><h4>Final Impact Report</h4><p>Comprehensive ESG-ready report covering the full program lifecycle — formatted for sustainability disclosures.</p></div></div>
+      <div class="doc-card"><span class="doc-ico">🏅</span><div><h4>Certificate of Partnership</h4><p>Formal recognition signed by ZGIH Executive Director, suitable for framing and internal communications.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <p style="font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem">Common Questions</p>
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-sub">Answers to what corporate partners typically ask before starting a program with ZGIH.</p>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How quickly can a program launch after we sign the MOA? <span class="arr">▼</span></button>
+      <div class="faq-a">Most programs are fully operational within 30 days of MOA signing. A single-event Seedling program can be ready in as little as 2 weeks. Larger programs involving multiple barangays and livelihood components typically take 4–6 weeks to mobilize — community consent, volunteer training, and IEC materials all need time to be done properly.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can our employees participate in collection events? <span class="arr">▼</span></button>
+      <div class="faq-a">Absolutely — and many partners choose this. Employee volunteer days are a popular option. ZGIH handles all organization, logistics, and documentation; your team participates as volunteers. Each employee receives a volunteer certificate. We recommend coordinating 3–4 weeks in advance so the community is properly prepared to host your group.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do you ensure the waste data is accurate? <span class="arr">▼</span></button>
+      <div class="faq-a">All weighing is done on calibrated scales at each event, recorded by a ZGIH field officer and witnessed by a community representative. Waste is then transported to accredited recyclers who issue their own receipts — creating a double-verified weight record. Our chain-of-custody documentation traces every kilogram from collection to final processor. Accuracy is our most important asset as an NGO.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can we change or expand the program scope after it starts? <span class="arr">▼</span></button>
+      <div class="faq-a">Yes. Programs can be amended through a simple addendum to the MOA. The mid-program review at Month 6 is the standard moment to adjust scope or targets, but changes can be made at any time by mutual agreement. We have had partners expand programs after seeing strong early results — and others who needed to scale back due to budget changes. Both are handled professionally.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can our company logo appear on ZGIH materials and events? <span class="arr">▼</span></button>
+      <div class="faq-a">Yes — co-branding rights are included in all programs. Your logo appears on event tarpaulins, IEC materials, ZGIH's website partner directory, and program certificates. For higher-tier programs, partners are featured in ZGIH's annual impact report and social media highlights. Branding guidelines are agreed upon during the MOA phase.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">We are based outside Zamboanga — can we still partner with ZGIH? <span class="arr">▼</span></button>
+      <div class="faq-a">Yes. ZGIH's programs are based in Zamboanga City and the Peninsula region, but corporate partners can be based anywhere in the Philippines or internationally. Many companies see it as an opportunity to direct their CSR impact toward a historically underserved region. All coordination can be done remotely; site visits are optional but encouraged.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2>Ready to build your program?</h2>
+  <p>Tell us your goals and ZGIH will design a CSR program that delivers real, documented impact in Zamboanga City.</p>
+  <div class="bottom-btns">
+    <a href="csr.html#contact" class="btn-dark">Start a Program →</a>
+    <a href="csr.html#packages" class="btn-white">View Packages</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand">
+      <div class="fb-logo-row">
+        <img src="Logo-icon.png" alt="ZGIH" class="fb-logo-img"/>
+        <div class="fb-name-block">
+          <span class="fb-name-top">ZAMBOANGA</span>
+          <span class="fb-name-mid">GREEN</span>
+          <span class="fb-name-bot">INNOVATION HUB</span>
+        </div>
+      </div>
+      <p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">f</a>
+        <a href="#">ig</a>
+        <a href="mailto:zgihub@gmail.com">@</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Pages</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="members.html">Members &amp; News</a></li>
+      <li><a href="store.html">Green Store</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="education.html">Learn</a></li>
+      <li><a href="csr.html">CSR Partnerships</a></li>
+    </ul></div>
+    <div class="fc"><h4>CSR Services</h4><ul>
+      <li><a href="#service-1">Waste Collection</a></li>
+      <li><a href="#service-2">Green Livelihood</a></li>
+      <li><a href="#service-3">Eco-Education</a></li>
+      <li><a href="#service-4">Coastal Restoration</a></li>
+      <li><a href="#service-5">Employee Engagement</a></li>
+      <li><a href="#service-6">Impact Reporting</a></li>
+      <li><a href="#process">Our Process</a></li>
+    </ul></div>
+    <div class="fc"><h4>Connect</h4><ul>
+      <li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li>
+      <li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li>
+      <li><a href="#">003 Toreme Drive Lower Cabatangan, Zamboanga City</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Zamboanga Green Innovation Hub. All rights reserved.</span>
+    <span>Built with 💚 for Zamboanga by FMcreativemanagement</span>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const a=btn.nextElementSibling;
+  const open=btn.classList.contains("open");
+  document.querySelectorAll(".faq-q").forEach(b=>{b.classList.remove("open");b.nextElementSibling.classList.remove("show")});
+  if(!open){btn.classList.add("open");a.classList.add("show")}
+}
+window.addEventListener("scroll",()=>{
+  const h=document.querySelector("nav");
+  if(h) h.style.boxShadow=window.scrollY>20?"0 4px 20px rgba(26,60,46,.25)":"none";
+});
+</script>
+</body>
+</html>
