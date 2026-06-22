@@ -2,540 +2,342 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Zamboanga Green Innovation Hub — ZGIH</title>
+<title>ZGIH — Zamboanga Green Innovation Hub</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="apple-touch-icon" href="favicon-64.png"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-/* ── SHARED DESIGN SYSTEM ── */
-:root {
-  --gd:#1A3C2E; --gm:#2E6B4F; --gb:#4CAF7D; --gold:#C9A84C; --gold-btn:#D4A017;
-  --cream:#F5F2EB; --white:#fff; --ink:#1A1A1A; --muted:#5A6A62; --border:#D6E4DC;
-  --fd:'DM Serif Display',Georgia,serif;
-  --fb:'Inter',system-ui,sans-serif;
-  --fm:'Space Mono',monospace;
-}
-
-/* TOP BAR */
-.top-bar{background:var(--gd);padding:.45rem 4%;border-bottom:1px solid rgba(76,175,125,.2)}
-.top-bar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:1280px;margin:0 auto}
-.top-bar-left{display:flex;align-items:center;gap:1.4rem}
-.top-bar-left a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.75rem;display:flex;align-items:center;gap:.3rem;transition:color .2s}
-.top-bar-left a:hover{color:var(--gb)}
-.top-bar-right{display:flex;align-items:center;gap:.6rem}
-.soc-icon{color:rgba(255,255,255,.7);transition:color .2s;display:flex;align-items:center;padding:.2rem}
-.soc-icon:hover{color:var(--gb)}
-.top-divider{width:1px;height:16px;background:rgba(255,255,255,.2);margin:0 .4rem}
-.top-portal{color:rgba(255,255,255,.8);text-decoration:none;font-size:.75rem;font-weight:500;transition:color .2s}
-.top-portal:hover{color:var(--gb)}
-.top-donate{background:var(--gold-btn);color:var(--white);text-decoration:none;font-size:.75rem;font-weight:700;padding:.35rem .9rem;border-radius:4px;transition:background .2s;margin-left:.4rem}
-.top-donate:hover{background:#b8860b}
-
-/* MAIN HEADER */
-.main-header{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,60,46,.07)}
-.header-inner{max-width:1280px;margin:0 auto;padding:.6rem 4%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.brand-logo{width:54px;height:54px;object-fit:contain;flex-shrink:0}
-.brand-text{display:flex;flex-direction:column;line-height:1.05}
-.brand-top{font-family:var(--fb);font-size:.65rem;font-weight:700;color:var(--gm);letter-spacing:.12em}
-.brand-mid{font-family:var(--fd);font-size:1.35rem;color:var(--gd);line-height:1;font-style:italic}
-.brand-bot{font-family:var(--fb);font-size:.62rem;font-weight:600;color:var(--muted);letter-spacing:.1em}
-
-.main-nav{display:flex;align-items:center;gap:.2rem}
-.nav-a{color:var(--ink);text-decoration:none;font-size:.84rem;font-weight:500;padding:.5rem .75rem;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap}
-.nav-a:hover,.nav-a.active{color:var(--gm)}
-.nav-drop{position:relative}
-.drop-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:.5rem 0;min-width:200px;box-shadow:0 8px 24px rgba(26,60,46,.12);display:none;z-index:200}
-.nav-drop:hover .drop-menu{display:block}
-.drop-menu a{display:block;padding:.6rem 1.2rem;font-size:.83rem;color:var(--ink);text-decoration:none;transition:background .15s,color .15s}
-.drop-menu a:hover{background:var(--cream);color:var(--gm)}
-.header-actions{display:flex;align-items:center;gap:.5rem}
-.search-btn{background:none;border:none;cursor:pointer;padding:.4rem;color:var(--muted);border-radius:6px;transition:color .2s}
-.search-btn:hover{color:var(--gm)}
-.cart-btn{position:relative;display:flex;align-items:center;color:var(--muted);padding:.4rem;border-radius:6px;transition:color .2s;text-decoration:none}
-.cart-btn:hover{color:var(--gm)}
-.cart-badge{position:absolute;top:-2px;right:-4px;background:var(--gold-btn);color:white;font-size:.6rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
-.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
-
-/* FOOTER */
-footer{background:var(--gd);color:rgba(255,255,255,.75);padding:4rem 4% 0}
-.footer-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1.2fr 1.3fr 1.4fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(76,175,125,.2)}
-.footer-brand .fb-logo{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-.footer-brand .fb-logo img{width:46px;height:46px;object-fit:contain;border-radius:8px}
-.footer-brand .fb-name-block .fb-top{font-size:.6rem;font-weight:700;color:var(--gb);letter-spacing:.12em;display:block}
-.footer-brand .fb-name-block .fb-mid{font-family:var(--fd);font-size:1.1rem;color:var(--white);font-style:italic;display:block;line-height:1}
-.footer-brand .fb-name-block .fb-bot{font-size:.58rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.1em;display:block}
-.footer-brand p{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6);max-width:220px;margin-bottom:1.2rem}
-.footer-socials{display:flex;gap:.6rem}
-.footer-socials a{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.65);transition:background .2s,color .2s;text-decoration:none}
-.footer-socials a:hover{background:var(--gb);color:var(--gd)}
-.footer-col h4{font-size:.82rem;font-weight:700;color:var(--white);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(76,175,125,.25)}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s;display:flex;align-items:center;gap:.4rem}
-.footer-col a:hover{color:var(--gb)}
-.footer-col .contact-item{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.7rem;font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5}
-.footer-col .contact-item .ci{flex-shrink:0;margin-top:.1rem}
-.newsletter-form{display:flex;flex-direction:column;gap:.6rem;margin-top:.3rem}
-.newsletter-form p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:.3rem}
-.newsletter-form input{border:1px solid rgba(76,175,125,.3);border-radius:6px;padding:.65rem .9rem;font-family:var(--fb);font-size:.85rem;background:rgba(255,255,255,.06);color:var(--white);outline:none}
-.newsletter-form input::placeholder{color:rgba(255,255,255,.35)}
-.newsletter-form input:focus{border-color:var(--gb)}
-.newsletter-form button{background:var(--gold-btn);color:var(--white);border:none;border-radius:6px;padding:.65rem;font-family:var(--fb);font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s}
-.newsletter-form button:hover{background:#b8860b}
-.footer-bottom{max-width:1280px;margin:0 auto;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:.5rem}
-.footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
-.footer-bottom a:hover{color:var(--gb)}
-
-@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr}.top-bar-left a:nth-child(3){display:none}}
-@media(max-width:768px){
-  .top-bar-left{display:none}
-  .main-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--gd);flex-direction:column;align-items:flex-start;padding:5rem 2rem 2rem;gap:.5rem;z-index:300;overflow-y:auto}
-  .main-nav.open{display:flex}
-  .main-nav .nav-a{color:var(--white);font-size:1.1rem;padding:.8rem 0;width:100%}
-  .nav-drop .drop-menu{position:static;background:rgba(255,255,255,.08);box-shadow:none;border:none;display:block;border-radius:8px;margin-top:.3rem}
-  .drop-menu a{color:rgba(255,255,255,.75);font-size:.95rem}
-  .hamburger{display:flex}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-}
-@media(max-width:540px){.footer-top{grid-template-columns:1fr}.brand-mid{font-size:1.1rem}}
-
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;
+  --sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;
+  --fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace;
+}
 html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
 
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,0.2)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd);letter-spacing:-.5px}
+.nav-name{font-family:var(--fd);font-size:1rem;color:var(--white)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gb)}
+.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
+.nav-cta:hover{background:var(--gold)!important}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px;transition:.3s}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem;border-top:1px solid rgba(76,175,125,.2)}.nav-links.open{display:flex}.hamburger{display:flex}}
+
 /* HERO */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px;overflow:hidden;position:relative}
-.hero-left{background:var(--cream);padding:5rem 4% 4rem 6%;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
-.hero-left::after{content:'';position:absolute;right:-60px;top:0;bottom:0;width:120px;background:var(--cream);clip-path:ellipse(100% 100% at 0% 50%);z-index:2}
-.hero-eyebrow{font-family:var(--fm);font-size:.68rem;color:var(--gm);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
-.hero-eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--gb)}
-.hero h1{font-family:var(--fd);font-size:clamp(2.6rem,4.5vw,4rem);color:var(--gd);line-height:1.1;margin-bottom:1.2rem}
-.hero h1 em{color:var(--gm);font-style:italic}
-.hero-sub{font-size:.97rem;color:var(--muted);line-height:1.78;max-width:420px;margin-bottom:2rem}
-.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
-.btn-hero-p{background:var(--gd);color:var(--white);padding:.85rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s}
-.btn-hero-p:hover{background:var(--gm);transform:translateY(-1px)}
-.btn-hero-o{border:2px solid var(--gd);color:var(--gd);padding:.85rem 1.8rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
-.btn-hero-o:hover{background:var(--gd);color:var(--white)}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-right-placeholder{width:100%;height:100%;background:linear-gradient(160deg,#2E6B4F 0%,#1A3C2E 40%,#0f2419 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.hero-right-placeholder::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234CAF7D' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-city-text{font-family:var(--fd);font-size:2.5rem;color:rgba(255,255,255,.15);text-align:center;line-height:1.3;position:relative;z-index:1;padding:2rem}
-/* Value strip over hero bottom */
-.value-strip{background:var(--gd);padding:2.2rem 4%;position:relative;z-index:5}
-.value-strip-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;divide-x:1px solid rgba(76,175,125,.2)}
-.value-item{padding:1.2rem 2rem;border-right:1px solid rgba(76,175,125,.2)}
-.value-item:last-child{border-right:none}
-.value-item-icon{font-size:1.5rem;margin-bottom:.6rem;display:block}
-.value-item h4{font-family:var(--fd);font-size:1.05rem;color:var(--white);margin-bottom:.35rem}
-.value-item p{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.65}
+.hero{min-height:100vh;background:var(--gd);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 4% 4rem;gap:3rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(76,175,125,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(201,168,76,.08) 0%,transparent 60%);pointer-events:none}
+.leaf{position:absolute;pointer-events:none;opacity:.06}
+.leaf1{right:-80px;top:10%;width:400px;height:400px;background:var(--gb);border-radius:70% 30% 70% 30%/30% 60% 40% 70%;transform:rotate(25deg)}
+.leaf2{right:80px;bottom:-100px;width:280px;height:280px;background:var(--gold);border-radius:50% 70% 40% 60%/60% 40% 70% 50%;transform:rotate(-15deg)}
+.hero-content{position:relative;z-index:1}
+.eyebrow{font-family:var(--fm);font-size:.72rem;font-weight:700;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--gb)}
+.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,4vw,3.8rem);color:var(--white);line-height:1.12;margin-bottom:1.4rem}
+.hero h1 em{color:var(--gb);font-style:italic}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.75;max-width:480px;margin-bottom:2.2rem}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{background:var(--gb);color:var(--gd);padding:.85rem 1.8rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-p:hover{background:var(--gold);transform:translateY(-1px)}
+.btn-o{border:1.5px solid rgba(255,255,255,.3);color:var(--white);padding:.85rem 1.8rem;border-radius:8px;font-weight:500;font-size:.88rem;text-decoration:none;transition:border-color .2s,background .2s}
+.btn-o:hover{border-color:var(--gb);background:rgba(76,175,125,.1)}
+.hero-stats{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.scard{background:rgba(255,255,255,.06);border:1px solid rgba(76,175,125,.2);border-radius:12px;padding:1.6rem 1.4rem;transition:border-color .2s,background .2s}
+.scard:hover{border-color:rgba(76,175,125,.5);background:rgba(255,255,255,.09)}
+.scard .num{font-family:var(--fd);font-size:2.3rem;color:var(--gb);line-height:1;margin-bottom:.3rem}
+.scard.gold .num{color:var(--gold)}
+.scard .lbl{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.4}
 
 /* SECTIONS */
-.section{padding:5rem 4%}
-.section-inner{max-width:1280px;margin:0 auto}
-.section-head{text-align:center;margin-bottom:3rem}
-.stag{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--gm);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.stag::before,.stag::after{content:'';display:block;width:20px;height:2px;background:var(--gb)}
-.stag.left{justify-content:flex-start}
-.stag.left::after{display:none}
-h2.sh{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.7rem);color:var(--gd);line-height:1.18;margin-bottom:.6rem}
-h2.sh em{color:var(--gm);font-style:italic}
-.slead{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:580px;margin:0 auto}
+section{padding:5rem 4%}
+.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
+.stag.light{color:var(--gb)}
+.stag.light::before{background:var(--gb)}
+h2.st{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.7rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
+h2.st em{color:var(--gm);font-style:italic}
+h2.st.light{color:var(--white)}
+.slead{font-size:.97rem;color:var(--muted);max-width:580px;line-height:1.75}
 
-/* WHAT WE DO */
-.what-section{background:var(--cream)}
-.what-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem}
-.what-card{text-align:center;padding:1.8rem 1rem}
-.what-icon{width:64px;height:64px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.6rem;transition:border-color .2s,background .2s}
-.what-card:hover .what-icon{border-color:var(--gb);background:rgba(76,175,125,.08)}
-.what-card h4{font-family:var(--fd);font-size:.95rem;color:var(--gd);margin-bottom:.4rem}
-.what-card p{font-size:.78rem;color:var(--muted);line-height:1.6}
+/* MISSION */
+.mission{background:var(--sand)}
+.mission-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:center}
+.mquote{background:linear-gradient(135deg,var(--gd),var(--gm));border-radius:18px;padding:2.5rem;position:relative;overflow:hidden;height:320px;display:flex;flex-direction:column;justify-content:flex-end}
+.mquote::before{content:'';position:absolute;top:-30px;left:-30px;width:180px;height:180px;background:var(--gb);opacity:.12;border-radius:50%}
+.mquote::after{content:'';position:absolute;bottom:-40px;right:-40px;width:220px;height:220px;background:var(--gold);opacity:.1;border-radius:50%}
+.mquote blockquote{position:relative;z-index:1;font-family:var(--fd);font-size:1.4rem;color:var(--white);line-height:1.45;font-style:italic}
+.mquote cite{position:relative;z-index:1;display:block;margin-top:1rem;font-family:var(--fm);font-size:.7rem;color:var(--gb);letter-spacing:.1em;font-style:normal}
+.vals{display:flex;flex-direction:column;gap:1.3rem}
+.val{display:flex;gap:1rem;align-items:flex-start}
+.val-icon{width:42px;height:42px;flex-shrink:0;background:var(--gd);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.val h4{font-weight:600;font-size:.93rem;color:var(--gd);margin-bottom:.25rem}
+.val p{font-size:.86rem;color:var(--muted);line-height:1.6}
 
-/* FEATURED PRODUCTS */
-.products-section{background:var(--white)}
-.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem}
-.view-all{font-size:.85rem;font-weight:600;color:var(--gm);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:gap .2s}
-.view-all:hover{gap:.6rem}
-.products-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem}
-.prod-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.prod-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,60,46,.1)}
-.prod-img{height:160px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
-.prod-badge{position:absolute;top:.5rem;left:.5rem;font-family:var(--fm);font-size:.6rem;font-weight:700;padding:.2rem .55rem;border-radius:8px;letter-spacing:.05em}
-.prod-badge.new-badge{background:var(--gd);color:var(--white)}
-.prod-badge.eco-badge{background:#e8f5e9;color:#2e7d32}
-.prod-badge.best-badge{background:var(--gold-btn);color:var(--white)}
-.prod-body{padding:1rem}
-.prod-card h4{font-weight:600;font-size:.88rem;color:var(--gd);margin-bottom:.3rem}
-.prod-price{font-family:var(--fd);font-size:1.05rem;color:var(--gm);margin-bottom:.3rem}
-.prod-stars{font-size:.75rem;color:var(--gold-btn)}
-.prod-count{font-size:.7rem;color:var(--muted);margin-left:.3rem}
+/* PROGRAMS */
+.programs{background:var(--white)}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pcard{border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color .2s,box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gb);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.pcard:hover{border-color:var(--gb);box-shadow:0 8px 28px rgba(46,107,79,.1);transform:translateY(-3px)}
+.pcard:hover::before{transform:scaleX(1)}
+.pcard-icon{font-size:1.9rem;margin-bottom:1rem;display:block}
+.pcard h3{font-family:var(--fd);font-size:1.2rem;color:var(--gd);margin-bottom:.5rem}
+.pcard p{font-size:.86rem;color:var(--muted);line-height:1.7}
+.pcard a{display:inline-flex;align-items:center;gap:.3rem;margin-top:1rem;font-size:.82rem;font-weight:600;color:var(--gm);text-decoration:none;transition:gap .2s}
+.pcard a:hover{gap:.6rem}
 
-/* JOIN CTA BANNER */
-.join-banner{background:var(--gd);padding:4rem 4%;position:relative;overflow:hidden}
-.join-banner::before{content:'';position:absolute;right:-100px;top:-80px;width:400px;height:400px;background:rgba(76,175,125,.08);border-radius:50%}
-.join-banner::after{content:'';position:absolute;left:-60px;bottom:-60px;width:260px;height:260px;background:rgba(201,168,76,.06);border-radius:50%}
-.join-banner-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1}
-.join-left .join-tag{font-family:var(--fm);font-size:.68rem;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
-.join-left .join-tag::before{content:'🌿';font-size:.9rem}
-.join-left h2{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--white);line-height:1.2;margin-bottom:1.5rem}
-.join-left h2 em{color:var(--gb);font-style:italic}
-.join-btn{background:var(--gold-btn);color:var(--white);padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s}
-.join-btn:hover{background:#b8860b;transform:translateY(-1px)}
-.join-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.jstat{text-align:center;padding:1.5rem 1rem;border:1px solid rgba(76,175,125,.2);border-radius:12px}
-.jstat .jn{font-family:var(--fd);font-size:2.4rem;color:var(--gb);line-height:1;margin-bottom:.3rem}
-.jstat .jl{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4}
+/* IMPACT */
+.impact{background:var(--gd)}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.iitem{text-align:center;padding:2rem 1rem;border:1px solid rgba(76,175,125,.2);border-radius:14px;transition:border-color .2s}
+.iitem:hover{border-color:rgba(76,175,125,.5)}
+.iitem .big{font-family:var(--fd);font-size:2.8rem;color:var(--gb);line-height:1;display:block;margin-bottom:.4rem}
+.iitem.gold .big{color:var(--gold)}
+.iitem .desc{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.5}
 
-/* CONTACT */
-.contact-section{background:var(--cream)}
-.contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-info h3{font-family:var(--fd);font-size:1.6rem;color:var(--gd);margin-bottom:.8rem;line-height:1.3}
-.contact-info p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:2rem}
-.cdet{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1rem}
-.cdet .cic{width:36px;height:36px;border-radius:8px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem}
-.cdet strong{display:block;font-size:.83rem;color:var(--gd);margin-bottom:.1rem}
-.cdet span,.cdet a{font-size:.83rem;color:var(--muted);text-decoration:none}
-.cdet a:hover{color:var(--gm)}
-.cform{display:flex;flex-direction:column;gap:.9rem}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.fg{display:flex;flex-direction:column;gap:.35rem}
-.fg label{font-size:.77rem;font-weight:600;color:var(--gd);letter-spacing:.04em}
-.fg input,.fg textarea,.fg select{border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;background:var(--white)}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gb)}
-.fg textarea{resize:vertical;min-height:110px}
-.cform-btn{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.9rem 2rem;font-family:var(--fb);font-size:.9rem;font-weight:700;cursor:pointer;transition:background .2s;align-self:flex-start}
-.cform-btn:hover{background:var(--gm)}
+/* NEWS PREVIEW */
+.news-preview{background:var(--sand)}
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+.ncard{background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.ncard:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(26,60,46,.1)}
+.ncard-img{height:150px;background:linear-gradient(135deg,var(--gd),var(--gm));display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.ncard-body{padding:1.3rem}
+.ncard-tag{font-family:var(--fm);font-size:.65rem;color:var(--gb);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.ncard h4{font-family:var(--fd);font-size:1.05rem;color:var(--gd);margin-bottom:.5rem;line-height:1.3}
+.ncard p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.ncard-footer{padding:.9rem 1.3rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.ncard-footer a{color:var(--gm);text-decoration:none;font-weight:600}
 
-@media(max-width:1100px){.what-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-right{height:300px}.value-strip-inner{grid-template-columns:1fr}.value-item{border-right:none;border-bottom:1px solid rgba(76,175,125,.2)}.value-item:last-child{border-bottom:none}.join-banner-inner{grid-template-columns:1fr}.join-stats{grid-template-columns:repeat(2,1fr)}.contact-inner{grid-template-columns:1fr;gap:3rem}}
-@media(max-width:600px){.what-grid{grid-template-columns:repeat(2,1fr)}.products-grid{grid-template-columns:repeat(2,1fr)}.frow{grid-template-columns:1fr}.section{padding:3.5rem 5%}.hero-left{padding:4rem 5% 3rem}}
+/* GET INVOLVED */
+.involved{background:var(--white)}
+.ivgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+.ivcard{background:var(--sand);border-radius:14px;padding:2rem;text-align:center;transition:transform .2s,box-shadow .2s}
+.ivcard:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(26,60,46,.1)}
+.ivcard .ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--gd),var(--gm));display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 1.2rem}
+.ivcard h3{font-family:var(--fd);font-size:1.15rem;color:var(--gd);margin-bottom:.5rem}
+.ivcard p{font-size:.86rem;color:var(--muted);line-height:1.65}
+.ivcard a{display:inline-block;margin-top:1.2rem;background:var(--gd);color:var(--white);padding:.6rem 1.4rem;border-radius:8px;font-size:.84rem;font-weight:600;text-decoration:none;transition:background .2s}
+.ivcard a:hover{background:var(--gm)}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem}
+.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px;margin-top:.8rem}
+.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+.fb-mark{width:32px;height:32px;border-radius:7px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gd)}
+.fb-name{font-family:var(--fd);color:var(--white);font-size:.95rem}
+.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem;letter-spacing:.04em}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
+.fc a:hover{color:var(--gb)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
+.footer-bottom a{color:var(--gb);text-decoration:none}
+.socials{display:flex;gap:.6rem;margin-top:1rem}
+.soc{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-size:.78rem;transition:background .2s,color .2s}
+.soc:hover{background:var(--gb);color:var(--gd)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}
+  .mission-grid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr 1fr}
+  .igrid{grid-template-columns:1fr 1fr}.ivgrid{grid-template-columns:1fr 1fr}
+  .ngrid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  section{padding:3.5rem 5%}.hero{padding:6rem 5% 3.5rem}
+  .pgrid{grid-template-columns:1fr}.igrid{grid-template-columns:1fr 1fr}
+  .ivgrid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="top-bar-inner">
-    <div class="top-bar-left">
-      <a href="mailto:zgihub@gmail.com"><span>✉</span> zgihub@gmail.com</a>
-      <a href="tel:+639123456789"><span>📞</span> +63 912 345 6789</a>
-      <a href="#"><span>📍</span> 003 Toreme Drive Lower Cabatangan, Zamboanga City</a>
-    </div>
-    <div class="top-bar-right">
-      <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" class="soc-icon" aria-label="Facebook">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-      <a href="#" class="soc-icon" aria-label="Instagram">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="#" class="soc-icon" aria-label="YouTube">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-      </a>
-      <div class="top-divider"></div>
-      <a href="members.html" class="top-portal">👤 Member Portal</a>
-      <a href="index.html#contact" class="top-donate">💚 Donate</a>
-    </div>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="Logo-icon.png" alt="ZGIH Logo" style="width:38px;height:38px;border-radius:8px;object-fit:cover;flex-shrink:0"/>
+    <span class="nav-name">Zamboanga Green Innovation Hub</span>
+  </a>
+  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+    <span></span><span></span><span></span>
   </div>
-</div>
-
-<!-- MAIN HEADER -->
-<header class="main-header" id="mainHeader">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <img src="Logo-icon.png" alt="ZGIH Logo" class="brand-logo"/>
-      <div class="brand-text">
-        <span class="brand-top">ZAMBOANGA</span>
-        <span class="brand-mid">GREEN</span>
-        <span class="brand-bot">INNOVATION HUB</span>
-      </div>
-    </a>
-    <nav class="main-nav">
-      <a href="index.html" class="nav-a" class="active">Home</a>
-      <a href="members.html" class="nav-a">About Us</a>
-      <div class="nav-drop">
-        <a href="#" class="nav-a">Programs ▾</a>
-        <div class="drop-menu">
-          <a href="education.html">Training & Education</a>
-          <a href="education.html#modules">Zero-Waste Modules</a>
-          <a href="achievements.html">Green Innovation</a>
-          <a href="csr.html">CSR Partnerships</a>
-        </div>
-      </div>
-      <a href="store.html" class="nav-a">Store</a>
-      <a href="members.html" class="nav-a">Member Portal</a>
-      <a href="blog.html" class="nav-a">News & Events</a>
-      <a href="index.html#contact" class="nav-a">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <button class="search-btn" aria-label="Search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <a href="store.html" class="cart-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-badge">0</span>
-      </a>
-      <div class="hamburger" onclick="document.querySelector('.main-nav').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </div>
-</header>
-
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="members.html">Members & News</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="education.html">Learn</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Est. 2024 · Zamboanga City</p>
-    <h1>Innovate <em>Green.</em><br/>Empower Community.</h1>
-    <p class="hero-sub">Zamboanga Green Innovation Hub (ZGIH) promotes sustainable solutions, empowers communities, and builds a greener, more resilient future for Zamboanga City and the Peninsula.</p>
-    <div class="hero-btns">
-      <a href="#programs" class="btn-hero-p">Our Programs →</a>
-      <a href="store.html" class="btn-hero-o">🛍️ Shop Green Products</a>
+  <div class="hero-bg"></div>
+  <div class="leaf leaf1"></div>
+  <div class="leaf leaf2"></div>
+  <div class="hero-content">
+    <p class="eyebrow">003 Toreme Drive Lower Cabatangan, Zamboanga City</p>
+    <h1>Growing a <em>greener,</em><br/>smarter Zamboanga</h1>
+    <p class="hero-sub">ZGIH is a non-governmental organization driving sustainable innovation, environmental action, and community empowerment in Zamboanga City and across the Peninsula.</p>
+    <div class="btn-row">
+      <a href="education.html" class="btn-p">Explore & Learn →</a>
+      <a href="members.html" class="btn-o">Meet Our Team</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-placeholder">
-      <p class="hero-city-text">Zamboanga City<br/>🌿 Pearl of the Orient</p>
-    </div>
-  </div>
-</section>
-
-<!-- VALUE STRIP -->
-<div class="value-strip">
-  <div class="value-strip-inner">
-    <div class="value-item">
-      <span class="value-item-icon">🌿</span>
-      <h4>Sustainability</h4>
-      <p>We champion eco-friendly practices and sustainable innovation rooted in community action.</p>
-    </div>
-    <div class="value-item">
-      <span class="value-item-icon">👐</span>
-      <h4>Community</h4>
-      <p>We empower communities through education, livelihood, and meaningful collaboration.</p>
-    </div>
-    <div class="value-item">
-      <span class="value-item-icon">💡</span>
-      <h4>Innovation</h4>
-      <p>We incubate green ideas that create positive environmental impact and economic opportunity.</p>
-    </div>
-  </div>
-</div>
-
-<!-- WHAT WE DO -->
-<section class="section what-section" id="programs">
-  <div class="section-inner">
-    <div class="section-head">
-      <p class="stag">What We Do</p>
-      <h2 class="sh">Our Focus Areas</h2>
-    </div>
-    <div class="what-grid">
-      <div class="what-card">
-        <div class="what-icon">♻️</div>
-        <h4>Green Innovation</h4>
-        <p>We support ideas and technologies that protect our environment.</p>
-      </div>
-      <div class="what-card">
-        <div class="what-icon">🌱</div>
-        <h4>Livelihood & Enterprise</h4>
-        <p>We empower local entrepreneurs and green enterprises.</p>
-      </div>
-      <div class="what-card">
-        <div class="what-icon">🎓</div>
-        <h4>Training & Education</h4>
-        <p>We build skills for a sustainable and future-ready community.</p>
-      </div>
-      <div class="what-card">
-        <div class="what-icon">📢</div>
-        <h4>Advocacy & Awareness</h4>
-        <p>We promote environmental awareness and responsible action.</p>
-      </div>
-      <div class="what-card">
-        <div class="what-icon">🤝</div>
-        <h4>Partnerships</h4>
-        <p>We collaborate with organizations for greater environmental impact.</p>
-      </div>
-      <div class="what-card">
-        <div class="what-icon">🌐</div>
-        <h4>Circular Economy</h4>
-        <p>We promote reuse, recycle, and reduce for a circular, regenerative future.</p>
-      </div>
-    </div>
+  <div class="hero-stats">
+    <div class="scard"><div class="num">500+</div><div class="lbl">Community members reached through green programs</div></div>
+    <div class="scard gold"><div class="num">12+</div><div class="lbl">Active projects and partnerships across the region</div></div>
+    <div class="scard"><div class="num">8 t</div><div class="lbl">Solid waste diverted from landfills</div></div>
+    <div class="scard gold"><div class="num">30+</div><div class="lbl">Barangays and schools engaged</div></div>
   </div>
 </section>
 
-<!-- FEATURED PRODUCTS -->
-<section class="section products-section">
-  <div class="section-inner">
-    <div class="products-header">
-      <div>
-        <p class="stag left">Green Store</p>
-        <h2 class="sh" style="text-align:left;margin-bottom:0">Featured Products 🌿</h2>
-      </div>
-      <a href="store.html" class="view-all">View All Products →</a>
-    </div>
-    <div class="products-grid">
-      <div class="prod-card">
-        <div class="prod-img"><span class="prod-badge new-badge">New</span>👜</div>
-        <div class="prod-body"><h4>Handwoven Pandan Bag</h4><div class="prod-price">₱350.00</div><div class="prod-stars">★★★★½ <span class="prod-count">(12)</span></div></div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img">🎋</div>
-        <div class="prod-body"><h4>Bamboo Tumbler</h4><div class="prod-price">₱250.00</div><div class="prod-stars">★★★★★ <span class="prod-count">(18)</span></div></div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img"><span class="prod-badge eco-badge">Eco</span>📓</div>
-        <div class="prod-body"><h4>Seed Paper Notebook</h4><div class="prod-price">₱180.00</div><div class="prod-stars">★★★★½ <span class="prod-count">(15)</span></div></div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img">🧼</div>
-        <div class="prod-body"><h4>Natural Herbal Soap</h4><div class="prod-price">₱120.00</div><div class="prod-stars">★★★★★ <span class="prod-count">(21)</span></div></div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img"><span class="prod-badge best-badge">Bestseller</span>🧺</div>
-        <div class="prod-body"><h4>Abaca Coaster Set</h4><div class="prod-price">₱150.00</div><div class="prod-stars">★★★★½ <span class="prod-count">(9)</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- JOIN BANNER -->
-<div class="join-banner">
-  <div class="join-banner-inner">
-    <div class="join-left">
-      <p class="join-tag">Be Part of the Movement</p>
-      <h2>Together, let's build a<br/><em>greener Zamboanga.</em></h2>
-      <a href="#contact" class="join-btn">Join ZGIH Today →</a>
-    </div>
-    <div class="join-stats">
-      <div class="jstat"><div class="jn">50+</div><div class="jl">Active Members</div></div>
-      <div class="jstat"><div class="jn">8+</div><div class="jl">Green Enterprises Supported</div></div>
-      <div class="jstat"><div class="jn">20+</div><div class="jl">Training Sessions Conducted</div></div>
-      <div class="jstat"><div class="jn">5+</div><div class="jl">Community Partnerships</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section class="section contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-info">
-      <p class="stag left">Get In Touch</p>
-      <h3>Let's grow this<br/>together</h3>
-      <p>Have questions about our programs, want to volunteer, or interested in partnership? We'd love to hear from you.</p>
-      <div class="cdet"><div class="cic">📍</div><div><strong>Address</strong><span>003 Toreme Drive Lower Cabatangan, Zamboanga City</span></div></div>
-      <div class="cdet"><div class="cic">✉️</div><div><strong>Email</strong><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></div></div>
-      <div class="cdet"><div class="cic">📞</div><div><strong>Phone</strong><span>+63 912 345 6789</span></div></div>
-      <div class="cdet"><div class="cic">📘</div><div><strong>Facebook</strong><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Zamboanga Green Innovation Hub</a></div></div>
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-grid">
+    <div class="mquote">
+      <blockquote>"Every community holds the seeds of a sustainable future — we just help them grow."</blockquote>
+      <cite>— ZGIH Mission Statement</cite>
     </div>
     <div>
-      <div class="cform">
-        <div class="frow">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Juan"/></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="dela Cruz"/></div>
-        </div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
-        <div class="fg"><label>I'm interested in…</label>
-          <select>
-            <option value="">Select an option</option>
-            <option>Volunteering</option>
-            <option>Membership</option>
-            <option>CSR Partnership</option>
-            <option>Training & Education</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Tell us how you'd like to get involved…"></textarea></div>
-        <button class="cform-btn" onclick="alert('Thank you! We\'ll get back to you soon. 💚')">Send Message →</button>
+      <p class="stag">Who We Are</p>
+      <h2 class="st">Innovation rooted<br/>in <em>community</em></h2>
+      <p class="slead" style="margin-bottom:2rem">ZGIH brings together local communities, students, entrepreneurs, and partners to co-create solutions for environmental challenges — from waste reduction to green livelihoods in Zamboanga City.</p>
+      <div class="vals">
+        <div class="val"><div class="val-icon">🌿</div><div><h4>Environmental Stewardship</h4><p>Protecting Zamboanga's extraordinary land and sea for the generations who will inherit them.</p></div></div>
+        <div class="val"><div class="val-icon">💡</div><div><h4>Grassroots Innovation</h4><p>Developing local, practical solutions shaped by people who know their communities best.</p></div></div>
+        <div class="val"><div class="val-icon">🤝</div><div><h4>Inclusive Partnership</h4><p>Collaborating with schools, government, businesses, and civil society across the Peninsula.</p></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="ph">
+    <div><p class="stag">What We Do</p><h2 class="st">Our Programs</h2></div>
+    <p class="slead">Practical, community-driven initiatives that create lasting environmental and economic impact.</p>
+  </div>
+  <div class="pgrid">
+    <div class="pcard"><span class="pcard-icon">♻️</span><h3>Zero-Waste Communities</h3><p>Building practical waste segregation and upcycling systems in barangays and schools, turning trash into resources.</p><a href="education.html">Learn more →</a></div>
+    <div class="pcard"><span class="pcard-icon">🌱</span><h3>Green Livelihood Training</h3><p>Equipping youth and women with skills in organic farming, eco-entrepreneurship, and sustainable crafts.</p><a href="store.html">See products →</a></div>
+    <div class="pcard"><span class="pcard-icon">🌊</span><h3>Coastal Conservation</h3><p>Mangrove restoration, marine biodiversity monitoring, and responsible fishing practices with local fisherfolk.</p><a href="achievements.html">See impact →</a></div>
+    <div class="pcard"><span class="pcard-icon">🏫</span><h3>Eco-Education</h3><p>Environmental learning in classrooms through workshops, school gardens, and student-led sustainability clubs.</p><a href="education.html">Start learning →</a></div>
+    <div class="pcard"><span class="pcard-icon">☀️</span><h3>Renewable Energy Access</h3><p>Piloting solar and clean energy solutions for underserved communities beyond the city center.</p><a href="blog.html">Read stories →</a></div>
+    <div class="pcard"><span class="pcard-icon">🔬</span><h3>Innovation & Research</h3><p>Documenting environmental challenges and developing evidence-based solutions with university partners.</p><a href="achievements.html">View data →</a></div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <p class="stag light">Our Impact</p>
+  <h2 class="st light">Making a measurable difference<br/>in Zamboanga</h2>
+  <div class="igrid">
+    <div class="iitem"><span class="big">500+</span><p class="desc">Community members trained in sustainable practices</p></div>
+    <div class="iitem gold"><span class="big">30+</span><p class="desc">Barangays and schools engaged in green programs</p></div>
+    <div class="iitem"><span class="big">8 t</span><p class="desc">Waste diverted from landfills through upcycling</p></div>
+    <div class="iitem gold"><span class="big">15+</span><p class="desc">Partner organizations and government agencies</p></div>
+  </div>
+</section>
+
+<!-- NEWS PREVIEW -->
+<section class="news-preview">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
+    <div><p class="stag">Latest Updates</p><h2 class="st">News & Stories</h2></div>
+    <a href="members.html" class="btn-p" style="background:var(--gd);color:var(--white)">View All News →</a>
+  </div>
+  <div class="ngrid">
+    <div class="ncard">
+      <div class="ncard-img">🌊</div>
+      <div class="ncard-body">
+        <p class="ncard-tag">Conservation</p>
+        <h4>Coastal Clean-Up Drive Collects 1.2 Tons of Plastic</h4>
+        <p>Over 200 volunteers joined our quarterly coastal clean-up along Zamboanga's shoreline, removing plastic waste and marine debris.</p>
+      </div>
+      <div class="ncard-footer"><span>June 10, 2026</span><a href="members.html">Read →</a></div>
+    </div>
+    <div class="ncard">
+      <div class="ncard-img">🌱</div>
+      <div class="ncard-body">
+        <p class="ncard-tag">Livelihood</p>
+        <h4>30 Women Graduate from Green Livelihood Program</h4>
+        <p>Participants from Barangay Canelar completed six weeks of training in upcycled product-making and eco-entrepreneurship.</p>
+      </div>
+      <div class="ncard-footer"><span>May 28, 2026</span><a href="members.html">Read →</a></div>
+    </div>
+    <div class="ncard">
+      <div class="ncard-img">🏫</div>
+      <div class="ncard-body">
+        <p class="ncard-tag">Education</p>
+        <h4>ZGIH Launches Solid Waste Module in 5 City Schools</h4>
+        <p>Our new eco-education curriculum is now active in five public schools, reaching over 800 students in Grades 7 to 10.</p>
+      </div>
+      <div class="ncard-footer"><span>May 15, 2026</span><a href="members.html">Read →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="involved">
+  <p class="stag">Join Us</p>
+  <h2 class="st">Be part of the <em>change</em></h2>
+  <p class="slead">There are many ways to support ZGIH's mission — every hand and peso helps build a greener Zamboanga.</p>
+  <div class="ivgrid">
+    <div class="ivcard"><div class="ic">🙌</div><h3>Volunteer</h3><p>Join clean-up drives, community trainings, school visits, and coastal conservation events across the city.</p><a href="#contact">Sign Up</a></div>
+    <div class="ivcard"><div class="ic">🤝</div><h3>Partner With Us</h3><p>We welcome partnerships with businesses, government, schools, and NGOs who share our vision for sustainability.</p><a href="#contact">Get in Touch</a></div>
+    <div class="ivcard"><div class="ic">💚</div><h3>Shop Green</h3><p>Buy handcrafted upcycled products made by our community members. Every purchase funds a green livelihood.</p><a href="store.html">Visit Store</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--sand);padding:5rem 4%">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1100px;margin:0 auto">
+    <div>
+      <p class="stag">Reach Out</p>
+      <h2 class="st">Let's grow this together</h2>
+      <p class="slead" style="margin-bottom:2rem">Have questions, want to volunteer, or interested in partnership? We'd love to hear from you.</p>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="width:36px;height:36px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0">📍</div><div><strong style="display:block;color:var(--gd);font-size:.88rem">Location</strong><span style="color:var(--muted);font-size:.85rem">003 Toreme Drive Lower Cabatangan, Zamboanga City</span></div></div>
+        <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="width:36px;height:36px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0">📘</div><div><strong style="display:block;color:var(--gd);font-size:.88rem">Facebook</strong><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" style="color:var(--gm);font-size:.85rem">Zamboanga Green Innovation Hub</a></div></div>
+        <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="width:36px;height:36px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0">✉️</div><div><strong style="display:block;color:var(--gd);font-size:.88rem">Email</strong><span style="color:var(--muted);font-size:.85rem">zgihub@gmail.com</span></div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.78rem;font-weight:600;color:var(--gd)">First Name</label><input type="text" placeholder="Juan" style="border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;outline:none"/></div>
+        <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.78rem;font-weight:600;color:var(--gd)">Last Name</label><input type="text" placeholder="dela Cruz" style="border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;outline:none"/></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.78rem;font-weight:600;color:var(--gd)">Email</label><input type="email" placeholder="your@email.com" style="border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;outline:none"/></div>
+      <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.78rem;font-weight:600;color:var(--gd)">Message</label><textarea rows="4" placeholder="Tell us how you'd like to get involved…" style="border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;outline:none;resize:vertical"></textarea></div>
+      <button style="background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.9rem 1.8rem;font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;align-self:flex-start;transition:background .2s" onmouseover="this.style.background='var(--gm)'" onmouseout="this.style.background='var(--gd)'">Send Message →</button>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="fb-logo">
-        <img src="Logo-icon.png" alt="ZGIH Logo"/>
-        <div class="fb-name-block">
-          <span class="fb-top">ZAMBOANGA</span>
-          <span class="fb-mid">Green</span>
-          <span class="fb-bot">INNOVATION HUB</span>
-        </div>
-      </div>
-      <p>Innovate green. Empower community. Build a sustainable future for Zamboanga City.</p>
-      <div class="footer-socials">
-        <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" aria-label="Facebook">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="#" aria-label="YouTube">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-        </a>
-        <a href="mailto:zgihub@gmail.com" aria-label="Email">✉</a>
+  <div class="footer-grid">
+    <div class="fb-brand">
+      <div class="fb-logo"><img src="Logo-icon.png" alt="ZGIH" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0"/><span class="fb-name">Zamboanga Green Innovation Hub</span></div>
+      <p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" class="soc">f</a>
+        <a href="#" class="soc">ig</a>
+        <a href="mailto:zgihub@gmail.com" class="soc">@</a>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="members.html">About Us</a></li>
-        <li><a href="index.html#programs">Our Programs</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="members.html">Member Portal</a></li>
-        <li><a href="blog.html">News & Events</a></li>
-        <li><a href="index.html#contact">Contact Us</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Programs</h4>
-      <ul>
-        <li><a href="achievements.html">Green Innovation</a></li>
-        <li><a href="store.html">Livelihood & Enterprise</a></li>
-        <li><a href="education.html">Training & Education</a></li>
-        <li><a href="blog.html">Advocacy & Awareness</a></li>
-        <li><a href="csr.html">CSR Partnerships</a></li>
-        <li><a href="education.html#quiz">Circular Economy</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <div class="contact-item"><span class="ci">📍</span><span>003 Toreme Drive Lower Cabatangan, Zamboanga City</span></div>
-      <div class="contact-item"><span class="ci">📞</span><span>+63 912 345 6789</span></div>
-      <div class="contact-item"><span class="ci">✉️</span><span>zgihub@gmail.com</span></div>
-      <div class="contact-item"><span class="ci">🌐</span><span>www.zgih.org</span></div>
-    </div>
-    <div class="footer-col">
-      <h4>Newsletter</h4>
-      <div class="newsletter-form">
-        <p>Subscribe to get updates on our latest programs and events.</p>
-        <input type="email" placeholder="Your email address"/>
-        <button>Subscribe</button>
-      </div>
-    </div>
+    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
+    <div class="fc"><h4>Programs</h4><ul><li><a href="education.html">Zero-Waste</a></li><li><a href="store.html">Green Livelihood</a></li><li><a href="achievements.html">Coastal Conservation</a></li><li><a href="education.html">Eco-Education</a></li></ul></div>
+    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li><li><a href="#">003 Toreme Drive Lower Cabatangan, Zamboanga City</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2024 Zamboanga Green Innovation Hub. All rights reserved.</span>
-    <div style="display:flex;gap:1.5rem">
-      <a href="#">Privacy Policy</a>
-      <span style="color:rgba(255,255,255,.2)">|</span>
-      <a href="#">Terms of Use</a>
-      <span style="color:rgba(255,255,255,.2)">|</span>
-      <span>Built with 💚 for Zamboanga by FMcreativemanagement</span>
-    </div>
-  </div>
+  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><span>Built with 💚 for Zamboanga by FMcreativemanagement</span></div>
 </footer>
 
-
-<script>
-// Sticky header scroll effect
-window.addEventListener('scroll',()=>{
-  const h=document.getElementById('mainHeader');
-  if(h) h.style.boxShadow=window.scrollY>20?'0 4px 20px rgba(26,60,46,.15)':'0 2px 12px rgba(26,60,46,.07)';
-});
-</script>
 </body>
 </html>
