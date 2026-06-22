@@ -107,23 +107,76 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
 </style>
 </head>
 <body>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <a href="mailto:zgihub@gmail.com"><span>✉</span> zgihub@gmail.com</a>
+      <a href="tel:+639123456789"><span>📞</span> +63 912 345 6789</a>
+      <a href="#"><span>📍</span> 003 Toreme Drive Lower Cabatangan, Zamboanga City</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" class="soc-icon" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="soc-icon" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc-icon" aria-label="YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+      </a>
+      <div class="top-divider"></div>
+      <a href="members.html" class="top-portal">👤 Member Portal</a>
+      <a href="index.html#contact" class="top-donate">💚 Donate</a>
+    </div>
+  </div>
+</div>
 
-<nav>
-  <a href="index.html" class="nav-brand">
-    <img src="Logo-icon.png" alt="ZGIH Logo" style="width:38px;height:38px;border-radius:8px;object-fit:cover;flex-shrink:0"/>
-    <span class="nav-name">Zamboanga Green Innovation Hub</span>
-  </a>
-  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="members.html">Members & News</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="achievements.html">Achievements</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="education.html">Learn</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
-  </ul>
-</nav>
+<!-- MAIN HEADER -->
+<header class="main-header" id="mainHeader">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="Logo-icon.png" alt="ZGIH Logo" class="brand-logo"/>
+      <div class="brand-text">
+        <span class="brand-top">ZAMBOANGA</span>
+        <span class="brand-mid">GREEN</span>
+        <span class="brand-bot">INNOVATION HUB</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="members.html" class="nav-a">About Us</a>
+      <div class="nav-drop">
+        <a href="#" class="nav-a">Programs ▾</a>
+        <div class="drop-menu">
+          <a href="education.html">Training & Education</a>
+          <a href="education.html#modules">Zero-Waste Modules</a>
+          <a href="achievements.html">Green Innovation</a>
+          <a href="csr.html">CSR Partnerships</a>
+        </div>
+      </div>
+      <a href="store.html" class="nav-a">Store</a>
+      <a href="members.html" class="nav-a">Member Portal</a>
+      <a href="blog.html" class="nav-a">News & Events</a>
+      <a href="index.html#contact" class="nav-a">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="store.html" class="cart-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">0</span>
+      </a>
+      <div class="hamburger" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
 
 <div class="page-hero">
   <div class="hero-inner">
@@ -274,20 +327,87 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
   </div>
 </section>
 
-<footer>
-  <div class="footer-grid">
-    <div class="fb-brand"><div class="fb-logo"><img src="Logo-icon.png" alt="ZGIH" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0"/><span class="fb-name">Zamboanga Green Innovation Hub</span></div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p></div>
-    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
-    <div class="fc"><h4>Topics</h4><ul><li><a href="#">Conservation</a></li><li><a href="#">Livelihood</a></li><li><a href="#">Zero-Waste Tips</a></li><li><a href="#">Education</a></li></ul></div>
-    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:zgihub@gmail.com">Email Us</a></li></ul></div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><a href="index.html">Back to Home</a></div>
-</footer>
+
 
 <script>
 document.querySelectorAll('.f-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')});
 });
 </script>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-logo">
+        <img src="Logo-icon.png" alt="ZGIH Logo"/>
+        <div class="fb-name-block">
+          <span class="fb-top">ZAMBOANGA</span>
+          <span class="fb-mid">Green</span>
+          <span class="fb-bot">INNOVATION HUB</span>
+        </div>
+      </div>
+      <p>Innovate green. Empower community. Build a sustainable future for Zamboanga City.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank" aria-label="Facebook">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </a>
+        <a href="mailto:zgihub@gmail.com" aria-label="Email">✉</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="members.html">About Us</a></li>
+        <li><a href="index.html#programs">Our Programs</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="members.html">Member Portal</a></li>
+        <li><a href="blog.html">News & Events</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="achievements.html">Green Innovation</a></li>
+        <li><a href="store.html">Livelihood & Enterprise</a></li>
+        <li><a href="education.html">Training & Education</a></li>
+        <li><a href="blog.html">Advocacy & Awareness</a></li>
+        <li><a href="csr.html">CSR Partnerships</a></li>
+        <li><a href="education.html#quiz">Circular Economy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="contact-item"><span class="ci">📍</span><span>003 Toreme Drive Lower Cabatangan, Zamboanga City</span></div>
+      <div class="contact-item"><span class="ci">📞</span><span>+63 912 345 6789</span></div>
+      <div class="contact-item"><span class="ci">✉️</span><span>zgihub@gmail.com</span></div>
+      <div class="contact-item"><span class="ci">🌐</span><span>www.zgih.org</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <div class="newsletter-form">
+        <p>Subscribe to get updates on our latest programs and events.</p>
+        <input type="email" placeholder="Your email address"/>
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Zamboanga Green Innovation Hub. All rights reserved.</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="#">Privacy Policy</a>
+      <span style="color:rgba(255,255,255,.2)">|</span>
+      <a href="#">Terms of Use</a>
+      <span style="color:rgba(255,255,255,.2)">|</span>
+      <span>Built with 💚 for Zamboanga by FMcreativemanagement</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
