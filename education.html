@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Education — ZGIH</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;--sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;--fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
+.nav-name{font-family:var(--fd);font-size:1rem;color:var(--white)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gb)}
+.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem}.nav-links.open{display:flex}.hamburger{display:flex}}
+
+.page-hero{background:var(--gd);padding:8rem 4% 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(76,175,125,.12),transparent 70%);pointer-events:none}
+.eyebrow{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:20px;height:2px;background:var(--gb)}
+.page-hero h1{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.4rem);color:var(--white);margin-bottom:1rem;line-height:1.15}
+.page-hero h1 em{color:var(--gb);font-style:italic}
+.page-hero p{color:rgba(255,255,255,.7);font-size:1rem;max-width:560px;margin:0 auto 2rem;line-height:1.75}
+.hero-nav{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.hero-nav a{background:rgba(76,175,125,.15);border:1px solid rgba(76,175,125,.35);color:var(--gb);padding:.5rem 1.1rem;border-radius:20px;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s}
+.hero-nav a:hover{background:var(--gb);color:var(--gd)}
+
+section{padding:5rem 4%}
+.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
+.stag.light{color:var(--gb)}.stag.light::before{background:var(--gb)}
+h2.st{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
+h2.st em{color:var(--gm);font-style:italic}
+h2.st.light{color:var(--white)}
+
+/* MODULES */
+.modules-section{background:var(--sand)}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.module-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.module-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,60,46,.1)}
+.module-top{padding:2rem;background:linear-gradient(135deg,var(--gd),var(--gm));text-align:center}
+.module-top .mico{font-size:2.5rem;margin-bottom:.7rem;display:block}
+.module-top h3{font-family:var(--fd);font-size:1.15rem;color:var(--white);line-height:1.3}
+.module-body{padding:1.5rem}
+.module-body p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.lesson-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.lesson-list li{font-size:.82rem;color:var(--gd);display:flex;align-items:center;gap:.5rem}
+.lesson-list li::before{content:'✓';color:var(--gb);font-weight:700;font-size:.75rem}
+.module-footer{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.level-badge{font-family:var(--fm);font-size:.65rem;padding:.25rem .7rem;border-radius:20px;font-weight:700}
+.level-badge.beginner{background:#e8f5e9;color:#2e7d32}
+.level-badge.intermediate{background:#fff8e1;color:#e65100}
+.level-badge.advanced{background:#fce4ec;color:#ad1457}
+.module-btn{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.45rem 1.1rem;font-family:var(--fb);font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
+.module-btn:hover{background:var(--gm)}
+
+/* FACTS */
+.facts-section{background:var(--white)}
+.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+.fact-card{border-left:4px solid var(--gb);padding:1.4rem 1.6rem;background:var(--sand);border-radius:0 12px 12px 0}
+.fact-card.gold{border-color:var(--gold)}
+.fact-card .icon{font-size:1.5rem;margin-bottom:.6rem;display:block}
+.fact-card h4{font-family:var(--fd);font-size:1.05rem;color:var(--gd);margin-bottom:.4rem}
+.fact-card p{font-size:.85rem;color:var(--muted);line-height:1.65}
+.fact-stat{font-family:var(--fd);font-size:1.4rem;color:var(--gb);display:block;margin-bottom:.3rem}
+.fact-card.gold .fact-stat{color:var(--gold)}
+
+/* QUIZ */
+.quiz-section{background:var(--gd);padding:5rem 4%}
+.quiz-wrap{max-width:700px;margin:0 auto}
+.quiz-header{text-align:center;margin-bottom:3rem}
+.quiz-box{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.quiz-progress{background:var(--border);height:6px}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--gm),var(--gb));transition:width .4s ease}
+.quiz-content{padding:2.5rem}
+.quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.q-num{font-family:var(--fm);font-size:.7rem;color:var(--muted);letter-spacing:.08em}
+.q-score{font-family:var(--fm);font-size:.7rem;color:var(--gb);font-weight:700}
+.question{font-family:var(--fd);font-size:1.2rem;color:var(--gd);line-height:1.4;margin-bottom:1.5rem}
+.options{display:flex;flex-direction:column;gap:.7rem}
+.opt-btn{width:100%;text-align:left;border:2px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;font-family:var(--fb);font-size:.9rem;color:var(--ink);background:var(--white);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.8rem}
+.opt-btn:hover:not(:disabled){border-color:var(--gb);background:#f0faf4}
+.opt-btn.correct{border-color:#2e7d32;background:#e8f5e9;color:#2e7d32;font-weight:600}
+.opt-btn.wrong{border-color:#c62828;background:#ffebee;color:#c62828}
+.opt-btn.reveal{border-color:#2e7d32;background:#e8f5e9;color:#2e7d32;opacity:.7}
+.opt-btn:disabled{cursor:default}
+.opt-letter{width:28px;height:28px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--gd);flex-shrink:0;transition:all .2s}
+.opt-btn.correct .opt-letter{background:#2e7d32;color:white}
+.opt-btn.wrong .opt-letter{background:#c62828;color:white}
+.opt-btn.reveal .opt-letter{background:#2e7d32;color:white}
+.feedback{margin-top:1.2rem;padding:1rem 1.2rem;border-radius:10px;font-size:.88rem;line-height:1.6;display:none}
+.feedback.correct{background:#e8f5e9;color:#2e7d32;border-left:4px solid #2e7d32}
+.feedback.wrong{background:#ffebee;color:#c62828;border-left:4px solid #c62828}
+.quiz-actions{display:flex;justify-content:flex-end;margin-top:1.5rem}
+.next-btn{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.75rem 1.6rem;font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s;display:none}
+.next-btn:hover{background:var(--gm)}
+.quiz-result{text-align:center;padding:2.5rem}
+.result-emoji{font-size:4rem;margin-bottom:1rem;display:block}
+.result-score{font-family:var(--fd);font-size:3rem;color:var(--gd);margin-bottom:.5rem}
+.result-label{font-size:1rem;color:var(--muted);margin-bottom:1.5rem}
+.result-msg{font-size:.9rem;color:var(--gd);line-height:1.7;max-width:420px;margin:0 auto 2rem;background:var(--sand);padding:1.2rem;border-radius:10px}
+.restart-btn{background:var(--gb);color:var(--gd);border:none;border-radius:8px;padding:.85rem 2rem;font-family:var(--fb);font-size:.92rem;font-weight:700;cursor:pointer;transition:background .2s}
+.restart-btn:hover{background:var(--gold)}
+
+/* RESOURCES */
+.resources-section{background:var(--sand)}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+.res-card{background:var(--white);border-radius:14px;padding:1.6rem;border:1px solid var(--border);display:flex;flex-direction:column;gap:.5rem;transition:transform .2s,box-shadow .2s}
+.res-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,60,46,.1)}
+.res-type{font-family:var(--fm);font-size:.65rem;color:var(--gb);letter-spacing:.08em;text-transform:uppercase}
+.res-card h4{font-family:var(--fd);font-size:1rem;color:var(--gd)}
+.res-card p{font-size:.83rem;color:var(--muted);line-height:1.6;flex:1}
+.res-card a{display:inline-flex;align-items:center;gap:.3rem;font-size:.82rem;font-weight:600;color:var(--gm);text-decoration:none;margin-top:.5rem}
+.res-card a:hover{gap:.6rem}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.5rem}
+.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.fb-mark{width:32px;height:32px;border-radius:7px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gd)}
+.fb-name{font-family:var(--fd);color:var(--white);font-size:.95rem}
+.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
+.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
+.fc a:hover{color:var(--gb)}
+.footer-bottom{display:flex;justify-content:space-between;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
+.footer-bottom a{color:var(--gb);text-decoration:none}
+@media(max-width:900px){.modules-grid{grid-template-columns:1fr 1fr}.facts-grid{grid-template-columns:1fr}.res-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.modules-grid{grid-template-columns:1fr}.res-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}section{padding:3.5rem 5%}.page-hero{padding:7rem 5% 3rem}.quiz-content{padding:1.5rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><div class="nav-mark">ZGIH</div><span class="nav-name">Zamboanga Green Innovation Hub</span></a>
+  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="members.html">Members & News</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="education.html" class="active">Learn</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="eyebrow">Education</p>
+  <h1>Learn about <em>solid waste,</em><br/>plastics & the environment</h1>
+  <p>ZGIH's education hub gives students, community members, and curious learners the knowledge to take action on waste in Zamboanga City and beyond.</p>
+  <div class="hero-nav">
+    <a href="#modules">Learning Modules</a>
+    <a href="#facts">Key Facts</a>
+    <a href="#quiz">Take the Quiz</a>
+    <a href="#resources">Resources</a>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section class="modules-section" id="modules">
+  <p class="stag">Learning Modules</p>
+  <h2 class="st">Start learning at<br/><em>your own pace</em></h2>
+  <p style="color:var(--muted);font-size:.95rem;line-height:1.75;max-width:580px">Our modules are designed for students and community members at all levels — from basic awareness to in-depth action skills.</p>
+  <div class="modules-grid">
+    <div class="module-card">
+      <div class="module-top"><span class="mico">🗑️</span><h3>What is Solid Waste? Understanding the Basics</h3></div>
+      <div class="module-body">
+        <p>An introduction to solid waste — what it is, where it comes from, and why it matters for communities like Zamboanga City.</p>
+        <ul class="lesson-list">
+          <li>Definition and types of solid waste</li>
+          <li>Biodegradable vs non-biodegradable</li>
+          <li>Sources: household, commercial, industrial</li>
+          <li>The waste cycle explained</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge beginner">Beginner</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-top"><span class="mico">🧴</span><h3>Plastics: What They Are and Why They're Dangerous</h3></div>
+      <div class="module-body">
+        <p>A deep dive into plastic types, how long they last in the environment, and why single-use plastics are a special problem in coastal cities.</p>
+        <ul class="lesson-list">
+          <li>The 7 types of plastic (resin codes)</li>
+          <li>Microplastics and their effects on health</li>
+          <li>Plastic in Zamboanga's seas and shores</li>
+          <li>What happens when plastic isn't recycled</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge beginner">Beginner</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-top"><span class="mico">♻️</span><h3>The 3Rs and Beyond: Reduce, Reuse, Recycle, Upcycle</h3></div>
+      <div class="module-body">
+        <p>Why the 3Rs are just the start — and how upcycling and the circular economy go further in reducing waste at the community level.</p>
+        <ul class="lesson-list">
+          <li>What each R actually means (with examples)</li>
+          <li>Upcycling vs recycling: the difference</li>
+          <li>Circular economy principles</li>
+          <li>Zero-waste practices you can start today</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge intermediate">Intermediate</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-top"><span class="mico">🌊</span><h3>Waste and the Coast: Zamboanga's Marine Environment</h3></div>
+      <div class="module-body">
+        <p>Understanding the link between solid waste mismanagement and the health of Zamboanga's seas, mangroves, and marine ecosystems.</p>
+        <ul class="lesson-list">
+          <li>How land waste reaches the ocean</li>
+          <li>Effects of marine plastic on fish and corals</li>
+          <li>The role of mangroves as natural filters</li>
+          <li>What communities can do to protect coasts</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge intermediate">Intermediate</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-top"><span class="mico">📋</span><h3>Philippine Solid Waste Laws & the RA 9003</h3></div>
+      <div class="module-body">
+        <p>Learn about the Ecological Solid Waste Management Act and what it means for barangays, households, and local governments in the Philippines.</p>
+        <ul class="lesson-list">
+          <li>Overview of RA 9003</li>
+          <li>Rights and responsibilities of citizens</li>
+          <li>Barangay MRF requirements</li>
+          <li>How to report waste violations</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge advanced">Advanced</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-top"><span class="mico">🛠️</span><h3>From Trash to Product: Introduction to Upcycling</h3></div>
+      <div class="module-body">
+        <p>A practical, hands-on introduction to upcycling techniques used by ZGIH community artisans to turn waste into saleable, useful products.</p>
+        <ul class="lesson-list">
+          <li>Common materials and what to make from them</li>
+          <li>Basic upcycling techniques</li>
+          <li>Safety and sanitation in upcycling</li>
+          <li>Turning a skill into a livelihood</li>
+        </ul>
+      </div>
+      <div class="module-footer"><span class="level-badge intermediate">Intermediate</span><a href="#quiz" class="module-btn">Start →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="facts-section" id="facts">
+  <p class="stag">Key Facts</p>
+  <h2 class="st">What you should know about<br/><em>plastics & waste</em></h2>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <span class="icon">🧴</span>
+      <span class="fact-stat">500 years</span>
+      <h4>How Long Plastic Takes to Decompose</h4>
+      <p>Most plastic items take 400–500 years to break down in a landfill. They don't disappear — they fragment into microplastics that enter the food chain.</p>
+    </div>
+    <div class="fact-card gold">
+      <span class="icon">🌊</span>
+      <span class="fact-stat">8 million tons</span>
+      <h4>Plastic Entering the Ocean Annually</h4>
+      <p>An estimated 8 million metric tons of plastic enters the world's oceans every year — much of it from coastal communities in Southeast Asia.</p>
+    </div>
+    <div class="fact-card gold">
+      <span class="icon">🇵🇭</span>
+      <span class="fact-stat">Top 3</span>
+      <h4>Philippines Among World's Top Plastic Polluters</h4>
+      <p>The Philippines is consistently ranked among the top contributors to ocean plastic globally, largely due to single-use sachet packaging.</p>
+    </div>
+    <div class="fact-card">
+      <span class="icon">♻️</span>
+      <span class="fact-stat">9% only</span>
+      <h4>Of All Plastic Ever Produced Has Been Recycled</h4>
+      <p>Of the 9.1 billion tons of plastic produced since 1950, only about 9% has been recycled. The rest is in landfills, oceans, or the environment.</p>
+    </div>
+    <div class="fact-card">
+      <span class="icon">🐠</span>
+      <span class="fact-stat">1 in 3</span>
+      <h4>Marine Species Affected by Plastic Debris</h4>
+      <p>Marine turtles, seabirds, fish, and marine mammals are affected by plastic pollution — ingesting it or becoming entangled in discarded fishing gear.</p>
+    </div>
+    <div class="fact-card gold">
+      <span class="icon">💡</span>
+      <span class="fact-stat">68%</span>
+      <h4>Reduction in Waste When Communities Segregate</h4>
+      <p>Studies in Philippine barangays show that proper waste segregation at the source can divert up to 68% of household waste from landfills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <p class="stag light" style="justify-content:center">Interactive Assessment</p>
+      <h2 class="st light">Test Your Knowledge:<br/><em style="color:var(--gb)">Solid Waste & Plastics</em></h2>
+      <p style="color:rgba(255,255,255,.7);font-size:.95rem;margin-top:.5rem">10 questions · Instant feedback · Learn as you go</p>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-progress"><div class="quiz-progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="quiz-content">
+        <div id="quizMain">
+          <div class="quiz-meta">
+            <span class="q-num" id="qNum">Question 1 of 10</span>
+            <span class="q-score" id="qScore">Score: 0</span>
+          </div>
+          <p class="question" id="question"></p>
+          <div class="options" id="options"></div>
+          <div class="feedback" id="feedback"></div>
+          <div class="quiz-actions">
+            <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+          </div>
+        </div>
+        <div id="quizResult" class="quiz-result" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources-section" id="resources">
+  <p class="stag">Further Learning</p>
+  <h2 class="st">Resources & <em>References</em></h2>
+  <p style="color:var(--muted);font-size:.95rem;line-height:1.75;max-width:560px">Curated resources to help students, teachers, and community members learn more about solid waste management and environmental action.</p>
+  <div class="res-grid">
+    <div class="res-card">
+      <p class="res-type">📄 Philippine Law</p>
+      <h4>RA 9003 — Ecological Solid Waste Management Act</h4>
+      <p>The primary Philippine law governing solid waste management. Essential reading for community leaders and students.</p>
+      <a href="#">Download Summary →</a>
+    </div>
+    <div class="res-card">
+      <p class="res-type">🎓 Curriculum Guide</p>
+      <h4>ZGIH Eco-Education Module for Grades 7–10</h4>
+      <p>Our classroom module on solid waste and environmental action, aligned with the DepEd curriculum. Free for public school teachers.</p>
+      <a href="#">Request Copy →</a>
+    </div>
+    <div class="res-card">
+      <p class="res-type">📊 Research Report</p>
+      <h4>Solid Waste Characterization Study — Zamboanga City 2025</h4>
+      <p>ZGIH and WMSU's joint study on household waste composition across 10 barangays in Zamboanga City.</p>
+      <a href="#">Download Report →</a>
+    </div>
+    <div class="res-card">
+      <p class="res-type">🎥 Video Guide</p>
+      <h4>How to Segregate Waste at Home (Filipino)</h4>
+      <p>A short, practical video guide on proper waste segregation for households, available in Filipino and Chavacano.</p>
+      <a href="#">Watch Video →</a>
+    </div>
+    <div class="res-card">
+      <p class="res-type">🛠️ Workshop Kit</p>
+      <h4>Community Upcycling Workshop Starter Kit</h4>
+      <p>Everything a barangay leader or teacher needs to run a basic upcycling workshop with local community members.</p>
+      <a href="index.html#contact">Request Kit →</a>
+    </div>
+    <div class="res-card">
+      <p class="res-type">🌊 Fact Sheet</p>
+      <h4>Plastics and Zamboanga's Coastal Ecosystem</h4>
+      <p>A two-page factsheet on the impact of plastic pollution on Zamboanga's marine biodiversity, with local data and action tips.</p>
+      <a href="#">Download →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand"><div class="fb-logo"><div class="fb-mark">ZGIH</div><span class="fb-name">Zamboanga Green Innovation Hub</span></div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City, Philippines.</p></div>
+    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
+    <div class="fc"><h4>Education</h4><ul><li><a href="#modules">Learning Modules</a></li><li><a href="#facts">Key Facts</a></li><li><a href="#quiz">Take the Quiz</a></li><li><a href="#resources">Resources</a></li></ul></div>
+    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:info@zgih.org">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><a href="index.html">Back to Home</a></div>
+</footer>
+
+<script>
+const questions=[
+  {q:"What does the acronym 3R stand for in solid waste management?",opts:["Reduce, Reuse, Recycle","Remove, Replace, Renew","Restore, Rebuild, Regenerate","Refuse, Regulate, Report"],ans:0,exp:"The 3Rs — Reduce, Reuse, Recycle — are the foundational principles of sustainable solid waste management. 'Reduce' is the most important: creating less waste in the first place."},
+  {q:"Approximately how long does a typical plastic bag take to decompose in a landfill?",opts:["2–5 years","20 years","100–500 years","1,000+ years"],ans:2,exp:"Most plastic bags take between 100 and 500 years to decompose — and even then, they break into microplastics that persist in the environment indefinitely."},
+  {q:"Which Philippine law governs solid waste management and requires barangays to establish Material Recovery Facilities (MRFs)?",opts:["RA 7160 (Local Government Code)","RA 9003 (Ecological Solid Waste Management Act)","RA 8749 (Clean Air Act)","RA 9275 (Clean Water Act)"],ans:1,exp:"Republic Act 9003, the Ecological Solid Waste Management Act of 2000, requires all barangays in the Philippines to establish MRFs and implement proper waste segregation."},
+  {q:"Which type of waste is biodegradable and can be composted?",opts:["Plastic bottles","Food scraps and leaves","Glass jars","Aluminum cans"],ans:1,exp:"Food scraps and organic matter like leaves are biodegradable — they can be broken down by microorganisms and composted into nutrient-rich soil amendment."},
+  {q:"What are microplastics?",opts:["A brand of small plastic bags","Tiny plastic fragments smaller than 5mm","Biodegradable plastic alternatives","Plastic used in medical devices"],ans:1,exp:"Microplastics are plastic fragments or particles smaller than 5 millimeters. They form when larger plastics break down and have been found in oceans, fish, drinking water, and even human blood."},
+  {q:"The Philippines is considered one of the world's top contributors to ocean plastic pollution. What is a major reason for this?",opts:["High rate of industrial manufacturing","Widespread use of small single-use sachets","Lack of fishing regulations","High population in mountain regions"],ans:1,exp:"The widespread use of small single-use sachets (for shampoo, conditioner, coffee, etc.) is a major contributor. These sachets are often too small to be recycled and frequently end up in waterways."},
+  {q:"What is 'upcycling'?",opts:["Sending waste to a recycling plant","Reducing the amount of waste you produce","Creatively transforming waste into something of higher value or quality","Composting organic waste"],ans:2,exp:"Upcycling is the process of transforming waste materials into new products of better quality or higher environmental value — like turning plastic sachets into woven bags. It goes beyond recycling!"},
+  {q:"Which color is typically used for biodegradable waste bins in Philippine waste segregation?",opts:["Red","Blue","Green","Yellow"],ans:2,exp:"In the Philippines, green is the standard color for biodegradable waste (food scraps, plant material). Blue is typically used for recyclables, and black or red for residual/non-biodegradable waste."},
+  {q:"What role do mangroves play in managing coastal waste and pollution?",opts:["They produce plastic-eating bacteria","Their root systems trap debris and filter pollutants from water","They absorb carbon dioxide only","They have no role in waste management"],ans:1,exp:"Mangrove root systems act as natural filters, trapping floating debris, sediments, and pollutants before they reach open water. They also protect coastlines from erosion and provide habitat for marine life."},
+  {q:"What percentage of all plastic ever produced has been recycled globally?",opts:["About 50%","About 30%","About 9%","About 75%"],ans:2,exp:"As of recent estimates, only about 9% of all plastic ever produced has been recycled. The vast majority — around 79% — has accumulated in landfills or the natural environment."}
+];
+
+let current=0,score=0,answered=false;
+
+function loadQuestion(){
+  const q=questions[current];
+  document.getElementById('qNum').textContent=`Question ${current+1} of ${questions.length}`;
+  document.getElementById('qScore').textContent=`Score: ${score}`;
+  document.getElementById('progressFill').style.width=`${(current/questions.length)*100}%`;
+  document.getElementById('question').textContent=q.q;
+  document.getElementById('feedback').style.display='none';
+  document.getElementById('nextBtn').style.display='none';
+  answered=false;
+  const letters=['A','B','C','D'];
+  document.getElementById('options').innerHTML=q.opts.map((o,i)=>`
+    <button class="opt-btn" onclick="answer(${i})">
+      <span class="opt-letter">${letters[i]}</span>${o}
+    </button>
+  `).join('');
+}
+
+function answer(idx){
+  if(answered)return;
+  answered=true;
+  const q=questions[current];
+  const btns=document.querySelectorAll('.opt-btn');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('feedback');
+  if(idx===q.ans){
+    score++;
+    btns[idx].classList.add('correct');
+    fb.className='feedback correct';
+    fb.innerHTML='✅ <strong>Correct!</strong> '+q.exp;
+  } else {
+    btns[idx].classList.add('wrong');
+    btns[q.ans].classList.add('reveal');
+    fb.className='feedback wrong';
+    fb.innerHTML='❌ <strong>Not quite.</strong> '+q.exp;
+  }
+  fb.style.display='block';
+  document.getElementById('qScore').textContent=`Score: ${score}`;
+  document.getElementById('nextBtn').style.display='flex';
+  document.getElementById('nextBtn').textContent=current<questions.length-1?'Next Question →':'See My Results →';
+}
+
+function nextQuestion(){
+  current++;
+  if(current>=questions.length){showResult();return;}
+  loadQuestion();
+}
+
+function showResult(){
+  document.getElementById('progressFill').style.width='100%';
+  document.getElementById('quizMain').style.display='none';
+  const pct=Math.round(score/questions.length*100);
+  let emoji,label,msg;
+  if(pct>=90){emoji='🏆';label='Excellent! You\'re a Waste Warrior!';msg='Outstanding! You have a deep understanding of solid waste, plastics, and environmental responsibility. You\'re ready to be a green leader in your community!';}
+  else if(pct>=70){emoji='🌟';label='Great job! Keep Learning!';msg='Well done! You\'ve got solid knowledge about waste and the environment. Review the modules on the topics you missed to sharpen your understanding.';}
+  else if(pct>=50){emoji='🌱';label='Good start — keep growing!';msg='You\'re on the right track! Explore our learning modules to strengthen your understanding of solid waste management and plastic pollution.';}
+  else{emoji='📚';label='Time to explore and learn!';msg='No worries — this is where learning begins! Check out our Solid Waste Basics and Plastics modules above, then try the quiz again.';}
+  document.getElementById('quizResult').style.display='block';
+  document.getElementById('quizResult').innerHTML=`
+    <span class="result-emoji">${emoji}</span>
+    <div class="result-score">${score} / ${questions.length}</div>
+    <p class="result-label">${pct}% correct · ${label}</p>
+    <p class="result-msg">${msg}</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+      <a href="#modules" style="background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.85rem 2rem;font-size:.92rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center">Back to Modules →</a>
+    </div>
+  `;
+}
+
+function restartQuiz(){
+  current=0;score=0;
+  document.getElementById('quizMain').style.display='block';
+  document.getElementById('quizResult').style.display='none';
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>

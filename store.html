@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Green Store — ZGIH</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;--sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;--fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
+.nav-name{font-family:var(--fd);font-size:1rem;color:var(--white)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gb)}
+.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem}.nav-links.open{display:flex}.hamburger{display:flex}}
+
+.page-hero{background:var(--gd);padding:8rem 4% 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(76,175,125,.12),transparent);pointer-events:none}
+.page-hero .eyebrow{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.page-hero .eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--gb)}
+.page-hero h1{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);color:var(--white);margin-bottom:1rem;line-height:1.15}
+.page-hero h1 em{color:var(--gb);font-style:italic}
+.page-hero p{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.75;max-width:460px}
+.hero-badges{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem}
+.badge{background:rgba(76,175,125,.15);border:1px solid rgba(76,175,125,.3);color:var(--gb);padding:.35rem .85rem;border-radius:20px;font-size:.78rem;font-weight:600}
+.hero-impact{position:relative;z-index:1;display:flex;flex-direction:column;gap:1rem}
+.impact-pill{background:rgba(255,255,255,.07);border:1px solid rgba(76,175,125,.2);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem}
+.impact-pill .ico{font-size:1.5rem}
+.impact-pill .txt strong{display:block;font-size:1.3rem;font-family:var(--fd);color:var(--gb)}
+.impact-pill .txt span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.impact-pill.gold .txt strong{color:var(--gold)}
+
+section{padding:5rem 4%}
+.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
+h2.st{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
+h2.st em{color:var(--gm);font-style:italic}
+
+/* STORE */
+.store-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.cats{display:flex;gap:.6rem;flex-wrap:wrap}
+.cat-btn{padding:.4rem 1rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--fb)}
+.cat-btn.active,.cat-btn:hover{background:var(--gd);color:var(--white);border-color:var(--gd)}
+.store-sort{font-size:.82rem;color:var(--muted);border:1.5px solid var(--border);border-radius:8px;padding:.4rem .8rem;font-family:var(--fb);outline:none}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.product-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s;position:relative}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,60,46,.12)}
+.product-img{height:190px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.p1{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.p2{background:linear-gradient(135deg,#fff8e1,#ffe082)}
+.p3{background:linear-gradient(135deg,#e0f2f1,#b2dfdb)}
+.p4{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
+.p5{background:linear-gradient(135deg,#e8eaf6,#c5cae9)}
+.p6{background:linear-gradient(135deg,#f3e5f5,#e1bee7)}
+.p7{background:linear-gradient(135deg,#e0f7fa,#b2ebf2)}
+.p8{background:linear-gradient(135deg,#fff3e0,#ffe0b2)}
+.badge-eco{position:absolute;top:.6rem;left:.6rem;background:var(--gd);color:var(--white);font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:10px;font-family:var(--fm)}
+.badge-new{position:absolute;top:.6rem;right:.6rem;background:var(--gold);color:var(--gd);font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:10px;font-family:var(--fm)}
+.product-body{padding:1.1rem}
+.product-cat{font-family:var(--fm);font-size:.63rem;color:var(--gb);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
+.product-card h3{font-weight:600;font-size:.95rem;color:var(--gd);margin-bottom:.3rem}
+.product-mat{font-size:.78rem;color:var(--muted);margin-bottom:.6rem}
+.product-footer{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;border-top:1px solid var(--border)}
+.price{font-family:var(--fd);font-size:1.15rem;color:var(--gd)}
+.add-btn{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.45rem 1rem;font-size:.82rem;font-weight:600;cursor:pointer;transition:background .2s;font-family:var(--fb)}
+.add-btn:hover{background:var(--gm)}
+.stars{font-size:.8rem;margin-bottom:.3rem}
+
+/* CART */
+.cart-bar{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99}
+.cart-btn{background:var(--gd);color:var(--white);border:none;border-radius:50px;padding:.9rem 1.6rem;font-family:var(--fb);font-size:.88rem;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(26,60,46,.3);display:flex;align-items:center;gap:.6rem;transition:background .2s}
+.cart-btn:hover{background:var(--gm)}
+.cart-count{background:var(--gb);color:var(--gd);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.cart-drawer{position:fixed;right:0;top:0;bottom:0;width:340px;background:var(--white);box-shadow:-4px 0 30px rgba(0,0,0,.15);z-index:200;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{padding:1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cart-header h3{font-family:var(--fd);font-size:1.2rem;color:var(--gd)}
+.cart-close{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted)}
+.cart-items{flex:1;overflow-y:auto;padding:1.2rem}
+.cart-empty{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.cart-empty .ico{font-size:3rem;margin-bottom:1rem}
+.cart-item{display:flex;gap:1rem;align-items:center;padding:.9rem 0;border-bottom:1px solid var(--border)}
+.cart-item-img{width:50px;height:50px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.cart-item-info{flex:1}
+.cart-item-info h4{font-size:.88rem;font-weight:600;color:var(--gd)}
+.cart-item-info p{font-size:.78rem;color:var(--muted)}
+.cart-item-price{font-family:var(--fd);font-size:1rem;color:var(--gd)}
+.cart-item-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:.2rem .4rem}
+.cart-item-del:hover{color:#e53935}
+.cart-footer{padding:1.2rem 1.5rem;border-top:1px solid var(--border)}
+.cart-total{display:flex;justify-content:space-between;font-size:1rem;font-weight:600;color:var(--gd);margin-bottom:1rem}
+.checkout-btn{width:100%;background:var(--gb);color:var(--gd);border:none;border-radius:10px;padding:.9rem;font-family:var(--fb);font-size:.92rem;font-weight:700;cursor:pointer;transition:background .2s}
+.checkout-btn:hover{background:var(--gold)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199;display:none}
+.overlay.show{display:block}
+
+/* MISSION STRIP */
+.mission-strip{background:var(--sand);padding:3rem 4%}
+.strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.strip-item{text-align:center}
+.strip-item .ico{font-size:2rem;margin-bottom:.7rem;display:block}
+.strip-item h4{font-family:var(--fd);font-size:1rem;color:var(--gd);margin-bottom:.4rem}
+.strip-item p{font-size:.83rem;color:var(--muted);line-height:1.6}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.5rem}
+.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.fb-mark{width:32px;height:32px;border-radius:7px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gd)}
+.fb-name{font-family:var(--fd);color:var(--white);font-size:.95rem}
+.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
+.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
+.fc a:hover{color:var(--gb)}
+.footer-bottom{display:flex;justify-content:space-between;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
+.footer-bottom a{color:var(--gb);text-decoration:none}
+@media(max-width:900px){.page-hero{grid-template-columns:1fr}.product-grid{grid-template-columns:repeat(2,1fr)}.strip-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.product-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}section{padding:3.5rem 5%}.page-hero{padding:7rem 5% 3rem}.cart-drawer{width:100%}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><div class="nav-mark">ZGIH</div><span class="nav-name">Zamboanga Green Innovation Hub</span></a>
+  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="members.html">Members & News</a></li>
+    <li><a href="store.html" class="active">Store</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="education.html">Learn</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div style="position:relative;z-index:1">
+    <p class="eyebrow">Green Store</p>
+    <h1>Shop <em>handcrafted</em><br/>upcycled products</h1>
+    <p>Every item in our store is made by ZGIH community members using recycled and upcycled materials from Zamboanga City. Your purchase directly funds green livelihoods.</p>
+    <div class="hero-badges">
+      <span class="badge">♻️ 100% Upcycled</span>
+      <span class="badge">🤝 Community-Made</span>
+      <span class="badge">🌿 Zero-Waste Principles</span>
+    </div>
+  </div>
+  <div class="hero-impact" style="position:relative;z-index:1">
+    <div class="impact-pill"><div class="ico">♻️</div><div class="txt"><strong>2,400+</strong><span>Products made from recycled materials</span></div></div>
+    <div class="impact-pill gold"><div class="ico">👩‍🎨</div><div class="txt"><strong>85</strong><span>Community artisans supported by store sales</span></div></div>
+    <div class="impact-pill"><div class="ico">🌱</div><div class="txt"><strong>₱1.2M</strong><span>In livelihood earnings generated for families</span></div></div>
+  </div>
+</div>
+
+<!-- STORE -->
+<section style="background:var(--white)">
+  <div class="store-bar">
+    <div class="cats">
+      <button class="cat-btn active" onclick="filterCat(this,'all')">All Products</button>
+      <button class="cat-btn" onclick="filterCat(this,'bags')">Bags & Accessories</button>
+      <button class="cat-btn" onclick="filterCat(this,'decor')">Home Décor</button>
+      <button class="cat-btn" onclick="filterCat(this,'paper')">Paper Products</button>
+      <button class="cat-btn" onclick="filterCat(this,'fashion')">Fashion</button>
+    </div>
+    <select class="store-sort"><option>Sort: Featured</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Newest</option></select>
+  </div>
+  <div class="product-grid" id="productGrid">
+    <div class="product-card" data-cat="bags">
+      <div class="product-img p1"><span class="badge-eco">ECO</span>👜</div>
+      <div class="product-body">
+        <p class="product-cat">Bags & Accessories</p>
+        <h3>Woven Plastic Tote Bag</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="product-mat">Made from recycled HDPE plastic strips</p>
+      </div>
+      <div class="product-footer"><span class="price">₱280</span><button class="add-btn" onclick="addToCart('Woven Plastic Tote Bag',280,'👜')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="decor">
+      <div class="product-img p2"><span class="badge-eco">ECO</span><span class="badge-new">NEW</span>🪴</div>
+      <div class="product-body">
+        <p class="product-cat">Home Décor</p>
+        <h3>Upcycled Bottle Planter Set</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="product-mat">Recycled PET bottles, set of 3</p>
+      </div>
+      <div class="product-footer"><span class="price">₱350</span><button class="add-btn" onclick="addToCart('Upcycled Bottle Planter Set',350,'🪴')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="paper">
+      <div class="product-img p3"><span class="badge-eco">ECO</span>📓</div>
+      <div class="product-body">
+        <p class="product-cat">Paper Products</p>
+        <h3>Recycled Paper Notebook</h3>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p class="product-mat">Made from post-consumer recycled paper</p>
+      </div>
+      <div class="product-footer"><span class="price">₱120</span><button class="add-btn" onclick="addToCart('Recycled Paper Notebook',120,'📓')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="fashion">
+      <div class="product-img p4"><span class="badge-eco">ECO</span>🧢</div>
+      <div class="product-body">
+        <p class="product-cat">Fashion</p>
+        <h3>Woven Raffia Cap</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="product-mat">Natural raffia from local palm waste</p>
+      </div>
+      <div class="product-footer"><span class="price">₱450</span><button class="add-btn" onclick="addToCart('Woven Raffia Cap',450,'🧢')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="bags">
+      <div class="product-img p5"><span class="badge-eco">ECO</span>💼</div>
+      <div class="product-body">
+        <p class="product-cat">Bags & Accessories</p>
+        <h3>Plastic Weave Clutch</h3>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p class="product-mat">Woven from colored sachet plastic waste</p>
+      </div>
+      <div class="product-footer"><span class="price">₱200</span><button class="add-btn" onclick="addToCart('Plastic Weave Clutch',200,'💼')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="decor">
+      <div class="product-img p6"><span class="badge-eco">ECO</span><span class="badge-new">NEW</span>🕯️</div>
+      <div class="product-body">
+        <p class="product-cat">Home Décor</p>
+        <h3>Coconut Shell Candle Holder</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="product-mat">Polished local coconut shells</p>
+      </div>
+      <div class="product-footer"><span class="price">₱180</span><button class="add-btn" onclick="addToCart('Coconut Shell Candle Holder',180,'🕯️')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="paper">
+      <div class="product-img p7"><span class="badge-eco">ECO</span>🗂️</div>
+      <div class="product-body">
+        <p class="product-cat">Paper Products</p>
+        <h3>Upcycled Gift Wrap Set</h3>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p class="product-mat">Made from old newspapers & magazines</p>
+      </div>
+      <div class="product-footer"><span class="price">₱90</span><button class="add-btn" onclick="addToCart('Upcycled Gift Wrap Set',90,'🗂️')">Add to Cart</button></div>
+    </div>
+    <div class="product-card" data-cat="fashion">
+      <div class="product-img p8"><span class="badge-eco">ECO</span>👗</div>
+      <div class="product-body">
+        <p class="product-cat">Fashion</p>
+        <h3>Upcycled Denim Tote</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="product-mat">Reclaimed denim from donated clothing</p>
+      </div>
+      <div class="product-footer"><span class="price">₱380</span><button class="add-btn" onclick="addToCart('Upcycled Denim Tote',380,'👗')">Add to Cart</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION STRIP -->
+<div class="mission-strip">
+  <div class="strip-grid">
+    <div class="strip-item"><span class="ico">♻️</span><h4>Made from Recycled Materials</h4><p>Every product uses waste materials collected by ZGIH community members across Zamboanga City — giving trash a second life.</p></div>
+    <div class="strip-item"><span class="ico">👐</span><h4>Handcrafted by Community Artisans</h4><p>Each item is handmade by women and youth trained in ZGIH's Green Livelihood Program, earning fair and sustainable income.</p></div>
+    <div class="strip-item"><span class="ico">🌿</span><h4>Your Purchase = Real Impact</h4><p>100% of store proceeds go directly to funding green livelihoods and expanding ZGIH's community programs across the Peninsula.</p></div>
+  </div>
+</div>
+
+<!-- CART BUTTON -->
+<div class="cart-bar">
+  <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+</div>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><div class="ico">🛒</div><p>Your cart is empty.<br/>Add some green products!</p></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">₱0</span></div>
+    <p style="font-size:.78rem;color:var(--muted);margin-bottom:.8rem;line-height:1.5">For orders, please contact us via Facebook or email. We'll arrange payment and delivery in Zamboanga City.</p>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Order →</button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand"><div class="fb-logo"><div class="fb-mark">ZGIH</div><span class="fb-name">Zamboanga Green Innovation Hub</span></div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City, Philippines.</p></div>
+    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
+    <div class="fc"><h4>Store</h4><ul><li><a href="#">Bags & Accessories</a></li><li><a href="#">Home Décor</a></li><li><a href="#">Paper Products</a></li><li><a href="#">Fashion</a></li></ul></div>
+    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:info@zgih.org">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><a href="index.html">Back to Home</a></div>
+</footer>
+
+<script>
+let cart=[];
+
+function addToCart(name,price,icon){
+  const existing=cart.find(i=>i.name===name);
+  if(existing){existing.qty++;} else{cart.push({name,price,icon,qty:1});}
+  renderCart();
+  toggleCart();
+}
+
+function removeFromCart(name){
+  cart=cart.filter(i=>i.name!==name);
+  renderCart();
+}
+
+function renderCart(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  const el=document.getElementById('cartItems');
+  const footer=document.getElementById('cartFooter');
+  if(cart.length===0){
+    el.innerHTML='<div class="cart-empty"><div class="ico">🛒</div><p>Your cart is empty.<br/>Add some green products!</p></div>';
+    footer.style.display='none';
+    return;
+  }
+  footer.style.display='block';
+  el.innerHTML=cart.map(i=>`
+    <div class="cart-item">
+      <div class="cart-item-img" style="background:var(--sand)">${i.icon}</div>
+      <div class="cart-item-info"><h4>${i.name}</h4><p>Qty: ${i.qty} × ₱${i.price}</p></div>
+      <span class="cart-item-price">₱${i.price*i.qty}</span>
+      <button class="cart-item-del" onclick="removeFromCart('${i.name}')">✕</button>
+    </div>
+  `).join('');
+  const total=cart.reduce((s,i)=>s+(i.price*i.qty),0);
+  document.getElementById('cartTotal').textContent='₱'+total.toLocaleString();
+}
+
+function toggleCart(){
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+
+function filterCat(btn,cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card=>{
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';
+  });
+}
+
+function checkout(){
+  alert('Thank you for your interest! To complete your order, please message us on Facebook or email info@zgih.org with your cart details. We\'ll arrange payment and delivery in Zamboanga City. 💚');
+}
+</script>
+</body>
+</html>

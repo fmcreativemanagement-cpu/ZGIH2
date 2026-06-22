@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Members & News — ZGIH</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;--sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;--fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
+.nav-name{font-family:var(--fd);font-size:1rem;color:var(--white)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gb)}
+.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem;border-top:1px solid rgba(76,175,125,.2)}.nav-links.open{display:flex}.hamburger{display:flex}}
+
+.page-hero{background:var(--gd);padding:8rem 4% 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(76,175,125,.1),transparent 70%);pointer-events:none}
+.page-hero .eyebrow{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{content:'';display:block;width:20px;height:2px;background:var(--gb)}
+.page-hero h1{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.5rem);color:var(--white);margin-bottom:1rem;line-height:1.15}
+.page-hero h1 em{color:var(--gb);font-style:italic}
+.page-hero p{color:rgba(255,255,255,.7);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.75}
+
+section{padding:5rem 4%}
+.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
+h2.st{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
+h2.st em{color:var(--gm);font-style:italic}
+.slead{font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.75}
+
+/* TEAM */
+.team-section{background:var(--sand)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
+.member-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.member-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,60,46,.12)}
+.member-avatar{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.member-avatar.g1{background:linear-gradient(135deg,#1A3C2E,#2E6B4F)}
+.member-avatar.g2{background:linear-gradient(135deg,#2E6B4F,#4CAF7D)}
+.member-avatar.g3{background:linear-gradient(135deg,#1A3C2E,#C9A84C)}
+.member-avatar.g4{background:linear-gradient(135deg,#4CAF7D,#1A3C2E)}
+.member-body{padding:1.3rem}
+.member-body h3{font-family:var(--fd);font-size:1.05rem;color:var(--gd);margin-bottom:.2rem}
+.member-role{font-family:var(--fm);font-size:.65rem;color:var(--gb);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
+.member-body p{font-size:.82rem;color:var(--muted);line-height:1.6}
+.member-tag{display:inline-block;margin-top:.7rem;background:var(--sand);color:var(--gm);font-size:.72rem;font-weight:600;padding:.25rem .7rem;border-radius:20px}
+
+/* VOLUNTEERS */
+.volunteers-section{background:var(--white)}
+.vol-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
+.vol-card{text-align:center;padding:1.2rem .8rem;border:1px solid var(--border);border-radius:12px;transition:border-color .2s,background .2s}
+.vol-card:hover{border-color:var(--gb);background:var(--sand)}
+.vol-avatar{width:56px;height:56px;border-radius:50%;margin:0 auto .7rem;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--white)}
+.vol-avatar.a{background:#2E6B4F}.vol-avatar.b{background:#1A3C2E}.vol-avatar.c{background:#C9A84C}
+.vol-card h4{font-size:.85rem;font-weight:600;color:var(--gd);margin-bottom:.2rem}
+.vol-card p{font-size:.75rem;color:var(--muted)}
+
+/* NEWS */
+.news-section{background:var(--sand)}
+.news-filters{display:flex;gap:.7rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{padding:.45rem 1rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--fb)}
+.filter-btn.active,.filter-btn:hover{background:var(--gd);color:var(--white);border-color:var(--gd)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.news-card{background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.news-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,60,46,.1)}
+.news-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.ni1{background:linear-gradient(135deg,#1A3C2E,#2E6B4F)}
+.ni2{background:linear-gradient(135deg,#2E6B4F,#4CAF7D)}
+.ni3{background:linear-gradient(135deg,#C9A84C,#1A3C2E)}
+.ni4{background:linear-gradient(135deg,#4CAF7D,#2E6B4F)}
+.ni5{background:linear-gradient(135deg,#1A3C2E,#C9A84C)}
+.ni6{background:linear-gradient(135deg,#2E6B4F,#1A3C2E)}
+.news-body{padding:1.3rem}
+.news-cat{font-family:var(--fm);font-size:.63rem;color:var(--gb);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.news-card h3{font-family:var(--fd);font-size:1.05rem;color:var(--gd);margin-bottom:.5rem;line-height:1.3}
+.news-card p{font-size:.83rem;color:var(--muted);line-height:1.65}
+.news-footer{padding:.9rem 1.3rem;border-top:1px solid var(--border);font-size:.76rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.news-footer a{color:var(--gm);text-decoration:none;font-weight:600}
+.news-footer span{display:flex;align-items:center;gap:.4rem}
+.news-footer .aut{font-weight:500;color:var(--gd)}
+
+/* JOIN CTA */
+.join-cta{background:var(--gd);text-align:center;padding:5rem 4%}
+.join-cta h2{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--white);margin-bottom:1rem}
+.join-cta p{color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 2rem;font-size:.95rem;line-height:1.75}
+.join-cta a{background:var(--gb);color:var(--gd);padding:.9rem 2rem;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;display:inline-block;transition:background .2s}
+.join-cta a:hover{background:var(--gold)}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.5rem}
+.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.fb-mark{width:32px;height:32px;border-radius:7px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--gd)}
+.fb-name{font-family:var(--fd);color:var(--white);font-size:.95rem}
+.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
+.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
+.fc a:hover{color:var(--gb)}
+.footer-bottom{display:flex;justify-content:space-between;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
+.footer-bottom a{color:var(--gb);text-decoration:none}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr}.vol-grid{grid-template-columns:repeat(3,1fr)}.news-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr 1fr}.vol-grid{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}section{padding:3.5rem 5%}.page-hero{padding:7rem 5% 3rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><div class="nav-mark">ZGIH</div><span class="nav-name">Zamboanga Green Innovation Hub</span></a>
+  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="members.html" class="active">Members & News</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="education.html">Learn</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="eyebrow">Our People</p>
+  <h1>The team behind<br/><em>Zamboanga's green future</em></h1>
+  <p>Meet the dedicated members, volunteers, and advocates who make ZGIH's mission possible every day.</p>
+</div>
+
+<!-- CORE TEAM -->
+<section class="team-section">
+  <p class="stag">Leadership</p>
+  <h2 class="st">Core Team</h2>
+  <p class="slead">Passionate individuals committed to building a more sustainable Zamboanga City and Peninsula region.</p>
+  <div class="team-grid">
+    <div class="member-card">
+      <div class="member-avatar g1">👩</div>
+      <div class="member-body">
+        <h3>Maria Santos</h3>
+        <p class="member-role">Executive Director</p>
+        <p>Environmental scientist with 12 years of community development experience across Western Mindanao.</p>
+        <span class="member-tag">🌿 Founder</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g2">👨</div>
+      <div class="member-body">
+        <h3>Jose Reyes</h3>
+        <p class="member-role">Program Manager</p>
+        <p>Leads zero-waste and coastal conservation programs with a background in marine biology.</p>
+        <span class="member-tag">🌊 Programs</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g3">👩</div>
+      <div class="member-body">
+        <h3>Ana dela Cruz</h3>
+        <p class="member-role">Education Coordinator</p>
+        <p>Develops curriculum and manages school partnerships across five city public schools.</p>
+        <span class="member-tag">🏫 Education</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g4">👨</div>
+      <div class="member-body">
+        <h3>Carlo Mendoza</h3>
+        <p class="member-role">Livelihood Lead</p>
+        <p>Trains community members in upcycled product-making and green entrepreneurship.</p>
+        <span class="member-tag">♻️ Livelihood</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g2">👩</div>
+      <div class="member-body">
+        <h3>Fatima Omar</h3>
+        <p class="member-role">Community Liaison</p>
+        <p>Bridges ZGIH with barangay leaders and local government units across the city.</p>
+        <span class="member-tag">🤝 Community</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g1">👨</div>
+      <div class="member-body">
+        <h3>Ramon Villanueva</h3>
+        <p class="member-role">Research Officer</p>
+        <p>Manages data collection on solid waste, environmental impact, and program outcomes.</p>
+        <span class="member-tag">🔬 Research</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g3">👩</div>
+      <div class="member-body">
+        <h3>Liza Tan</h3>
+        <p class="member-role">Communications</p>
+        <p>Manages ZGIH's social media, publications, and public engagement campaigns.</p>
+        <span class="member-tag">📢 Comms</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-avatar g4">👨</div>
+      <div class="member-body">
+        <h3>Ben Alcazar</h3>
+        <p class="member-role">Finance & Admin</p>
+        <p>Ensures ZGIH's operations and donor reporting run smoothly and transparently.</p>
+        <span class="member-tag">📊 Finance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEERS -->
+<section class="volunteers-section">
+  <p class="stag">Active Volunteers</p>
+  <h2 class="st">Our <em>Community Champions</em></h2>
+  <p class="slead">More than 80 volunteers regularly support ZGIH events, clean-up drives, and training programs. Here are some of our most active contributors.</p>
+  <div class="vol-grid">
+    <div class="vol-card"><div class="vol-avatar a">😊</div><h4>Rhea Bautista</h4><p>Clean-up Drives</p></div>
+    <div class="vol-card"><div class="vol-avatar b">😄</div><h4>Marco Lim</h4><p>School Programs</p></div>
+    <div class="vol-card"><div class="vol-avatar c">🙂</div><h4>Jasmine Cruz</h4><p>Coastal Conservation</p></div>
+    <div class="vol-card"><div class="vol-avatar a">😃</div><h4>Dario Abe</h4><p>Upcycling Trainer</p></div>
+    <div class="vol-card"><div class="vol-avatar b">😁</div><h4>Sofia Ramos</h4><p>Social Media</p></div>
+    <div class="vol-card"><div class="vol-avatar c">😊</div><h4>Jun Villarin</h4><p>Events Logistics</p></div>
+    <div class="vol-card"><div class="vol-avatar a">😄</div><h4>Nica Flores</h4><p>Youth Engagement</p></div>
+    <div class="vol-card"><div class="vol-avatar b">🙂</div><h4>Pete Aquino</h4><p>Mangrove Planting</p></div>
+    <div class="vol-card"><div class="vol-avatar c">😃</div><h4>Lea Herrera</h4><p>Documentation</p></div>
+    <div class="vol-card"><div class="vol-avatar a">😁</div><h4>Erwin Chua</h4><p>Research Support</p></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section">
+  <p class="stag">Latest Updates</p>
+  <h2 class="st">News & <em>Announcements</em></h2>
+  <div class="news-filters">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Conservation</button>
+    <button class="filter-btn">Livelihood</button>
+    <button class="filter-btn">Education</button>
+    <button class="filter-btn">Events</button>
+    <button class="filter-btn">Partnerships</button>
+  </div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-img ni1">🌊</div>
+      <div class="news-body">
+        <p class="news-cat">Conservation</p>
+        <h3>Coastal Clean-Up Collects 1.2 Tons of Plastic</h3>
+        <p>Over 200 volunteers joined our quarterly coastal clean-up along Zamboanga's shoreline, removing plastic waste and marine debris from three barangays.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">ZGIH Team</span> · June 10, 2026</span><a href="#">Read →</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-img ni2">🌱</div>
+      <div class="news-body">
+        <p class="news-cat">Livelihood</p>
+        <h3>30 Women Graduate from Green Livelihood Program</h3>
+        <p>Participants from Barangay Canelar completed six weeks of training in upcycled product-making and eco-entrepreneurship, launching their own micro-enterprises.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">Ana dela Cruz</span> · May 28, 2026</span><a href="#">Read →</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-img ni3">🏫</div>
+      <div class="news-body">
+        <p class="news-cat">Education</p>
+        <h3>ZGIH Launches Solid Waste Module in 5 City Schools</h3>
+        <p>Our new eco-education curriculum is now active in five public schools, reaching over 800 students in Grades 7 to 10 across the city.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">Ana dela Cruz</span> · May 15, 2026</span><a href="#">Read →</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-img ni4">🌳</div>
+      <div class="news-body">
+        <p class="news-cat">Conservation</p>
+        <h3>500 Mangrove Seedlings Planted in Barangay Cawit</h3>
+        <p>In partnership with the Philippine Red Cross and the City Environment Office, ZGIH volunteers planted 500 mangrove seedlings along Cawit's shoreline.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">Jose Reyes</span> · April 22, 2026</span><a href="#">Read →</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-img ni5">🤝</div>
+      <div class="news-body">
+        <p class="news-cat">Partnerships</p>
+        <h3>ZGIH Signs MOU with Western Mindanao State University</h3>
+        <p>A new partnership with WMSU will enable joint research on solid waste characterization and green innovation solutions across the Peninsula region.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">Maria Santos</span> · April 5, 2026</span><a href="#">Read →</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-img ni6">🎉</div>
+      <div class="news-body">
+        <p class="news-cat">Events</p>
+        <h3>ZGIH Joins 2026 Zamboanga City Environment Month</h3>
+        <p>We proudly participated in the city-wide Environment Month celebration with booths, workshops, and a special upcycled fashion show featuring our community artisans.</p>
+      </div>
+      <div class="news-footer"><span><span class="aut">Liza Tan</span> · March 28, 2026</span><a href="#">Read →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<div class="join-cta">
+  <h2>Ready to join our team?</h2>
+  <p>Whether you want to volunteer, intern, or become a core member, we'd love to have you on board. Every contribution makes Zamboanga greener.</p>
+  <a href="index.html#contact">Get Involved →</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand"><div class="fb-logo"><div class="fb-mark">ZGIH</div><span class="fb-name">Zamboanga Green Innovation Hub</span></div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City, Philippines.</p></div>
+    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
+    <div class="fc"><h4>Programs</h4><ul><li><a href="education.html">Zero-Waste</a></li><li><a href="store.html">Green Livelihood</a></li><li><a href="achievements.html">Coastal Conservation</a></li></ul></div>
+    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:info@zgih.org">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><a href="index.html">Back to Home</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
