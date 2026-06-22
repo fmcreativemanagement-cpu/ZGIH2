@@ -12,7 +12,7 @@
 html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
 .nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
+.nav-mark{display:none}
 
 .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
 .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
@@ -113,6 +113,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
 @media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr}.vol-grid{grid-template-columns:repeat(3,1fr)}.news-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.team-grid{grid-template-columns:1fr 1fr}.vol-grid{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}section{padding:3.5rem 5%}.page-hero{padding:7rem 5% 3rem}}
 
+.nav-name-block{display:flex!important;flex-direction:column!important;line-height:1.1!important}
 /* ── NAV LOGO & NAME FIX (all-white, smaller logo) ── */
 .nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important}
 .nav-name-top{color:rgba(255,255,255,.8)!important;font-size:.6rem!important;font-weight:700!important;letter-spacing:.13em!important;text-transform:uppercase!important}
