@@ -162,6 +162,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
   .pgrid{grid-template-columns:1fr}.igrid{grid-template-columns:1fr 1fr}
   .ivgrid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}
 }
+.nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important;object-fit:cover;flex-shrink:0}
+.nav-name-single{font-family:'Inter',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#ffffff;letter-spacing:.01em;white-space:nowrap}
+.nav-name-block{display:none!important}
+.nav-mark{display:none!important}
+.nav-name-top,.nav-name-mid,.nav-name-bot{display:none!important}
 </style>
 </head>
 <body>
@@ -169,11 +174,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 <nav>
   <a href="index.html" class="nav-brand">
     <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
-    <div class="nav-name-block">
-      <span class="nav-name-top">ZAMBOANGA</span>
-      <span class="nav-name-mid">GREEN</span>
-      <span class="nav-name-bot">INNOVATION HUB</span>
-    </div>
+    <span class="nav-name-single">Zamboanga Green Innovation Hub</span>
   </a>
   <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
     <span></span><span></span><span></span>
