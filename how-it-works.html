@@ -174,12 +174,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 @media(max-width:900px){.two-col,.three-col,.docs-grid{grid-template-columns:1fr}.matrix-header,.matrix-row{grid-template-columns:2fr 1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.phase-block{padding:3.5rem 5%}.step-card{grid-template-columns:44px 1fr;gap:.8rem}.matrix-header,.matrix-row{grid-template-columns:1.5fr 1fr 1fr;gap:.5rem;padding:.65rem .7rem;font-size:.78rem}.footer-grid{grid-template-columns:1fr}.progress-tracker{padding:.6rem 5%}}
 
-/* ── NAV LOGO & NAME FIX (all-white, smaller logo) ── */
-.nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important}
-.nav-name-top{color:rgba(255,255,255,.8)!important;font-size:.6rem!important;font-weight:700!important;letter-spacing:.13em!important;text-transform:uppercase!important}
-.nav-name-mid{color:#ffffff!important;font-size:1.2rem!important;font-weight:700!important;font-style:normal!important;line-height:1.05!important}
-.nav-name-bot{color:rgba(255,255,255,.8)!important;font-size:.57rem!important;font-weight:600!important;letter-spacing:.1em!important;text-transform:uppercase!important}
 
+.nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important;object-fit:cover;flex-shrink:0}
+.nav-name-single{font-family:'Inter',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#ffffff;letter-spacing:.01em;white-space:nowrap}
+.nav-name-block{display:none!important}
+.nav-mark{display:none!important}
+.nav-name-top,.nav-name-mid,.nav-name-bot{display:none!important}
 </style>
 </head>
 <body>
@@ -188,11 +188,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
 <nav>
   <a href="index.html" class="nav-brand">
     <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
-    <div class="nav-name-block">
-      <span class="nav-name-top">ZAMBOANGA</span>
-      <span class="nav-name-mid">GREEN</span>
-      <span class="nav-name-bot">INNOVATION HUB</span>
-    </div>
+    <span class="nav-name-single">Zamboanga Green Innovation Hub</span>
   </a>
   <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
   <ul class="nav-links">
