@@ -1,313 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Blog — ZGIH</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-<link rel="apple-touch-icon" href="favicon-64.png"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog | Zamboanga Green Innovation Hub (ZGIH)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Chivo:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dadad5",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e8e8e3",
+                    "secondary-container": "#8cf5b2",
+                    "surface": "#fafaf4",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#062011",
+                    "primary-container": "#2d5a27",
+                    "surface-bright": "#fafaf4",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#73db9a",
+                    "primary-fixed": "#bcf0ae",
+                    "off-white": "#FDFDFB",
+                    "tertiary-fixed": "#cbead2",
+                    "tertiary-fixed-dim": "#b0ceb7",
+                    "on-secondary-container": "#007241",
+                    "on-secondary-fixed": "#00210f",
+                    "forest-mute": "#4A634E",
+                    "on-primary-fixed-variant": "#23501e",
+                    "on-primary-fixed": "#002201",
+                    "on-tertiary-container": "#accab3",
+                    "outline-variant": "#c2c9bb",
+                    "inverse-on-surface": "#f1f1ec",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f4f4ee",
+                    "on-primary": "#ffffff",
+                    "secondary": "#006d3e",
+                    "on-secondary-fixed-variant": "#00522d",
+                    "soft-gray": "#F2F4F2",
+                    "tertiary-container": "#3b5644",
+                    "outline": "#72796e",
+                    "inverse-primary": "#a1d494",
+                    "surface-container": "#eeeee9",
+                    "on-surface": "#1a1c19",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e3e3de",
+                    "on-primary-container": "#9dd090",
+                    "on-background": "#1a1c19",
+                    "background": "#fafaf4",
+                    "secondary-fixed": "#8ff8b4",
+                    "on-surface-variant": "#42493e",
+                    "primary-fixed-dim": "#a1d494",
+                    "surface-tint": "#3b6934",
+                    "surface-variant": "#e3e3de",
+                    "on-error-container": "#93000a",
+                    "primary": "#154212",
+                    "on-tertiary-fixed-variant": "#324d3b",
+                    "inverse-surface": "#2f312e",
+                    "tertiary": "#253f2e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "stat-lg": ["Chivo"],
+                    "headline-md": ["Chivo"],
+                    "label-bold": ["Inter"],
+                    "headline-lg": ["Chivo"],
+                    "display-lg-mobile": ["Chivo"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Chivo"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "stat-lg": ["48px", {"lineHeight": "1.0", "fontWeight": "800"}],
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;--sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;--fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace}
-html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
-.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.nav-mark{display:none}
-
-.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--gb)}
-.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
-.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem}.nav-links.open{display:flex}.hamburger{display:flex}}
-
-.page-hero{background:var(--gd);padding:8rem 4% 4rem;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 90% 50%,rgba(76,175,125,.12),transparent);pointer-events:none}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1}
-.eyebrow{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
-.eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--gb)}
-.page-hero h1{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);color:var(--white);margin-bottom:1rem;line-height:1.15}
-.page-hero h1 em{color:var(--gb);font-style:italic}
-.page-hero p{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.75}
-.featured-card{background:rgba(255,255,255,.07);border:1px solid rgba(76,175,125,.2);border-radius:16px;overflow:hidden}
-.featured-img{height:180px;background:linear-gradient(135deg,#2E6B4F,#4CAF7D);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
-.featured-body{padding:1.5rem}
-.featured-cat{font-family:var(--fm);font-size:.65rem;color:var(--gb);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
-.featured-body h3{font-family:var(--fd);font-size:1.2rem;color:var(--white);margin-bottom:.5rem;line-height:1.3}
-.featured-body p{font-size:.83rem;color:rgba(255,255,255,.65);line-height:1.65}
-.featured-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(76,175,125,.2)}
-.featured-footer span{font-size:.75rem;color:rgba(255,255,255,.5)}
-.featured-footer a{font-size:.82rem;font-weight:600;color:var(--gb);text-decoration:none}
-
-section{padding:5rem 4%}
-.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
-.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
-h2.st{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
-h2.st em{color:var(--gm);font-style:italic}
-
-/* BLOG LAYOUT */
-.blog-layout{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
-.blog-filters{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
-.f-btn{padding:.4rem 1rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--fb)}
-.f-btn.active,.f-btn:hover{background:var(--gd);color:var(--white);border-color:var(--gd)}
-.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.blog-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.blog-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,60,46,.1)}
-.blog-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
-.b1{background:linear-gradient(135deg,#e8f5e9,#a5d6a7)}
-.b2{background:linear-gradient(135deg,#e3f2fd,#90caf9)}
-.b3{background:linear-gradient(135deg,#fff8e1,#ffe082)}
-.b4{background:linear-gradient(135deg,#fce4ec,#f48fb1)}
-.b5{background:linear-gradient(135deg,#e8eaf6,#9fa8da)}
-.b6{background:linear-gradient(135deg,#e0f2f1,#80cbc4)}
-.b7{background:linear-gradient(135deg,#f3e5f5,#ce93d8)}
-.b8{background:linear-gradient(135deg,#fff3e0,#ffcc80)}
-.blog-body{padding:1.2rem}
-.blog-cat{font-family:var(--fm);font-size:.63rem;color:var(--gb);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
-.blog-card h3{font-family:var(--fd);font-size:1rem;color:var(--gd);margin-bottom:.4rem;line-height:1.3}
-.blog-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
-.blog-meta{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;border-top:1px solid var(--border);font-size:.74rem;color:var(--muted)}
-.blog-meta a{color:var(--gm);text-decoration:none;font-weight:600}
-.blog-meta .aut{font-weight:500;color:var(--gd)}
-
-/* SIDEBAR */
-.sidebar{display:flex;flex-direction:column;gap:1.5rem;position:sticky;top:80px}
-.sidebar-box{background:var(--sand);border-radius:14px;padding:1.4rem}
-.sidebar-box h4{font-family:var(--fd);font-size:1rem;color:var(--gd);margin-bottom:1rem}
-.topic-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.topic-tag{padding:.3rem .8rem;border-radius:20px;background:var(--white);border:1px solid var(--border);font-size:.78rem;color:var(--gm);font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
-.topic-tag:hover{background:var(--gd);color:var(--white);border-color:var(--gd)}
-.search-box{display:flex;gap:.5rem}
-.search-box input{flex:1;border:1.5px solid var(--border);border-radius:8px;padding:.6rem .9rem;font-family:var(--fb);font-size:.85rem;outline:none}
-.search-box button{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.6rem 1rem;font-family:var(--fb);font-size:.85rem;cursor:pointer}
-.recent-post{display:flex;gap:.8rem;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.recent-post:last-child{border-bottom:none}
-.rp-img{width:44px;height:44px;border-radius:8px;background:var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-.rp-info h5{font-size:.83rem;font-weight:600;color:var(--gd);line-height:1.3;margin-bottom:.2rem}
-.rp-info span{font-size:.74rem;color:var(--muted)}
-.sub-form{display:flex;flex-direction:column;gap:.6rem}
-.sub-form input{border:1.5px solid var(--border);border-radius:8px;padding:.65rem .9rem;font-family:var(--fb);font-size:.85rem;outline:none}
-.sub-form button{background:var(--gb);color:var(--gd);border:none;border-radius:8px;padding:.65rem;font-family:var(--fb);font-size:.85rem;font-weight:600;cursor:pointer}
-
-footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3rem 4% 2rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1.5rem}
-.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
-.fb-logo-img{width:48px;height:48px;border-radius:9px;object-fit:cover;flex-shrink:0}
-.fb-name-block{display:flex;flex-direction:column;line-height:1.1}
-.fb-name-top{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.13em;text-transform:uppercase}
-.fb-name-mid{font-family:var(--fd);font-size:1.15rem;color:var(--white);font-weight:700;line-height:1.05}
-.fb-name-bot{font-size:.55rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
-
-.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
-.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
-.fc a:hover{color:var(--gb)}
-.footer-bottom{display:flex;justify-content:space-between;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
-.footer-bottom a{color:var(--gb);text-decoration:none}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.blog-layout{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr 1fr}.sidebar{position:static}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.blog-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}section{padding:3.5rem 5%}.page-hero{padding:7rem 5% 3rem}}
-
-.nav-name-block{display:flex!important;flex-direction:column!important;line-height:1.1!important}
-
-.nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important;object-fit:cover;flex-shrink:0}
-.nav-name-single{font-family:'Inter',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#ffffff;letter-spacing:.01em;white-space:nowrap}
-.nav-name-block{display:none!important}
-.nav-mark{display:none!important}
-.nav-name-top,.nav-name-mid,.nav-name-bot{display:none!important}
-</style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-brand">
-    <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
-    <span class="nav-name-single">Zamboanga Green Innovation Hub</span>
-  </a>
-  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="members.html">Members & News</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="achievements.html">Achievements</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="education.html">Learn</a></li>
-    <li><a href="csr.html">CSR Services</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
-  </ul>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 bg-surface shadow-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary">ZGIH</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="members.html">Members</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="store.html">Store</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="achievements.html">Achievements</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="blog.html">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="education.html">Learn</a>
 </nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:bg-primary-container transition-all">
+            Join Us <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</header>
+<main>
+<!-- Blog Hero Section -->
+<section class="relative w-full py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
 
-<div class="page-hero">
-  <div class="hero-inner">
-    <div>
-      <p class="eyebrow">ZGIH Blog</p>
-      <h1>Stories, ideas &<br/><em>green insights</em></h1>
-      <p>From field stories to practical eco-tips, our blog shares the voices, experiences, and knowledge from ZGIH's programs and community in Zamboanga City.</p>
-    </div>
-    <div class="featured-card">
-      <div class="featured-img">🌊</div>
-      <div class="featured-body">
-        <p class="featured-cat">Featured · Conservation</p>
-        <h3>What We Found in 200 Bags of Coastal Trash</h3>
-        <p>A breakdown of what our volunteers collected during our June 2026 coastal clean-up — and what it tells us about Zamboanga's plastic problem.</p>
-        <div class="featured-footer"><span>June 12, 2026 · Jose Reyes</span><a href="#">Read →</a></div>
-      </div>
-    </div>
-  </div>
+<div class="relative z-10 max-w-4xl">
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-widest mb-4 block">Stories from the Peninsula</span>
+<h1 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-on-surface mb-6">
+                    Innovation rooted in <span class="text-primary italic">community.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Discover environmental tips, local success stories, and technical innovation updates from the heart of Zamboanga City.
+                </p>
 </div>
-
-<!-- BLOG -->
-<section style="background:var(--white)">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
-    <div><p class="stag">All Posts</p><h2 class="st">From our <em>community</em></h2></div>
-  </div>
-  <div class="blog-layout">
-    <div>
-      <div class="blog-filters">
-        <button class="f-btn active">All</button>
-        <button class="f-btn">Conservation</button>
-        <button class="f-btn">Livelihood</button>
-        <button class="f-btn">Education</button>
-        <button class="f-btn">Zero-Waste Tips</button>
-        <button class="f-btn">Community</button>
-      </div>
-      <div class="blog-grid">
-        <div class="blog-card">
-          <div class="blog-img b1">🌱</div>
-          <div class="blog-body">
-            <p class="blog-cat">Livelihood</p>
-            <h3>How Plastic Sachets Became Tote Bags: A Story from Barangay Canelar</h3>
-            <p>Meet Nenita, one of 30 women who learned to weave plastic waste into income-generating products through ZGIH's livelihood program.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Carlo Mendoza</span> · June 5, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b2">🏫</div>
-          <div class="blog-body">
-            <p class="blog-cat">Education</p>
-            <h3>What Happens When Grade 8 Students Run a Zero-Waste Day?</h3>
-            <p>We gave students at West City Central School the challenge of going waste-free for one school day. Here's what they learned — and what surprised us.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Ana dela Cruz</span> · May 22, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b3">♻️</div>
-          <div class="blog-body">
-            <p class="blog-cat">Zero-Waste Tips</p>
-            <h3>5 Things You Can Do with Plastic Bottles Instead of Throwing Them Away</h3>
-            <p>Practical, no-cost upcycling ideas for the plastic bottles piling up at home — all inspired by what our community artisans do every day.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Liza Tan</span> · May 10, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b4">🌳</div>
-          <div class="blog-body">
-            <p class="blog-cat">Conservation</p>
-            <h3>Why We Plant Mangroves and What They Actually Do for Zamboanga</h3>
-            <p>Mangroves aren't just trees — they're storm shields, fish nurseries, and carbon sinks. Jose explains why they're central to ZGIH's coastal work.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Jose Reyes</span> · April 28, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b5">📊</div>
-          <div class="blog-body">
-            <p class="blog-cat">Research</p>
-            <h3>We Weighed Our Trash for 30 Days. Here's What We Found.</h3>
-            <p>ZGIH's research team tracked household waste in three barangays for a full month — the numbers reveal both challenges and opportunities.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Ramon Villanueva</span> · April 14, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b6">🤝</div>
-          <div class="blog-body">
-            <p class="blog-cat">Community</p>
-            <h3>What Zamboanga's Fisherfolk Taught Us About Coastal Stewardship</h3>
-            <p>Before ZGIH started working in coastal barangays, the fishing communities already had deep knowledge about the sea. This is what we learned from them.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Fatima Omar</span> · March 30, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b7">☀️</div>
-          <div class="blog-body">
-            <p class="blog-cat">Innovation</p>
-            <h3>Solar in Sitios: Our First Renewable Energy Pilot</h3>
-            <p>ZGIH partnered with a local energy cooperative to pilot a small solar lighting system in a remote sitio of Zamboanga. Here's what worked — and what didn't.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Maria Santos</span> · March 12, 2026</span><a href="#">Read →</a></div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img b8">🌿</div>
-          <div class="blog-body">
-            <p class="blog-cat">Zero-Waste Tips</p>
-            <h3>A Beginner's Guide to Starting a Zero-Waste Kitchen in Zamboanga</h3>
-            <p>Reducing kitchen waste doesn't have to be overwhelming. Here are practical, affordable first steps for Zamboangueño households.</p>
-          </div>
-          <div class="blog-meta"><span><span class="aut">Liza Tan</span> · Feb 25, 2026</span><a href="#">Read →</a></div>
-        </div>
-      </div>
-    </div>
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-      <div class="sidebar-box">
-        <h4>Search</h4>
-        <div class="search-box"><input type="text" placeholder="Search posts…"/><button>→</button></div>
-      </div>
-      <div class="sidebar-box">
-        <h4>Topics</h4>
-        <div class="topic-tags">
-          <a href="#" class="topic-tag">Conservation</a>
-          <a href="#" class="topic-tag">Livelihood</a>
-          <a href="#" class="topic-tag">Zero-Waste</a>
-          <a href="#" class="topic-tag">Education</a>
-          <a href="#" class="topic-tag">Mangroves</a>
-          <a href="#" class="topic-tag">Plastics</a>
-          <a href="#" class="topic-tag">Community</a>
-          <a href="#" class="topic-tag">Research</a>
-          <a href="#" class="topic-tag">Solar</a>
-          <a href="#" class="topic-tag">Upcycling</a>
-        </div>
-      </div>
-      <div class="sidebar-box">
-        <h4>Recent Posts</h4>
-        <div class="recent-post"><div class="rp-img">🌊</div><div class="rp-info"><h5>What We Found in 200 Bags of Coastal Trash</h5><span>June 12, 2026</span></div></div>
-        <div class="recent-post"><div class="rp-img">🌱</div><div class="rp-info"><h5>How Plastic Sachets Became Tote Bags</h5><span>June 5, 2026</span></div></div>
-        <div class="recent-post"><div class="rp-img">🏫</div><div class="rp-info"><h5>What Happens When Grade 8 Students Run a Zero-Waste Day?</h5><span>May 22, 2026</span></div></div>
-        <div class="recent-post"><div class="rp-img">♻️</div><div class="rp-info"><h5>5 Things You Can Do with Plastic Bottles</h5><span>May 10, 2026</span></div></div>
-      </div>
-      <div class="sidebar-box">
-        <h4>Stay Updated</h4>
-        <p style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem;line-height:1.6">Get new posts and ZGIH updates in your inbox.</p>
-        <div class="sub-form">
-          <input type="email" placeholder="your@email.com"/>
-          <button>Subscribe →</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
+<!-- Category Filter -->
+<section class="px-margin-mobile md:px-margin-desktop mb-12">
+<div class="flex flex-wrap items-center gap-4 py-6 border-y border-outline-variant">
+<span class="font-label-bold text-label-bold text-on-surface-variant mr-4">Filter by:</span>
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-bold text-label-bold transition-all">All Stories</button>
+<button class="px-6 py-2 rounded-full bg-soft-gray text-on-surface hover:bg-secondary-container transition-all font-label-bold text-label-bold">Conservation</button>
+<button class="px-6 py-2 rounded-full bg-soft-gray text-on-surface hover:bg-secondary-container transition-all font-label-bold text-label-bold">Livelihood</button>
+<button class="px-6 py-2 rounded-full bg-soft-gray text-on-surface hover:bg-secondary-container transition-all font-label-bold text-label-bold">Education</button>
+<button class="px-6 py-2 rounded-full bg-soft-gray text-on-surface hover:bg-secondary-container transition-all font-label-bold text-label-bold">Innovation</button>
+</div>
+</section>
+<!-- Featured Article (Bento Style) -->
+<section class="px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Large Featured Card -->
+<article class="lg:col-span-8 group relative overflow-hidden rounded-xl bg-white shadow-sm border border-soft-gray transition-all hover:shadow-lg">
+<div class="aspect-[16/9] w-full relative">
+<img class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A panoramic wide shot of a lush mangrove forest in Zamboanga City at sunrise. Golden sunlight filters through the green canopy, reflecting off calm coastal waters. The scene captures a pristine environmental sanctuary with vibrant greens and soft orange hues, embodying the theme of coastal conservation and natural beauty in a high-contrast modern photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrkKedI8eu7dJhDs-C8fvlhYbt9PJfdS2fUTD8cfNUIrreAgfByBsFQr7fooknzsA4u5BxXHpUccUoJ4tg0t75w2FFwEpQCF5so4kUHxMoCQXXDY2i-bRIkdmii3tMtLedfhCgYPCmApf-4NvvORPBs3kKgIFFC1g6qO244SidQwwhHwHFoyRMg-UYPa0P0FJTKeOj7F4G1QGZi7ipRp4D3BAZlGrOc1ceQSrZ0yC1JOUhW1YVneb7D7vgM7dKFHaUwSOfDMGhKB9u"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-bold text-label-bold">FEATURED</span>
+<span class="bg-surface/90 backdrop-blur-md text-on-surface px-4 py-1 rounded-full font-label-bold text-label-bold">Coastal Conservation</span>
+</div>
+</div>
+<div class="p-8">
+<div class="text-on-surface-variant font-label-bold text-label-bold mb-3">June 10, 2026 • 5 min read</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4 group-hover:text-primary transition-colors">Coastal Clean-Up Drive Collects 1.2 Tons of Plastic Waste</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Over 200 volunteers joined our quarterly coastal clean-up along Zamboanga's shoreline, removing plastic waste and marine debris to protect our extraordinary land and sea.</p>
+<a class="inline-flex items-center gap-2 font-label-bold text-label-bold text-primary group/link" href="#">
+                            Read Full Story <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Side Feature Card -->
+<article class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="bg-tertiary-container text-on-tertiary-container p-8 rounded-xl flex flex-col justify-between h-full relative overflow-hidden">
 
-<footer>
-  <div class="footer-grid">
-    <div class="fb-brand"><div class="fb-logo">
-        <img src="Logo-icon.png" alt="ZGIH" class="fb-logo-img"/>
-        <div class="fb-name-block">
-          <span class="fb-name-top">ZAMBOANGA</span>
-          <span class="fb-name-mid">GREEN</span>
-          <span class="fb-name-bot">INNOVATION HUB</span>
-        </div>
-      </div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p></div>
-    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li></ul></div>
-    <div class="fc"><h4>Topics</h4><ul><li><a href="#">Conservation</a></li><li><a href="#">Livelihood</a></li><li><a href="#">Zero-Waste Tips</a></li><li><a href="#">Education</a></li></ul></div>
-    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:zgihub@gmail.com">Email Us</a></li></ul></div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub</span><a href="index.html">Back to Home</a></div>
+<div>
+<span class="font-label-bold text-label-bold text-tertiary-fixed mb-4 block">NEWSLETTER</span>
+<h3 class="font-headline-md text-headline-md mb-4">Stay updated on green innovation.</h3>
+<p class="font-body-md text-body-md opacity-90 mb-6">Join 500+ community members receiving bi-weekly environmental tips and local project updates.</p>
+</div>
+<form class="space-y-3 relative z-10">
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/60 focus:ring-2 focus:ring-secondary-fixed outline-none transition-all" placeholder="Your email address" type="email"/>
+<button class="w-full bg-secondary-fixed text-on-secondary-fixed py-3 rounded-lg font-label-bold text-label-bold hover:bg-secondary-fixed-dim transition-all">Subscribe Now</button>
+</form>
+</div>
+<div class="bg-white border border-soft-gray p-8 rounded-xl shadow-sm">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant mb-6 uppercase tracking-wider">Trending Topics</h3>
+<div class="flex flex-wrap gap-2">
+<a class="text-body-md px-3 py-1 bg-surface-container-low rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">#ZeroWaste</a>
+<a class="text-body-md px-3 py-1 bg-surface-container-low rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">#ZamboangaGreen</a>
+<a class="text-body-md px-3 py-1 bg-surface-container-low rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">#Upcycling</a>
+<a class="text-body-md px-3 py-1 bg-surface-container-low rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">#EcoLivelihood</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Main Blog Grid -->
+<section class="px-margin-mobile md:px-margin-desktop pb-section-gap">
+<h2 class="font-headline-lg text-headline-lg mb-12 text-on-surface">Recent Updates</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Blog Post 1 -->
+<article class="group bg-white rounded-xl border border-soft-gray overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="aspect-video relative overflow-hidden">
+<img class="object-cover w-full h-full transition-transform group-hover:scale-110" data-alt="A diverse group of empowered women in Barangay Canelar, Zamboanga, showcasing their handcrafted upcycled products made from recycled materials. The setting is a bright, community workshop filled with colorful textures and eco-friendly crafts. The image emphasizes inclusive partnership and green livelihood training with a warm, humanist, and inspiring photographic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEPMm9mxRJU48mIY4Qt-9ZjYIJInlKH0ThE_gDOXg8Pgz13mSi__1ja6sJhekT31Ddg1qmfQPRlCL5i-SpSx3Be1X3kyAFYgE598sipVBvvXiuotoDY7JLmNyJxUOVV5TyA2RVwhfJaMKr5tDk0yk2YydkktLVXIC3zRCHnfcf3fSbUaalPUVLr6IEnlAQq_S-0Gsfo-PjaSYxMsZ43Z1hAYAaSqHCx_DiHHcBDgaJM1_Day2psozUS1qPfkagsL4ugLa-LP5VqfA8"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-bold text-label-bold">Livelihood</span>
+</div>
+</div>
+<div class="p-6">
+<div class="text-on-surface-variant font-label-bold text-label-bold text-[12px] mb-2">May 28, 2026</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">30 Women Graduate from Green Livelihood Program</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Participants from Barangay Canelar completed six weeks of training in upcycled product-making and eco-entrepreneurship.</p>
+<a class="flex items-center gap-2 text-primary font-label-bold text-label-bold" href="#">
+                            Read More <span class="material-symbols-outlined text-[18px]">trending_flat</span>
+</a>
+</div>
+</article>
+<!-- Blog Post 2 -->
+<article class="group bg-white rounded-xl border border-soft-gray overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="aspect-video relative overflow-hidden">
+<img class="object-cover w-full h-full transition-transform group-hover:scale-110" data-alt="Enthusiastic students in a modern Zamboanga public school classroom engaging with a green solid waste upcycling module. They are surrounded by educational charts and recycling bins. The lighting is bright and clear, reflecting a positive eco-education environment. The image style is clean, modern, and focuses on youth empowerment and sustainability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbYcuP1HrpUqrnScscY__Ko3G4uftAW2lxV-x-zDxfwHnEZLo3qc4oWhTTaJmDrNOrp0O_5zVsg4Hr48sZHHdG9vLabxSWtzuV7ss_hDgvkCMdgEctP_n4Q8SMLEWyLOJKBZ5SqX9CjNn3H_xhOLKEChCKOf8TDGExOGEpFb09ZWaINHnUIoteUu6WUitZNyU_N6R0otQoOu_JaI-O4U-NNjHH3Qkrs4AVfipPdEoMkFFQuqOt3MxSpkrqqxcgBk-tuQglU6tnueqr"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-bold text-label-bold">Education</span>
+</div>
+</div>
+<div class="p-6">
+<div class="text-on-surface-variant font-label-bold text-label-bold text-[12px] mb-2">May 15, 2026</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">ZGIH Launches Solid Waste Module in 5 City Schools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Our new eco-education curriculum is now active in five public schools, reaching over 800 students across the peninsula.</p>
+<a class="flex items-center gap-2 text-primary font-label-bold text-label-bold" href="#">
+                            Read More <span class="material-symbols-outlined text-[18px]">trending_flat</span>
+</a>
+</div>
+</article>
+<!-- Blog Post 3 -->
+<article class="group bg-white rounded-xl border border-soft-gray overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="aspect-video relative overflow-hidden">
+<img class="object-cover w-full h-full transition-transform group-hover:scale-110" data-alt="A modern solar panel installation atop a community building in a rural Zamboanga peninsula village. The sky is a clear brilliant blue, contrasting with the sleek technology and natural rural surroundings. This visual represents renewable energy access and grassroots innovation in underserved areas, styled with a high-precision corporate-nature aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBllxa10LpdbbHXXn2101P9p6PQeTbPAboSKBUyF3SR4iksyOZ_hQ99kUtWAkZAlLGc2HOUitH3Oq19YJu5zUJOoZm6MJAmAvGWJKyqZGCzRyrI1Tne7opErcJMHGpUurhhZA1X_pJZxnO7tQc9q_K3zHq1XQdaiXRDbB67qlcbf45R0IX6Yl6CbFjwLv_1If0Iw2zBaVdnra_WtW14npiP_DWMkWvw2_rzbHSU66hsk5u7Qps4-97DltSPKmd6UC76Lh_stQM4wzTt"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-label-bold text-label-bold">Innovation</span>
+</div>
+</div>
+<div class="p-6">
+<div class="text-on-surface-variant font-label-bold text-label-bold text-[12px] mb-2">May 05, 2026</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Renewable Energy Solutions for Off-Grid Barangays</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Piloting solar and clean energy solutions for underserved communities beyond the Zamboanga city center.</p>
+<a class="flex items-center gap-2 text-primary font-label-bold text-label-bold" href="#">
+                            Read More <span class="material-symbols-outlined text-[18px]">trending_flat</span>
+</a>
+</div>
+</article>
+<!-- Blog Post 4 -->
+<article class="group bg-white rounded-xl border border-soft-gray overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="aspect-video relative overflow-hidden">
+<img class="object-cover w-full h-full transition-transform group-hover:scale-110" data-alt="A close-up shot of hands working with recycled plastic fibers to create durable community products. The focus is on the intricate process of upcycling. The lighting is soft and natural, emphasizing the tactile humanist edge of the green livelihood project. The image uses a palette of forest greens and neutral grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZlimYum2EkxwpsYAKStd030n1-SgQsPDbR3KKCySJao18TW3OyHXizHB6dS3sUlHhzcMohydfXIDOdVJUPDpV3Qbfqwtb3owA_QKiTggF3iyeuM628aRy2U-d5oAnfXYEgtA40YUQxTiFugE7ec1mAEZkSGdVd4bnq1MpcpcpJfG8ViJkyrU7xyZENpeWBYjtrPml5ve4JLQZ4Oa7_vAMTKkORQ2AnxprpscFeJrFrBklGj8Rt4PMklj-wwpqlbPv0SD7lfasvNvf"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-bold text-label-bold">Zero-Waste</span>
+</div>
+</div>
+<div class="p-6">
+<div class="text-on-surface-variant font-label-bold text-label-bold text-[12px] mb-2">April 22, 2026</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Turning Trash into Resources: The Upcycling Revolution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">How our Zero-Waste Communities program is reshaping how barangays manage solid waste through practical innovation.</p>
+<a class="flex items-center gap-2 text-primary font-label-bold text-label-bold" href="#">
+                            Read More <span class="material-symbols-outlined text-[18px]">trending_flat</span>
+</a>
+</div>
+</article>
+<!-- Blog Post 5 -->
+<article class="group bg-white rounded-xl border border-soft-gray overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="aspect-video relative overflow-hidden">
+<img class="object-cover w-full h-full transition-transform group-hover:scale-110" data-alt="Local fisherfolk in Zamboanga Peninsula working alongside researchers to monitor marine biodiversity. The image captures a collaborative spirit in a stunning coastal setting with turquoise waters. The visual narrative highlights inclusive partnership and marine conservation research, presented in a crisp, high-resolution documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcqhdf2CxYGU99jT52TQIm_Vb75BtV6HKusUxEyoFlp6A0qj8aPPQpQ-EMOthRHI6CZvoKuCXG17xqC0GdEefGVVe8WwB2f8XuX7qddjGJZkExefFLW9yNNJfsyDsb6dXkR3DDp8s725IAL9UYhwpz543x1rtRDrwShVti54_7sb7_4SYTvJ_svifkfCN7LUYlsLi2f23BAEzHZP9zdtkdv4kv327JBby0J2bUQrU_pEUXt4c4O_GQJp6M00AUuLDTREfpr16nOyM_"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-label-bold text-label-bold">Research</span>
+</div>
+</div>
+<div class="p-6">
+<div class="text-on-surface-variant font-label-bold text-label-bold text-[12px] mb-2">April 10, 2026</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Documenting Biodiversity in the Zamboanga Peninsula</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">A joint research initiative with university partners to track the impact of climate change on local coastal ecosystems.</p>
+<a class="flex items-center gap-2 text-primary font-label-bold text-label-bold" href="#">
+                            Read More <span class="material-symbols-outlined text-[18px]">trending_flat</span>
+</a>
+</div>
+</article>
+<!-- Load More / CTA Card -->
+<article class="bg-soft-gray rounded-xl border-2 border-dashed border-outline flex flex-col items-center justify-center p-8 text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">auto_stories</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">More Stories?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">We're constantly documenting our journey toward a greener Zamboanga.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-bold text-label-bold hover:scale-105 transition-all">Load More Articles</button>
+</article>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary-container text-on-primary-container py-section-gap px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Be part of the <span class="text-primary-fixed">change</span></h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">There are many ways to support ZGIH's mission—every hand and peso helps build a greener Zamboanga Peninsula. Join our volunteer network today.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-fixed text-on-primary-fixed px-10 py-4 rounded-lg font-label-bold text-label-bold hover:bg-secondary-fixed transition-all flex items-center justify-center gap-2">
+                        Sign Up to Volunteer <span class="material-symbols-outlined">person_add</span>
+</button>
+<button class="border border-primary-fixed text-primary-fixed px-10 py-4 rounded-lg font-label-bold text-label-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                        Get in Touch <span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter bg-tertiary text-on-tertiary">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-on-tertiary mb-6">ZGIH</div>
+<p class="font-body-md text-body-md opacity-80 mb-6">A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.</p>
+<div class="flex gap-4">
+<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">face_nod</span></a>
+<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
+<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Pages</h4>
+<ul class="space-y-4">
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="members.html">Members &amp; News</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
+<li><a class="text-secondary-fixed font-bold" href="blog.html">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Programs</h4>
+<ul class="space-y-4">
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Connect</h4>
+<p class="text-tertiary-fixed-dim mb-2">003 Toreme Drive Lower Cabatangan, Zamboanga City</p>
+<p class="text-tertiary-fixed-dim mb-4">zgihub@gmail.com</p>
+<div class="bg-white/5 p-4 rounded-lg border border-white/10">
+<p class="text-xs text-tertiary-fixed mb-2 font-label-bold">© 2024 Zamboanga Green Innovation Hub.</p>
+<p class="text-xs text-tertiary-fixed-dim">Built with 💚 for Zamboanga by FMcreativemanagement</p>
+</div>
+</div>
 </footer>
-
 <script>
-document.querySelectorAll('.f-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')});
-});
-</script>
-</body>
-</html>
+        // Simple filter interaction logic
+        const filterButtons = document.querySelectorAll('button[class*="rounded-full"]');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-soft-gray', 'text-on-surface');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('bg-soft-gray', 'text-on-surface');
+            });
+        });
+
+        // Hover animation for blog cards
+        const cards = document.querySelectorAll('article.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
