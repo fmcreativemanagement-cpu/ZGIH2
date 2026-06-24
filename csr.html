@@ -1,674 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>CSR & EPR Services — ZGIH</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-<link rel="apple-touch-icon" href="favicon-64.png"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gd:#1A3C2E;--gm:#2E6B4F;--gb:#4CAF7D;--gold:#C9A84C;
-  --sand:#F5F0E8;--white:#fff;--ink:#1A1A1A;--muted:#5A6A62;--border:#D6E4DC;
-  --fd:'DM Serif Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fm:'Space Mono',monospace
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 4%;background:rgba(26,60,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,125,.2)}
-.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.nav-mark{width:34px;height:34px;background:var(--gb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;font-weight:700;color:var(--gd)}
-
-.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--gb)}
-.nav-cta{background:var(--gb)!important;color:var(--gd)!important;padding:.4rem 1rem;border-radius:6px;font-weight:600!important}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
-.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--gd);flex-direction:column;padding:1.5rem 4%;gap:1rem;border-top:1px solid rgba(76,175,125,.2)}.nav-links.open{display:flex}.hamburger{display:flex}}
-
-/* HERO */
-.hero{background:var(--gd);padding:8rem 4% 0;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 40%,rgba(76,175,125,.13),transparent 70%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(201,168,76,.07),transparent 60%);pointer-events:none}
-.hero-leaf{position:absolute;pointer-events:none;opacity:.05}
-.leaf1{right:-60px;top:5%;width:350px;height:350px;background:var(--gb);border-radius:70% 30% 70% 30%/30% 60% 40% 70%;transform:rotate(20deg)}
-.leaf2{left:-40px;bottom:-60px;width:260px;height:260px;background:var(--gold);border-radius:50% 70% 40% 60%/60% 40% 70% 50%;transform:rotate(-10deg)}
-.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;padding-bottom:4rem}
-.eyebrow{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gb);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.eyebrow::before,.eyebrow::after{content:'';display:block;width:22px;height:2px;background:var(--gb)}
-.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--white);line-height:1.12;margin-bottom:1.3rem}
-.hero h1 em{color:var(--gb);font-style:italic}
-.hero-lead{color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.78;max-width:620px;margin:0 auto 2rem}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
-.btn-p{background:var(--gb);color:var(--gd);padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:.4rem}
-.btn-p:hover{background:var(--gold);transform:translateY(-1px)}
-.btn-o{border:1.5px solid rgba(255,255,255,.3);color:var(--white);padding:.85rem 2rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;transition:border-color .2s,background .2s}
-.btn-o:hover{border-color:var(--gb);background:rgba(76,175,125,.1)}
-/* Stats strip */
-.hero-strip{border-top:1px solid rgba(76,175,125,.2);display:grid;grid-template-columns:repeat(4,1fr)}
-.strip-stat{padding:1.6rem 1rem;text-align:center;border-right:1px solid rgba(76,175,125,.15)}
-.strip-stat:last-child{border-right:none}
-.strip-stat .n{font-family:var(--fd);font-size:1.9rem;color:var(--gb);line-height:1}
-.strip-stat.gold .n{color:var(--gold)}
-.strip-stat .l{font-size:.76rem;color:rgba(255,255,255,.55);margin-top:.3rem;line-height:1.4}
-
-/* SECTIONS */
-section{padding:5.5rem 4%}
-.stag{font-family:var(--fm);font-size:.7rem;font-weight:700;color:var(--gm);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
-.stag::before{content:'';display:block;width:18px;height:2px;background:var(--gb)}
-.stag.light{color:var(--gb)}.stag.light::before{background:var(--gb)}
-.stag.center{justify-content:center}.stag.center::before,.stag.center::after{content:'';display:block;width:18px;height:2px;background:var(--gb)}
-h2.st{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--gd);line-height:1.18;margin-bottom:1rem}
-h2.st em{color:var(--gm);font-style:italic}
-h2.st.light{color:var(--white)}
-h2.st.center{text-align:center}
-.slead{font-size:.97rem;color:var(--muted);max-width:600px;line-height:1.75}
-.slead.center{margin:0 auto;text-align:center}
-
-/* WHAT WE OFFER */
-.offer-section{background:var(--sand)}
-.offer-intro{max-width:680px;margin:0 auto 3.5rem;text-align:center}
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.offer-card{background:var(--white);border-radius:16px;padding:2.2rem 1.8rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.offer-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,60,46,.1)}
-.offer-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gb);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.offer-card:hover::after{transform:scaleX(1)}
-.offer-card.featured{background:linear-gradient(160deg,var(--gd),var(--gm));border-color:transparent}
-.offer-card.featured::after{background:var(--gold)}
-.offer-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block}
-.offer-card h3{font-family:var(--fd);font-size:1.2rem;color:var(--gd);margin-bottom:.6rem}
-.offer-card.featured h3{color:var(--white)}
-.offer-card p{font-size:.86rem;color:var(--muted);line-height:1.7}
-.offer-card.featured p{color:rgba(255,255,255,.72)}
-.offer-tag{display:inline-block;margin-top:1.2rem;font-family:var(--fm);font-size:.65rem;font-weight:700;padding:.28rem .75rem;border-radius:12px;letter-spacing:.06em}
-.offer-tag.csr{background:#e8f5e9;color:#2e7d32}
-.offer-tag.epr{background:#fff3e0;color:#e65100}
-.offer-tag.both{background:#e3f2fd;color:#1565c0}
-.offer-card.featured .offer-tag{background:rgba(76,175,125,.2);color:var(--gb)}
-
-/* HOW IT WORKS */
-.how-section{background:var(--white)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative}
-.steps::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--gb),var(--gold));z-index:0}
-.step{text-align:center;position:relative;z-index:1}
-.step-num{width:72px;height:72px;border-radius:50%;background:var(--gd);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.5rem;margin:0 auto 1.2rem;border:4px solid var(--sand);position:relative}
-.step-num .ico{font-size:1.6rem}
-.step h4{font-family:var(--fd);font-size:1rem;color:var(--gd);margin-bottom:.4rem}
-.step p{font-size:.82rem;color:var(--muted);line-height:1.6}
-
-/* EPR SECTION */
-.epr-section{background:linear-gradient(135deg,var(--gd) 0%,#0f2419 100%);padding:5.5rem 4%}
-.epr-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1100px;margin:0 auto}
-.epr-text .stag{color:var(--gb)}.epr-text .stag::before{background:var(--gb)}
-.epr-text h2{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--white);line-height:1.18;margin-bottom:1rem}
-.epr-text h2 em{color:var(--gb);font-style:italic}
-.epr-text p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.78;margin-bottom:1.2rem}
-.epr-law{background:rgba(76,175,125,.1);border:1px solid rgba(76,175,125,.25);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:2rem}
-.epr-law h4{font-family:var(--fd);color:var(--gb);font-size:1rem;margin-bottom:.4rem}
-.epr-law p{font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.65;margin:0}
-.epr-btn{background:var(--gb);color:var(--gd);padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s}
-.epr-btn:hover{background:var(--gold)}
-.epr-visual{display:flex;flex-direction:column;gap:1rem}
-.epr-stat{background:rgba(255,255,255,.06);border:1px solid rgba(76,175,125,.2);border-radius:12px;padding:1.4rem 1.6rem;display:flex;align-items:center;gap:1.2rem}
-.epr-stat-ico{font-size:1.8rem;flex-shrink:0}
-.epr-stat h4{font-family:var(--fd);font-size:1.3rem;color:var(--gb);line-height:1;margin-bottom:.3rem}
-.epr-stat.gold h4{color:var(--gold)}
-.epr-stat p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.4}
-
-/* PACKAGES */
-.packages-section{background:var(--sand)}
-.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.pkg-card{background:var(--white);border-radius:18px;overflow:hidden;border:2px solid var(--border);transition:transform .2s,box-shadow .2s,border-color .2s}
-.pkg-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,60,46,.12);border-color:var(--gb)}
-.pkg-card.recommended{border-color:var(--gb);position:relative}
-.pkg-recommended-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gb);color:var(--gd);font-family:var(--fm);font-size:.65rem;font-weight:700;padding:.3rem 1.1rem;border-radius:0 0 10px 10px;letter-spacing:.06em;white-space:nowrap}
-.pkg-top{padding:2rem 1.8rem 1.5rem;border-bottom:1px solid var(--border)}
-.pkg-label{font-family:var(--fm);font-size:.65rem;color:var(--gm);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
-.pkg-card h3{font-family:var(--fd);font-size:1.4rem;color:var(--gd);margin-bottom:.5rem}
-.pkg-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
-.pkg-body{padding:1.6rem 1.8rem}
-.pkg-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
-.pkg-features li{font-size:.85rem;color:var(--ink);display:flex;align-items:flex-start;gap:.6rem;line-height:1.5}
-.pkg-features li::before{content:'✓';color:var(--gb);font-weight:700;font-size:.8rem;flex-shrink:0;margin-top:.05rem}
-.pkg-cta{width:100%;background:var(--gd);color:var(--white);border:none;border-radius:10px;padding:.85rem;font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s;text-decoration:none;display:block;text-align:center}
-.pkg-cta:hover{background:var(--gm)}
-.pkg-card.recommended .pkg-cta{background:var(--gb);color:var(--gd)}
-.pkg-card.recommended .pkg-cta:hover{background:var(--gold)}
-
-/* PARTNERS */
-.partners-section{background:var(--white)}
-.partners-filter{display:flex;gap:.7rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.pf-btn{padding:.4rem 1rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--fb)}
-.pf-btn.active,.pf-btn:hover{background:var(--gd);color:var(--white);border-color:var(--gd)}
-.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.partner-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.partner-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,60,46,.1)}
-.partner-logo{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;background:var(--sand)}
-.partner-body{padding:1.3rem}
-.partner-name{font-family:var(--fd);font-size:1rem;color:var(--gd);margin-bottom:.8rem}
-.partner-meta{display:flex;flex-direction:column;gap:.4rem}
-.meta-row{display:flex;justify-content:space-between;font-size:.78rem}
-.meta-label{color:var(--muted);font-weight:500}
-.meta-val{color:var(--gd);font-weight:600}
-.status-badge{display:inline-block;font-family:var(--fm);font-size:.63rem;font-weight:700;padding:.2rem .65rem;border-radius:10px;letter-spacing:.05em}
-.status-badge.ongoing{background:#e8f5e9;color:#2e7d32}
-.status-badge.ended{background:#f5f5f5;color:#757575}
-.partner-footer{padding:.9rem 1.3rem;border-top:1px solid var(--border)}
-.partner-footer a{font-size:.8rem;font-weight:600;color:var(--gm);text-decoration:none}
-.partner-footer a:hover{color:var(--gd)}
-
-/* SDG SECTION */
-.sdg-section{background:var(--gd);padding:4rem 4%;text-align:center}
-.sdg-section h3{font-family:var(--fd);font-size:1.5rem;color:var(--white);margin-bottom:.6rem}
-.sdg-section p{color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:2rem}
-.sdg-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.sdg-badge{width:80px;height:80px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--white);text-align:center;line-height:1.2;gap:.25rem}
-.sdg-badge span:first-child{font-size:1.5rem}
-
-/* CTA SECTION */
-.cta-section{background:var(--sand);padding:6rem 4%;text-align:center}
-.cta-section h2{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3rem);color:var(--gd);margin-bottom:1rem;line-height:1.15}
-.cta-section h2 em{color:var(--gm);font-style:italic}
-.cta-section p{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.75}
-.cta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:800px;margin:0 auto 3rem}
-.cta-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:left}
-.cta-card .ico{font-size:1.6rem;margin-bottom:.7rem;display:block}
-.cta-card h4{font-family:var(--fd);font-size:.95rem;color:var(--gd);margin-bottom:.3rem}
-.cta-card p{font-size:.8rem;color:var(--muted);line-height:1.6}
-.cta-btn{background:var(--gd);color:var(--white);padding:1rem 2.5rem;border-radius:8px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s}
-.cta-btn:hover{background:var(--gm);transform:translateY(-1px)}
-
-/* CONTACT FORM */
-.contact-section{background:var(--white);padding:5.5rem 4%}
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;max-width:1100px;margin:0 auto}
-.contact-info h3{font-family:var(--fd);font-size:1.5rem;color:var(--gd);margin-bottom:.8rem}
-.contact-info p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:2rem}
-.contact-detail{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1rem}
-.contact-detail .ic{width:36px;height:36px;border-radius:8px;background:var(--sand);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-detail strong{display:block;color:var(--gd);font-size:.88rem;margin-bottom:.15rem}
-.contact-detail span,.contact-detail a{color:var(--muted);font-size:.85rem;text-decoration:none}
-.contact-detail a:hover{color:var(--gm)}
-.cform{display:flex;flex-direction:column;gap:.9rem}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.fg{display:flex;flex-direction:column;gap:.35rem}
-.fg label{font-size:.78rem;font-weight:600;color:var(--gd);letter-spacing:.04em}
-.fg input,.fg textarea,.fg select{border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-family:var(--fb);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;background:var(--white)}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gb)}
-.fg textarea{resize:vertical;min-height:110px}
-.cform-submit{background:var(--gd);color:var(--white);border:none;border-radius:8px;padding:.9rem 2rem;font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s;align-self:flex-start}
-.cform-submit:hover{background:var(--gm)}
-
-footer{background:var(--ink);color:rgba(255,255,255,.6);padding:3.5rem 4% 2rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem}
-.fb-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
-.fb-logo-img{width:48px;height:48px;border-radius:9px;object-fit:cover;flex-shrink:0}
-.fb-name-block{display:flex;flex-direction:column;line-height:1.1}
-.fb-name-top{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.13em;text-transform:uppercase}
-.fb-name-mid{font-family:var(--fd);font-size:1.15rem;color:var(--white);font-weight:700;line-height:1.05}
-.fb-name-bot{font-size:.55rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
-
-.fb-brand p{font-size:.82rem;line-height:1.7;max-width:240px}
-.fc h4{color:var(--white);font-size:.83rem;font-weight:600;margin-bottom:.9rem}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.fc a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.81rem;transition:color .2s}
-.fc a:hover{color:var(--gb)}
-.footer-bottom{display:flex;justify-content:space-between;font-size:.76rem;flex-wrap:wrap;gap:.5rem}
-.footer-bottom a{color:var(--gb);text-decoration:none}
-
-@media(max-width:900px){
-  .offer-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}
-  .steps::before{display:none}.epr-inner{grid-template-columns:1fr}
-  .pkg-grid{grid-template-columns:1fr 1fr}.partners-grid{grid-template-columns:1fr 1fr}
-  .cta-cards{grid-template-columns:1fr}.contact-inner{grid-template-columns:1fr;gap:3rem}
-  .footer-grid{grid-template-columns:1fr 1fr}.hero-strip{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-  .offer-grid{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}
-  .partners-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}
-  section{padding:3.5rem 5%}.hero{padding:7rem 5% 0}.frow{grid-template-columns:1fr}
-  .hero-strip{grid-template-columns:1fr 1fr}
-}
-
-
-.nav-logo-img{width:40px!important;height:40px!important;border-radius:8px!important;object-fit:cover;flex-shrink:0}
-.nav-name-single{font-family:'Inter',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#ffffff;letter-spacing:.01em;white-space:nowrap}
-.nav-name-block{display:none!important}
-.nav-mark{display:none!important}
-.nav-name-top,.nav-name-mid,.nav-name-bot{display:none!important}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-brand">
-    <img src="Logo-icon.png" alt="ZGIH Logo" class="nav-logo-img"/>
-    <span class="nav-name-single">Zamboanga Green Innovation Hub</span>
-  </a>
-  <div class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')"><span></span><span></span><span></span></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="members.html">Members & News</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="achievements.html">Achievements</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="education.html">Learn</a></li>
-    <li><a href="csr.html" class="active nav-cta">CSR / EPR</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-leaf leaf1"></div>
-  <div class="hero-leaf leaf2"></div>
-  <div class="hero-inner">
-    <p class="eyebrow">Corporate Partnership</p>
-    <h1>Build your <em>green impact</em><br/>program with ZGIH</h1>
-    <p class="hero-lead">ZGIH is Zamboanga City's trusted NGO partner for corporate CSR and EPR programs. We help companies divert plastic waste, empower communities, and meet their environmental obligations — with full transparency and measurable impact.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-p">Start a Program →</a>
-      <a href="#packages" class="btn-o">View Packages</a>
-    </div>
-  </div>
-  <div class="hero-strip">
-    <div class="strip-stat"><div class="n">8.4 t</div><div class="l">Plastic & solid waste diverted</div></div>
-    <div class="strip-stat gold"><div class="n">15+</div><div class="l">Corporate & institutional partners</div></div>
-    <div class="strip-stat"><div class="n">500+</div><div class="l">Community members empowered</div></div>
-    <div class="strip-stat gold"><div class="n">100%</div><div class="l">Transparent impact reporting</div></div>
-  </div>
-</div>
-
-<!-- WHAT WE OFFER -->
-<section class="offer-section" id="services">
-  <div class="offer-intro">
-    <p class="stag center">Our Services</p>
-    <h2 class="st center">Customized programs for <em>every company</em></h2>
-    <p class="slead center">Whether you're fulfilling a CSR commitment, meeting EPR requirements, or building a sustainability narrative — ZGIH designs a program around your goals.</p>
-  </div>
-  <div class="offer-grid">
-    <div class="offer-card">
-      <span class="offer-icon">♻️</span>
-      <h3>Plastic Waste Collection & Diversion</h3>
-      <p>We organize and manage collection drives, barangay programs, and coastal clean-ups in your company's name — diverting plastic from landfills and the sea. Full documentation and waste certificates provided.</p>
-      <span class="offer-tag csr">CSR</span> <span class="offer-tag epr">EPR</span>
-    </div>
-    <div class="offer-card featured">
-      <span class="offer-icon">🌿</span>
-      <h3>Green Livelihood Sponsorship</h3>
-      <p>Sponsor community artisans who upcycle collected waste into saleable products. Your brand supports dignified green jobs for women and youth in Zamboanga City — with social impact reports for every partner.</p>
-      <span class="offer-tag">Most Impactful</span>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">🏫</span>
-      <h3>Eco-Education Programs</h3>
-      <p>Bring branded environmental education to schools and barangays across the Peninsula. We design and deliver workshops, materials, and student activities under your company's CSR banner.</p>
-      <span class="offer-tag csr">CSR</span>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">🌊</span>
-      <h3>Coastal & Mangrove Restoration</h3>
-      <p>Sponsor mangrove planting, coastal clean-ups, and marine biodiversity monitoring — with before-and-after documentation and geo-tagged impact maps for your sustainability reports.</p>
-      <span class="offer-tag csr">CSR</span> <span class="offer-tag epr">EPR</span>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">📊</span>
-      <h3>EPR Compliance Support</h3>
-      <p>For companies covered under RA 11898, ZGIH acts as your certified recovery partner — helping you meet plastic recovery targets with organized collection, data tracking, and official documentation.</p>
-      <span class="offer-tag epr">EPR</span>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">📣</span>
-      <h3>Employee & Community Engagement</h3>
-      <p>Organize meaningful CSR days, volunteer events, and team activities with ZGIH — from coastal clean-ups to upcycling workshops — that engage your employees and connect them to real community impact.</p>
-      <span class="offer-tag csr">CSR</span>
-    </div>
-  </div>
-</section>
-
-<div style="text-align:center;padding:2rem 4% 0">
-  <a href="csr-services.html" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gd);color:var(--white);padding:.75rem 1.8rem;border-radius:8px;font-size:.9rem;font-weight:700;text-decoration:none">See Full Service Details &amp; Process →</a>
-</div>
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <p class="stag center">The Process</p>
-  <h2 class="st center" style="text-align:center">How a ZGIH program <em>works</em></h2>
-  <p class="slead center">From first conversation to final impact report — here's how we build your program together.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num"><span class="ico">💬</span></div>
-      <h4>Discovery Call</h4>
-      <p>We discuss your company's sustainability goals, regulatory needs, and budget — and design a program that fits.</p>
-    </div>
-    <div class="step">
-      <div class="step-num"><span class="ico">📋</span></div>
-      <h4>Program Design</h4>
-      <p>ZGIH prepares a customized proposal with targets, timelines, activities, and reporting structure for your approval.</p>
-    </div>
-    <div class="step">
-      <div class="step-num"><span class="ico">🚀</span></div>
-      <h4>Implementation</h4>
-      <p>Our team rolls out the program in communities across Zamboanga City — collection, training, education, or restoration.</p>
-    </div>
-    <div class="step">
-      <div class="step-num"><span class="ico">📈</span></div>
-      <h4>Impact Reporting</h4>
-      <p>You receive quarterly data reports, photos, certificates, and a final impact summary for your ESG and sustainability disclosures.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EPR SECTION -->
-<div class="epr-section" id="epr">
-  <div class="epr-inner">
-    <div class="epr-text">
-      <p class="stag">Philippine Law</p>
-      <h2>Are you required to<br/><em>comply with EPR?</em></h2>
-      <p>The Extended Producer Responsibility Act of 2022 (Republic Act 11898) requires plastic manufacturers, brand owners, importers, and FMCG companies to recover, recycle, and manage their plastic waste — targeting plastic-neutrality within 10 years.</p>
-      <div class="epr-law">
-        <h4>📋 RA 11898 — EPR Act of 2022</h4>
-        <p>If your company produces, imports, or sells products using plastic packaging, you may be required to register with the DENR and submit an annual EPR plan. ZGIH can be your official recovery partner.</p>
-      </div>
-      <a href="#contact" class="epr-btn">Talk to Us About EPR →</a>
-    </div>
-    <div class="epr-visual">
-      <div class="epr-stat">
-        <div class="epr-stat-ico">🏭</div>
-        <div><h4>Manufacturers & Importers</h4><p>If you use plastic in products or packaging, EPR likely applies to your business.</p></div>
-      </div>
-      <div class="epr-stat gold">
-        <div class="epr-stat-ico">📦</div>
-        <div><h4>Brand Owners & FMCGs</h4><p>Consumer goods companies must report and meet annual plastic recovery targets.</p></div>
-      </div>
-      <div class="epr-stat">
-        <div class="epr-stat-ico">🤝</div>
-        <div><h4>ZGIH as Your EPR Partner</h4><p>We handle collection, documentation, and reporting so you can focus on your business.</p></div>
-      </div>
-      <div class="epr-stat gold">
-        <div class="epr-stat-ico">📊</div>
-        <div><h4>Full Compliance Documentation</h4><p>Official waste collection certificates and data reports accepted by DENR.</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PACKAGES -->
-<section class="packages-section" id="packages">
-  <p class="stag center">Partnership Packages</p>
-  <h2 class="st center" style="text-align:center">Choose your level of <em>impact</em></h2>
-  <p class="slead center">All packages include impact reporting, branded documentation, and a dedicated ZGIH program officer. Custom packages also available.</p>
-  <div class="pkg-grid">
-    <div class="pkg-card">
-      <div class="pkg-top">
-        <p class="pkg-label">Entry Level</p>
-        <h3>🌱 Seedling Partner</h3>
-        <p class="pkg-desc">For small businesses and startups looking to make their first meaningful environmental commitment.</p>
-      </div>
-      <div class="pkg-body">
-        <ul class="pkg-features">
-          <li>1 community clean-up event in Zamboanga City</li>
-          <li>Up to 500 kg of plastic waste diverted</li>
-          <li>Branded event documentation & photos</li>
-          <li>Certificate of Partnership from ZGIH</li>
-          <li>Feature on ZGIH social media & website</li>
-          <li>End-of-program impact summary report</li>
-        </ul>
-        <a href="#contact" class="pkg-cta">Start This Program →</a>
-      </div>
-    </div>
-    <div class="pkg-card recommended">
-      <div class="pkg-recommended-badge">MOST POPULAR</div>
-      <div class="pkg-top">
-        <p class="pkg-label">Core Program</p>
-        <h3>🌿 Green Partner</h3>
-        <p class="pkg-desc">For mid-sized companies building a sustained, visible environmental impact in the Zamboanga region.</p>
-      </div>
-      <div class="pkg-body">
-        <ul class="pkg-features">
-          <li>Quarterly clean-up drives (4 events/year)</li>
-          <li>Up to 2 tons of waste diverted & documented</li>
-          <li>Livelihood sponsorship for 5 community artisans</li>
-          <li>Eco-education session in 1 partner school</li>
-          <li>Branded materials & social media features</li>
-          <li>Quarterly impact reports with photos & data</li>
-          <li>Co-branding on ZGIH communications</li>
-          <li>Certificate suitable for sustainability reports</li>
-        </ul>
-        <a href="#contact" class="pkg-cta">Start This Program →</a>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-top">
-        <p class="pkg-label">Premium Program</p>
-        <h3>🌳 Forest Partner</h3>
-        <p class="pkg-desc">For corporations seeking deep community integration, EPR compliance, and comprehensive impact storytelling.</p>
-      </div>
-      <div class="pkg-body">
-        <ul class="pkg-features">
-          <li>Monthly programs across multiple barangays</li>
-          <li>5+ tons of waste diverted per year</li>
-          <li>Livelihood sponsorship for 20+ artisans</li>
-          <li>Mangrove restoration component included</li>
-          <li>Full eco-education module in 3+ schools</li>
-          <li>Dedicated ZGIH program officer for your account</li>
-          <li>Annual impact report with full ESG-ready data</li>
-          <li>EPR compliance documentation (if applicable)</li>
-          <li>Exclusive recognition at ZGIH events & platforms</li>
-        </ul>
-        <a href="#contact" class="pkg-cta">Start This Program →</a>
-      </div>
-    </div>
-  </div>
-  <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:2rem">All packages are customizable. <a href="#contact" style="color:var(--gm);font-weight:600">Contact us</a> to build a program around your exact needs and budget.</p>
-</section>
-
-<!-- CURRENT PARTNERS -->
-<section class="partners-section" id="partners">
-  <p class="stag">Our Partners</p>
-  <h2 class="st">Companies already<br/><em>making an impact</em> with ZGIH</h2>
-  <p class="slead" style="margin-bottom:2.5rem">These organizations have partnered with ZGIH to deliver measurable environmental and social impact in Zamboanga City and the Peninsula.</p>
-  <div class="partners-filter">
-    <button class="pf-btn active" onclick="filterPartners(this,'all')">All Partners</button>
-    <button class="pf-btn" onclick="filterPartners(this,'ongoing')">Ongoing</button>
-    <button class="pf-btn" onclick="filterPartners(this,'ended')">Completed</button>
-    <button class="pf-btn" onclick="filterPartners(this,'csr')">CSR</button>
-    <button class="pf-btn" onclick="filterPartners(this,'epr')">EPR</button>
-  </div>
-  <div class="partners-grid" id="partnersGrid">
-    <div class="partner-card" data-status="ongoing" data-type="csr">
-      <div class="partner-logo">🏛️</div>
-      <div class="partner-body">
-        <h4 class="partner-name">Western Mindanao State University</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">CSR + Research</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">April 2024</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">Joint Waste Study</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ongoing">Ongoing</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-    <div class="partner-card" data-status="ongoing" data-type="epr">
-      <div class="partner-logo">🏢</div>
-      <div class="partner-body">
-        <h4 class="partner-name">Zamboanga City LGU — Environment Office</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">CSR + EPR Support</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">January 2023</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">5 tons / year</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ongoing">Ongoing</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-    <div class="partner-card" data-status="ongoing" data-type="csr">
-      <div class="partner-logo">🌐</div>
-      <div class="partner-body">
-        <h4 class="partner-name">ChildFund Philippines</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">CSR + Education</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">June 2025</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">800+ Students</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ongoing">Ongoing</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-    <div class="partner-card" data-status="ongoing" data-type="csr">
-      <div class="partner-logo">🚢</div>
-      <div class="partner-body">
-        <h4 class="partner-name">Philippine Red Cross — Zamboanga Chapter</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">CSR + Conservation</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">March 2023</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">500 Mangroves</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ongoing">Ongoing</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-    <div class="partner-card" data-status="ended" data-type="csr">
-      <div class="partner-logo">🎓</div>
-      <div class="partner-body">
-        <h4 class="partner-name">Department of Education — Division of Zamboanga City</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">CSR + Education</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">August 2022</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">3 Schools, 450 Students</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ended">Completed</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-    <div class="partner-card" data-status="ended" data-type="epr">
-      <div class="partner-logo">🏪</div>
-      <div class="partner-body">
-        <h4 class="partner-name">Local Business Council — Pilot EPR Program</h4>
-        <div class="partner-meta">
-          <div class="meta-row"><span class="meta-label">Program Type</span><span class="meta-val">EPR + Collection</span></div>
-          <div class="meta-row"><span class="meta-label">Started</span><span class="meta-val">January 2024</span></div>
-          <div class="meta-row"><span class="meta-label">Target</span><span class="meta-val">1.2 Metric Tons</span></div>
-          <div class="meta-row"><span class="meta-label">Status</span><span class="status-badge ended">Completed</span></div>
-        </div>
-      </div>
-      <div class="partner-footer"><a href="#contact">Learn More →</a></div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.2rem">Ready to join this list? Your company's logo could be here next.</p>
-    <a href="#contact" class="btn-p" style="display:inline-flex">Become a Partner →</a>
-  </div>
-</section>
-
-<!-- SDG ALIGNMENT -->
-<div class="sdg-section">
-  <h3>UN Sustainable Development Goals We Support</h3>
-  <p>ZGIH programs contribute directly to the following SDGs — your partnership does too.</p>
-  <div class="sdg-row">
-    <div class="sdg-badge" style="background:#e5243b"><span>⚧</span>SDG 5<br/>Gender Equality</div>
-    <div class="sdg-badge" style="background:#a21942"><span>💼</span>SDG 8<br/>Decent Work</div>
-    <div class="sdg-badge" style="background:#dd1367"><span>⬇️</span>SDG 10<br/>Reduced Inequality</div>
-    <div class="sdg-badge" style="background:#fd9d24"><span>🏙️</span>SDG 11<br/>Sustainable Cities</div>
-    <div class="sdg-badge" style="background:#3f7e44"><span>🌡️</span>SDG 13<br/>Climate Action</div>
-    <div class="sdg-badge" style="background:#0a97d9"><span>🌊</span>SDG 14<br/>Life Below Water</div>
-    <div class="sdg-badge" style="background:#56c02b"><span>🌿</span>SDG 15<br/>Life on Land</div>
-  </div>
-</div>
-
-<!-- START A PROGRAM CTA -->
-<div class="cta-section">
-  <p class="stag center">Get Started</p>
-  <h2>Build your <em>customized</em><br/>program with us</h2>
-  <p>Tell us what you want for your company and ZGIH will design a plastic responsibility package that delivers real, measurable impact in Zamboanga City.</p>
-  <div class="cta-cards">
-    <div class="cta-card"><span class="ico">📞</span><h4>Discovery Call</h4><p>Start with a free 30-minute conversation about your goals.</p></div>
-    <div class="cta-card"><span class="ico">📝</span><h4>Custom Proposal</h4><p>We'll send you a tailored program proposal within 3 business days.</p></div>
-    <div class="cta-card"><span class="ico">🚀</span><h4>Launch in 30 Days</h4><p>Most programs can be up and running within a month of agreement.</p></div>
-  </div>
-  <a href="#contact" class="cta-btn">Start Your Program Now →</a>
-</div>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-info">
-      <p class="stag">Contact Us</p>
-      <h3>Let's design your<br/>impact program</h3>
-      <p>Have questions about our CSR or EPR programs? Interested in a package or a custom arrangement? Fill in the form and our team will get back to you within 2 business days.</p>
-      <div class="contact-detail"><div class="ic">📍</div><div><strong>Location</strong><span>003 Toreme Drive Lower Cabatangan, Zamboanga City</span></div></div>
-      <div class="contact-detail"><div class="ic">📘</div><div><strong>Facebook</strong><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Zamboanga Green Innovation Hub</a></div></div>
-      <div class="contact-detail"><div class="ic">✉️</div><div><strong>Email</strong><span>zgihub@gmail.com</span></div></div>
-      <div class="contact-detail"><div class="ic">📋</div><div><strong>EPR Inquiries</strong><span>zgihub@gmail.com</span></div></div>
-    </div>
-    <div>
-      <div class="cform">
-        <div class="frow">
-          <div class="fg"><label>Company Name</label><input type="text" placeholder="Your Company, Inc."/></div>
-          <div class="fg"><label>Your Name</label><input type="text" placeholder="Juan dela Cruz"/></div>
-        </div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="juan@company.com"/></div>
-        <div class="fg"><label>Program Type You're Interested In</label>
-          <select>
-            <option value="">Select a program type</option>
-            <option>Plastic Waste Collection & Diversion (CSR)</option>
-            <option>Green Livelihood Sponsorship</option>
-            <option>Eco-Education Program</option>
-            <option>Coastal & Mangrove Restoration</option>
-            <option>EPR Compliance Support (RA 11898)</option>
-            <option>Employee Engagement / Volunteer Day</option>
-            <option>Custom / Multiple Programs</option>
-          </select>
-        </div>
-        <div class="fg"><label>Annual Budget Range (Optional)</label>
-          <select>
-            <option value="">Prefer not to say</option>
-            <option>Under ₱100,000</option>
-            <option>₱100,000 – ₱500,000</option>
-            <option>₱500,000 – ₱1,000,000</option>
-            <option>Above ₱1,000,000</option>
-          </select>
-        </div>
-        <div class="fg"><label>Tell Us About Your Goals</label><textarea placeholder="Describe your company's sustainability goals, any EPR obligations, or what kind of community impact you'd like to create…"></textarea></div>
-        <button class="cform-submit" onclick="alert('Thank you! ZGIH will get back to you within 2 business days. 💚')">Send Inquiry →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div class="fb-brand"><div class="fb-logo">
-        <img src="Logo-icon.png" alt="ZGIH" class="fb-logo-img"/>
-        <div class="fb-name-block">
-          <span class="fb-name-top">ZAMBOANGA</span>
-          <span class="fb-name-mid">GREEN</span>
-          <span class="fb-name-bot">INNOVATION HUB</span>
-        </div>
-      </div><p>A non-governmental organization dedicated to environmental sustainability and community-led innovation in 003 Toreme Drive Lower Cabatangan, Zamboanga City.</p></div>
-    <div class="fc"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="members.html">Members & News</a></li><li><a href="store.html">Green Store</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="blog.html">Blog</a></li><li><a href="education.html">Learn</a></li><li><a href="csr.html">CSR / EPR</a></li></ul></div>
-    <div class="fc"><h4>Programs</h4><ul><li><a href="#services">Waste Collection</a></li><li><a href="#services">Green Livelihood</a></li><li><a href="#services">Eco-Education</a></li><li><a href="#epr">EPR Compliance</a></li><li><a href="#packages">Packages</a></li></ul></div>
-    <div class="fc"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/share/1BMiv3raeK/" target="_blank">Facebook</a></li><li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li><li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li><li><a href="#">003 Toreme Drive Lower Cabatangan, Zamboanga City</a></li></ul></div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 Zamboanga Green Innovation Hub. All rights reserved.</span><a href="index.html">Back to Home</a></div>
-</footer>
-
-<script>
-function filterPartners(btn, filter) {
-  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.partner-card').forEach(card => {
-    const status = card.dataset.status;
-    const type = card.dataset.type;
-    let show = false;
-    if (filter === 'all') show = true;
-    else if (filter === 'ongoing' && status === 'ongoing') show = true;
-    else if (filter === 'ended' && status === 'ended') show = true;
-    else if (filter === 'csr' && type === 'csr') show = true;
-    else if (filter === 'epr' && type === 'epr') show = true;
-    card.style.display = show ? 'block' : 'none';
-  });
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#154212","secondary": "#006d3e","tertiary": "#253f2e",
+        "primary-container": "#2d5a27","secondary-container": "#8cf5b2",
+        "tertiary-container": "#3b5644","on-primary": "#ffffff",
+        "on-secondary": "#ffffff","on-tertiary": "#ffffff",
+        "on-primary-container": "#9dd090","on-secondary-container": "#007241",
+        "on-tertiary-container": "#accab3","surface": "#fafaf4",
+        "surface-dim": "#dadad5","surface-bright": "#fafaf4",
+        "surface-container-low": "#f4f4ee","surface-container": "#eeeee9",
+        "surface-container-high": "#e8e8e3","on-surface": "#1a1c19",
+        "on-surface-variant": "#42493e","outline": "#72796e",
+        "outline-variant": "#c2c9bb","inverse-primary": "#a1d494",
+        "secondary-fixed": "#8ff8b4","secondary-fixed-dim": "#73db9a",
+        "on-secondary-fixed": "#00210f","primary-fixed": "#bcf0ae",
+        "on-primary-fixed": "#002201","on-primary-fixed-variant": "#23501e",
+        "tertiary-fixed": "#cbead2","on-tertiary-fixed": "#062011",
+        "background": "#fafaf4","on-background": "#1a1c19",
+        "soft-gray": "#F2F4F2","off-white": "#FDFDFB","forest-mute": "#4A634E",
+        "inverse-surface": "#2f312e","inverse-on-surface": "#f1f1ec",
+        "error": "#ba1a1a","surface-variant": "#e3e3de",
+        "surface-container-lowest": "#ffffff","surface-container-highest": "#e3e3de",
+        "surface-tint": "#3b6934"
+      },
+      borderRadius: {"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+      spacing: {"margin-mobile":"16px","base":"8px","margin-desktop":"80px","gutter":"24px","section-gap":"120px"},
+      fontFamily: {"body-lg":["Inter"],"body-md":["Inter"],"stat-lg":["Chivo"],"display-lg":["Chivo"],"display-lg-mobile":["Chivo"],"label-bold":["Inter"],"headline-lg":["Chivo"],"headline-md":["Chivo"]},
+      fontSize: {
+        "body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],
+        "body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],
+        "stat-lg":["48px",{"lineHeight":"1.0","fontWeight":"800"}],
+        "display-lg-mobile":["36px",{"lineHeight":"1.2","fontWeight":"800"}],
+        "display-lg":["56px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],
+        "label-bold":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"700"}],
+        "headline-lg":["40px",{"lineHeight":"1.2","fontWeight":"700"}],
+        "headline-md":["28px",{"lineHeight":"1.3","fontWeight":"700"}]
+      }
+    }
+  }
 }
 </script>
-</body>
-</html>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .impact-card { box-shadow: 0 4px 20px -2px rgba(45,90,39,0.08); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .impact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -4px rgba(45,90,39,0.12); border-color: #154212; }
+</style><title>CSR Partnerships — ZGIH</title></head><body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<header class="bg-surface/90 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+  <div class="flex items-center gap-4">
+    <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+    <span class="font-headline-md text-headline-md font-bold text-primary">ZGIH</span>
+  </div>
+  <div class="hidden md:flex items-center gap-6">
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="members.html">Members</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="store.html">Store</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="achievements.html">Achievements</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="blog.html">Blog</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="education.html">Learn</a>
+    <a class="text-primary border-b-2 border-primary font-label-bold text-label-bold" href="csr.html">CSR</a>
+    <a class="text-on-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors" href="csr-services.html">CSR Services</a>
+  </div>
+  <a href="csr.html#contact" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold hover:bg-primary transition-colors">Contact</a>
+</nav>
+</header>
+<main>
+<!-- Hero -->
+<section class="relative min-h-[60vh] flex items-center overflow-hidden pt-12 bg-primary-container">
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10 space-y-6 py-20">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-label-bold">
+      <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+      CORPORATE SOCIAL RESPONSIBILITY
+    </div>
+    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary max-w-2xl">Partner with <span class="italic text-secondary-fixed">ZGIH</span> for Greener Impact</h1>
+    <p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl">We help businesses and organizations fulfill their CSR commitments through meaningful, community-rooted environmental programs in Zamboanga City.</p>
+    <div class="flex flex-wrap gap-4 pt-4">
+      <a href="#contact" class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-lg font-label-bold text-label-bold hover:scale-105 transition-transform inline-block">Start a Program →</a>
+      <a href="csr-services.html" class="border-2 border-on-primary text-on-primary px-8 py-4 rounded-lg font-label-bold text-label-bold hover:bg-white/10 transition-colors inline-block">See Full Service Details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why Partner -->
+<section class="py-section-gap bg-off-white">
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-16 space-y-4">
+      <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Why ZGIH</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary">Real Impact, Real Community</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Our CSR programs are designed around Zamboanga's unique environmental needs — co-created with local communities, measurable, and aligned with national sustainability goals.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant text-center">
+        <span class="material-symbols-outlined text-[48px] text-primary mb-4 block">groups</span>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Community-Led</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">Programs are co-designed with local barangays, schools, and cooperatives for lasting grassroots impact.</p>
+      </div>
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant text-center">
+        <span class="material-symbols-outlined text-[48px] text-secondary mb-4 block">verified</span>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Documented & Transparent</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">We provide full documentation, photo reports, and measurable outcomes for your CSR compliance records.</p>
+      </div>
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant text-center">
+        <span class="material-symbols-outlined text-[48px] text-on-secondary-container mb-4 block">recycling</span>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Aligned with RA 11898</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">Our solid waste and eco-education programs support compliance with the Extended Producer Responsibility Act.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSR Programs -->
+<section class="py-section-gap bg-surface-container-low">
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-16 space-y-4">
+      <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">What We Offer</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary">CSR Program Packages</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="packages">
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col">
+        <div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mb-6 text-primary">
+          <span class="material-symbols-outlined text-[28px]">delete_sweep</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Solid Waste Management</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Support community-level waste segregation drives, upcycling workshops, and barangay clean-up programs.</p>
+        <a href="csr-services.html" class="font-label-bold text-label-bold text-primary flex items-center gap-2">Learn more <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </div>
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col">
+        <div class="w-12 h-12 rounded-xl bg-secondary-container/10 flex items-center justify-center mb-6 text-secondary">
+          <span class="material-symbols-outlined text-[28px]">school</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Eco-Education in Schools</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Fund environmental literacy modules delivered in Zamboanga City public schools, reaching hundreds of students.</p>
+        <a href="csr-services.html" class="font-label-bold text-label-bold text-primary flex items-center gap-2">Learn more <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </div>
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col">
+        <div class="w-12 h-12 rounded-xl bg-on-secondary-container/10 flex items-center justify-center mb-6 text-on-secondary-container">
+          <span class="material-symbols-outlined text-[28px]">park</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Tree Planting & Reforestation</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Sponsor mangrove and native tree planting activities with full documentation and certificates.</p>
+        <a href="csr-services.html" class="font-label-bold text-label-bold text-primary flex items-center gap-2">Learn more <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </div>
+      <div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed/30 flex items-center justify-center mb-6 text-on-primary-fixed-variant">
+          <span class="material-symbols-outlined text-[28px]">storefront</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Green Livelihood Support</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Sponsor skills training for youth and women in eco-entrepreneurship, upcycling, and sustainable farming.</p>
+        <a href="csr-services.html" class="font-label-bold text-label-bold text-primary flex items-center gap-2">Learn more <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="py-section-gap relative overflow-hidden" id="contact">
+  <div class="absolute inset-0 bg-primary-container z-0"></div>
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+    <div class="max-w-3xl mx-auto space-y-8">
+      <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary">Ready to make an <span class="italic text-secondary-fixed">impact?</span></h2>
+      <p class="font-body-lg text-body-lg text-on-primary/80">Reach out to us and let's co-design a CSR program that works for your organization and for Zamboanga.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+        <a href="mailto:zgihub@gmail.com" class="bg-secondary-fixed text-on-secondary-fixed px-10 py-5 rounded-xl font-label-bold text-label-bold text-lg hover:scale-105 transition-transform inline-block">Email Us: zgihub@gmail.com</a>
+        <a href="csr-services.html" class="border-2 border-on-primary text-on-primary px-10 py-5 rounded-xl font-label-bold text-label-bold text-lg hover:bg-white/10 transition-colors inline-block">View All Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="bg-tertiary text-on-tertiary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 w-full">
+  <div class="space-y-6">
+    <div class="flex items-center gap-3">
+      <img alt="Logo" class="h-10 w-10 brightness-0 invert" src="Logo-icon.png"/>
+      <span class="font-headline-md font-bold text-on-tertiary">ZGIH</span>
+    </div>
+    <p class="font-body-md text-on-tertiary/80">A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.</p>
+  </div>
+  <div>
+    <h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-widest text-secondary-fixed">Navigation</h4>
+    <ul class="space-y-3">
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="members.html">Members</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="achievements.html">Achievements</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="blog.html">Blog</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="education.html">Learn</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="csr.html">CSR Partnerships</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="csr-services.html">CSR Services</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-widest text-secondary-fixed">Programs</h4>
+    <ul class="space-y-3">
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
+      <li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-widest text-secondary-fixed">Contact</h4>
+    <address class="not-italic space-y-4">
+      <p class="font-body-md text-on-tertiary/80 flex items-start gap-3"><span class="material-symbols-outlined text-[20px]">location_on</span>003 Toreme Drive Lower Cabatangan, Zamboanga City</p>
+      <p class="font-body-md text-on-tertiary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">mail</span>zgihub@gmail.com</p>
+      <p class="font-body-md text-on-tertiary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">public</span>Facebook: ZGIH</p>
+    </address>
+  </div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+  <p class="font-body-md text-on-tertiary/60 text-sm">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</p>
+</div>
+</footer><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100','translate-y-0');
+        entry.target.classList.remove('opacity-0','translate-y-8');
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('section').forEach(s => {
+    s.classList.add('transition-all','duration-1000','opacity-0','translate-y-8');
+    observer.observe(s);
+  });
+});
+</script></body></html>
