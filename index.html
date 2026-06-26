@@ -137,142 +137,130 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
-<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 docked full-width z-50">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
-<div class="flex items-center gap-4">
-<img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
-<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">ZGIH</span>
-</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-primary dark:text-inverse-primary border-b-2 border-primary font-label-bold font-label-bold text-label-bold transition-all opacity-80 scale-95" href="index.html">Home</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="members.html">Members</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="store.html">Store</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="achievements.html">Achievements</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="blog.html">Blog</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="education.html">Learn</a>
-</div>
-<a href="mailto:zgihub@gmail.com" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold hover:bg-primary transition-colors duration-300">Contact</a>
-</nav>
+<header class="bg-surface/95 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
+  <nav class="relative flex items-center justify-between w-full px-margin-mobile md:px-margin-desktop py-3">
+    <!-- Logo left -->
+    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
+      <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+      <div class="hidden lg:flex flex-col leading-tight">
+        <span class="font-bold text-primary text-sm" style="font-family:Chivo,sans-serif;">ZGIH</span>
+        <span class="text-on-surface-variant" style="font-size:10px;font-family:Inter,sans-serif;">Zamboanga Green Innovation Hub</span>
+      </div>
+      <span class="font-bold text-primary text-base lg:hidden" style="font-family:Chivo,sans-serif;">ZGIH</span>
+    </a>
+    <!-- Nav absolutely centered -->
+    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+      <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-0.5" href="index.html">Home</a>
+      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="members.html">Members</a>
+      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="store.html">Store</a>
+      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="achievements.html">Achievements</a>
+      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="education.html">Learn</a>
+    </div>
+    <!-- Contact right -->
+    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 bg-primary text-white px-5 py-2 rounded-full font-label-bold text-label-bold hover:bg-primary/90 transition-colors duration-300">
+      Contact Us
+    </a>
+  </nav>
 </header>
 <main>
 <!-- Hero Section -->
-<section class="relative w-full overflow-hidden">
-<img
-  src="images/hero-banner.png"
-  alt="ZGIH – Innovate. Educate. Act. Sustain. Building a greener, cleaner and more sustainable Zamboanga City."
-  class="w-full h-auto block"
-  style="display:block; width:100%; height:auto;"
-/>
-<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-10">
-  <a href="education.html" class="bg-primary text-on-primary px-7 py-3 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:bg-primary/90 shadow-lg transition-all">
-    Explore &amp; Learn
-    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-  </a>
-  <a href="members.html" class="bg-white/90 border border-outline text-primary px-7 py-3 rounded-lg font-label-bold text-label-bold hover:bg-white shadow-lg transition-all">
-    Meet Our Team
-  </a>
-</div>
-</section>
-<!-- Mission Snapshot & Impact Stats -->
-<section class="py-section-gap bg-off-white">
-<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid md:grid-cols-2 gap-margin-desktop items-center mb-section-gap">
-<div class="relative p-12 rounded-[2.5rem] bg-tertiary text-on-tertiary overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-<span class="material-symbols-outlined text-[48px] mb-6 block text-secondary-fixed">format_quote</span>
-<blockquote class="font-headline-lg text-headline-md italic mb-8 relative z-10">
-                            "To empower communities in Zamboanga City by providing training in eco-friendly crafts, advocating for environmental sustainability, and promoting innovative recycled products that support both livelihoods and conservation."
-                        </blockquote>
-<cite class="font-label-bold text-label-bold opacity-80 uppercase tracking-widest">— ZGIH Mission</cite>
-</div>
-<div class="space-y-6">
-<span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Who We Are</span>
-<h2 class="font-headline-lg text-headline-lg text-primary">Innovation rooted in <span class="italic text-secondary">community</span></h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                            ZGIH brings together crafters, farmers, low-income communities, women, out-of-school youth, solo parents, and local partners to foster green innovation, sustainable livelihoods, and environmental conservation.
-                        </p>
-<div class="mt-6 p-6 rounded-xl bg-surface-container-low border border-outline-variant">
-<p class="font-label-bold text-label-bold text-secondary uppercase tracking-widest mb-2">Our Vision</p>
-<p class="font-body-md text-body-md text-on-surface-variant italic">A thriving and self-sustaining Zamboanga City where communities actively participate in green innovation, environmental stewardship, and sustainable economic development.</p>
-</div>
-<div class="grid grid-cols-2 gap-8 pt-6">
-<div class="space-y-2">
-<h3 class="font-stat-lg text-stat-lg text-primary">300<span class="text-secondary-fixed-dim text-[24px]">+</span><span class="text-body-md font-body-md block">kg waste diverted</span></h3>
-</div>
-<div class="space-y-2">
-<h3 class="font-stat-lg text-stat-lg text-primary">50<span class="text-secondary-fixed-dim text-[24px]">+</span><span class="text-body-md font-body-md block">active members</span></h3>
-</div>
-<div class="space-y-2">
-<h3 class="font-stat-lg text-stat-lg text-primary">5<span class="text-secondary-fixed-dim text-[24px]">+</span><span class="text-body-md font-body-md block">local partners</span></h3>
-</div>
-<div class="space-y-2">
-<h3 class="font-stat-lg text-stat-lg text-primary">12<span class="text-secondary-fixed-dim text-[24px]">+</span><span class="text-body-md font-body-md block">ongoing projects</span></h3>
-</div>
-</div>
-</div>
-</div>
-<!-- Programs Bento Grid -->
-<div class="space-y-12">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-<div class="space-y-4">
-<span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">What We Do</span>
-<h2 class="font-headline-lg text-headline-lg text-primary">Our Programs</h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Practical, community-driven initiatives that create lasting environmental and economic impact across Zamboanga.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Card 1 -->
-<div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col group">
-<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">recycling</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Zero-Waste Communities</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Building practical waste segregation and upcycling systems in local neighborhoods.</p>
-<a class="font-label-bold text-label-bold text-primary flex items-center gap-2 group/link" href="#">
-                                Learn more 
-                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+<section class="relative min-h-[90vh] flex items-center overflow-hidden pt-12">
+<div class="absolute inset-0 hero-pattern"></div>
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-label-bold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        DRIVING SUSTAINABLE INNOVATION
+                    </div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-xl">
+                        Growing a <span class="text-secondary italic">greener,</span> smarter Zamboanga
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Driving sustainable innovation, environmental action, and community empowerment in Zamboanga City and across the Peninsula.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="education.html" class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:translate-x-1 transition-transform group">
+                            Explore &amp; Learn
+                            <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
 </a>
-</div>
-<!-- Card 2 -->
-<div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col group">
-<div class="w-12 h-12 rounded-xl bg-secondary-container/10 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">eco</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Green Livelihood Training</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Equipping youth and women with sustainable entrepreneurship and organic farming skills.</p>
-<a class="font-label-bold text-label-bold text-primary flex items-center gap-2 group/link" href="#">
-                                Learn more 
-                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<!-- Card 3 -->
-<div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col group">
-<div class="w-12 h-12 rounded-xl bg-on-secondary-container/10 flex items-center justify-center mb-6 text-on-secondary-container group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">waves</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Coastal Conservation</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Mangrove restoration and marine monitoring to protect our precious coastal biodiversity.</p>
-<a class="font-label-bold text-label-bold text-primary flex items-center gap-2 group/link" href="#">
-                                Learn more 
-                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<!-- Card 4 -->
-<div class="impact-card bg-surface p-8 rounded-2xl border border-outline-variant flex flex-col group">
-<div class="w-12 h-12 rounded-xl bg-primary-fixed/30 flex items-center justify-center mb-6 text-on-primary-fixed-variant group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[28px]">school</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Eco-Education</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Bringing environmental literacy into classrooms through hands-on student-led programs.</p>
-<a class="font-label-bold text-label-bold text-primary flex items-center gap-2 group/link" href="#">
-                                Learn more 
-                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-</a>
+<a href="members.html" class="bg-soft-gray border border-outline text-primary px-8 py-4 rounded-lg font-label-bold text-label-bold hover:bg-surface-container transition-colors">
+                            Meet Our Team
+                        </a>
 </div>
 </div>
+<div class="relative hidden md:block">
+<div class="aspect-video rounded-2xl overflow-hidden shadow-2xl relative z-20">
+<img class="w-full h-full object-cover object-center" alt="ZGIH community members at an event" src="images/team-photo.jpg"/>
+</div>
+<div class="absolute top-1/2 -right-4 w-48 h-48 bg-secondary-container/20 rounded-full blur-3xl z-10"></div>
 </div>
 </div>
 </section>
+<!-- Our Impact in Numbers -->
+<section class="py-24 bg-[#f5f3ee]">
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+    <!-- heading -->
+    <h2 class="text-center mb-16" style="font-family:Chivo,sans-serif;font-size:36px;font-weight:700;color:#1a1c19;">Our Impact in Numbers</h2>
+    <!-- 4 stats row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <!-- Stat 1 -->
+      <div>
+        <p style="font-family:Chivo,sans-serif;font-size:64px;font-weight:700;color:#154212;line-height:1;">300<span style="font-size:40px;color:#3b6934;">+</span></p>
+        <p class="mt-3 text-on-surface-variant" style="font-family:Inter,sans-serif;font-size:14px;">kg of Waste Diverted</p>
+      </div>
+      <!-- Stat 2 -->
+      <div>
+        <p style="font-family:Chivo,sans-serif;font-size:64px;font-weight:700;color:#154212;line-height:1;">50<span style="font-size:40px;color:#3b6934;">+</span></p>
+        <p class="mt-3 text-on-surface-variant" style="font-family:Inter,sans-serif;font-size:14px;">Active Members</p>
+      </div>
+      <!-- Stat 3 -->
+      <div>
+        <p style="font-family:Chivo,sans-serif;font-size:64px;font-weight:700;color:#154212;line-height:1;">5<span style="font-size:40px;color:#3b6934;">+</span></p>
+        <p class="mt-3 text-on-surface-variant" style="font-family:Inter,sans-serif;font-size:14px;">Local Partners</p>
+      </div>
+      <!-- Stat 4 -->
+      <div>
+        <p style="font-family:Chivo,sans-serif;font-size:64px;font-weight:700;color:#154212;line-height:1;">12<span style="font-size:40px;color:#3b6934;">+</span></p>
+        <p class="mt-3 text-on-surface-variant" style="font-family:Inter,sans-serif;font-size:14px;">Ongoing Projects</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Vision, Mission, Strategy -->
+<section class="py-24 bg-[#f0eeea]">
+  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <!-- Vision -->
+      <div class="bg-white rounded-2xl p-10 border border-[#e3e3de]">
+        <h3 class="mb-5" style="font-family:Chivo,sans-serif;font-size:22px;font-weight:700;color:#154212;">Vision</h3>
+        <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#42493e;">
+          A thriving and self-sustaining Zamboanga City where communities actively participate in green innovation, environmental stewardship, and sustainable economic development.
+        </p>
+      </div>
+
+      <!-- Mission -->
+      <div class="bg-white rounded-2xl p-10 border border-[#e3e3de]">
+        <h3 class="mb-5" style="font-family:Chivo,sans-serif;font-size:22px;font-weight:700;color:#006d3e;">Mission</h3>
+        <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#42493e;">
+          To empower communities in Zamboanga City by providing training in eco-friendly crafts, advocating for environmental sustainability, and promoting innovative recycled products that support both livelihoods and conservation.
+        </p>
+      </div>
+
+      <!-- Strategy -->
+      <div class="bg-white rounded-2xl p-10 border border-[#e3e3de]">
+        <h3 class="mb-5" style="font-family:Chivo,sans-serif;font-size:22px;font-weight:700;color:#006d3e;">Strategy</h3>
+        <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#42493e;">
+          We work with communities, government agencies, NGOs, businesses, and academic institutions through eco-crafting workshops, sustainable agriculture programs, green entrepreneurship training, environmental awareness campaigns, and community livelihood support for women, youth, and solo parents.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- News & Stories -->
 <section class="py-section-gap bg-surface-container-low overflow-hidden">
 <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
