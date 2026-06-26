@@ -122,20 +122,26 @@
 </head>
 <body class="bg-surface font-body-md text-on-surface">
 <!-- TopNavBar -->
-<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 bg-surface shadow-sm">
-<div class="font-headline-md text-headline-md font-bold text-primary">ZGIH</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="index.html">Home</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="members.html">Members</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="store.html">Store</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="achievements.html">Achievements</a>
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="blog.html">Blog</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="education.html">Learn</a>
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<a href="index.html"><img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/></a>
+<a href="index.html"><span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">ZGIH</span></a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="members.html">Members</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="store.html">Store</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="achievements.html">Achievements</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="blog.html">Blog</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="education.html">Learn</a>
+</div>
+<a href="mailto:zgihub@gmail.com" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold hover:bg-primary transition-colors duration-300">
+  Contact
+</a>
 </nav>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:bg-primary-container transition-all">
-            Join Us <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
 </header>
+
 <main>
 <!-- Blog Hero Section -->
 <section class="relative w-full py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
@@ -326,41 +332,72 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter bg-tertiary text-on-tertiary">
-<div class="col-span-1 md:col-span-1">
-<div class="font-headline-md text-headline-md font-bold text-on-tertiary mb-6">ZGIH</div>
-<p class="font-body-md text-body-md opacity-80 mb-6">A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.</p>
+<footer class="bg-tertiary dark:bg-on-tertiary-fixed-variant text-on-tertiary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<img alt="ZGIH Logo" class="h-10 w-10 brightness-0 invert" src="Logo-icon.png"/>
+<span class="font-headline-md text-headline-md font-bold text-on-tertiary">ZGIH</span>
+</div>
+<p class="font-body-md text-body-md text-on-tertiary/80">
+A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.
+</p>
 <div class="flex gap-4">
-<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">face_nod</span></a>
-<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
-<a class="hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">face_nod</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="mailto:zgihub@gmail.com">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
 </div>
 </div>
 <div>
-<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Pages</h4>
+<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Navigation</h4>
 <ul class="space-y-4">
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="members.html">Members &amp; News</a></li>
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
-<li><a class="text-secondary-fixed font-bold" href="blog.html">Blog</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="members.html">Members</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="achievements.html">Achievements</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="blog.html">Blog</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="education.html">Learn</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Programs</h4>
+<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Programs</h4>
 <ul class="space-y-4">
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
-<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-label-bold text-label-bold mb-6 uppercase tracking-wider text-tertiary-fixed">Connect</h4>
-<p class="text-tertiary-fixed-dim mb-2">003 Toreme Drive Lower Cabatangan, Zamboanga City</p>
-<p class="text-tertiary-fixed-dim mb-4">zgihub@gmail.com</p>
-<div class="bg-white/5 p-4 rounded-lg border border-white/10">
-<p class="text-xs text-tertiary-fixed mb-2 font-label-bold">© 2024 Zamboanga Green Innovation Hub.</p>
-<p class="text-xs text-tertiary-fixed-dim">Built with 💚 for Zamboanga by FMcreativemanagement</p>
+<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Contact</h4>
+<address class="not-italic space-y-4">
+<p class="font-body-md text-on-tertiary/80 flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+003 Toreme Drive Lower Cabatangan, Zamboanga City
+</p>
+<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+zgihub@gmail.com
+</p>
+<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">phone</span>
+09452996695
+</p>
+<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">public</span>
+Facebook: Zamboanga Green Innovation Hub
+</p>
+</address>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-on-tertiary/60 text-sm">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</p>
+<div class="flex gap-6">
+<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Terms of Service</a>
 </div>
 </div>
 </footer>
