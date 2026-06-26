@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Membership Application Form | ZGIH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: Inter, sans-serif; background: #fafaf4; color: #1a1c19; }
+  .section-green { background: #154212; color: white; }
+  .label { font-weight: 700; font-size: 13px; margin-bottom: 4px; display: block; }
+  input[type=text], input[type=email], input[type=date], input[type=tel], select, textarea {
+    width: 100%; border: 1px solid #c2c9bb; border-radius: 6px;
+    padding: 8px 12px; font-size: 13px; background: #fff;
+    outline: none; transition: border-color 0.2s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: #154212; }
+  .cb-row { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table th { background: #154212; color: white; padding: 8px 6px; text-align: left; font-weight: 700; font-size: 11px; letter-spacing: 0.05em; }
+  table td { border-bottom: 1px solid #e3e3de; padding: 6px; }
+  table td input { border: none; border-bottom: 1px solid #c2c9bb; border-radius: 0; padding: 4px 2px; background: transparent; }
+  @media print { .no-print { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="bg-surface/95 backdrop-blur-md shadow-sm sticky top-0 z-50" style="background:rgba(250,250,244,0.97);">
+  <nav class="relative flex items-center justify-between w-full max-w-6xl mx-auto px-6 py-3">
+    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
+      <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+      <div class="hidden lg:flex flex-col leading-tight">
+        <span style="font-family:Chivo,sans-serif;font-size:15px;font-weight:800;color:#154212;">ZGIH</span>
+        <span style="font-family:Inter,sans-serif;font-size:10px;color:#42493e;">Zamboanga Green Innovation Hub</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-size:15px;color:#42493e;" href="index.html">Home</a>
+      <a class="font-semibold" style="font-size:15px;color:#154212;border-bottom:2px solid #154212;padding-bottom:2px;" href="members.html">Meet the Team</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-size:15px;color:#42493e;" href="store.html">Store</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-size:15px;color:#42493e;" href="achievements.html">Achievements</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-size:15px;color:#42493e;" href="blog.html">Blog</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-size:15px;color:#42493e;" href="education.html">Learn</a>
+    </div>
+    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 text-white px-5 py-2 rounded-full font-bold hover:opacity-90 transition-colors" style="background:#154212;font-size:14px;">Contact Us</a>
+  </nav>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="flex items-start justify-between mb-2">
+      <div>
+        <h1 style="font-family:Chivo,sans-serif;font-size:26px;font-weight:800;color:#154212;">ZAMBOANGA GREEN INNOVATION HUB</h1>
+        <p style="font-size:13px;font-weight:600;">Registration Certificate Number: RO9-ZCFO-WA–0-2025-00000</p>
+        <p style="font-size:13px;">Cabatangan, Zamboanga City, Philippines, 7000</p>
+      </div>
+      <img src="Logo-icon.png" alt="ZGIH Logo" style="height:72px;width:72px;object-fit:contain;"/>
+    </div>
+    <div style="background:#154212;color:white;padding:10px 16px;border-radius:6px;margin-top:16px;">
+      <h2 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:800;letter-spacing:0.02em;">MEMBERSHIP APPLICATION FORM</h2>
+    </div>
+    <div style="background:#2d8a4e;color:white;padding:8px 16px;font-size:13px;font-style:italic;">
+      To apply for membership please complete all fields.
+    </div>
+  </div>
+
+  <form id="membershipForm" class="space-y-8">
+
+    <!-- Date & Type -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="label">Date of Application</label>
+        <input type="date" name="date_of_application"/>
+      </div>
+      <div>
+        <label class="label">Membership Type</label>
+        <div class="flex gap-6 mt-2">
+          <label class="cb-row"><input type="radio" name="membership_type" value="New"/> New</label>
+          <label class="cb-row"><input type="radio" name="membership_type" value="Renewal"/> Renewal</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div>
+      <div style="background:#154212;color:white;padding:8px 14px;border-radius:6px;font-weight:700;font-size:14px;margin-bottom:16px;">
+        Personal Information
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="label">Full Name</label>
+          <input type="text" name="full_name" placeholder="Last Name, First Name, Middle Name"/>
+        </div>
+        <div>
+          <label class="label">Present Address</label>
+          <input type="text" name="address" placeholder="House No., Street, Barangay, City"/>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="label">Contact Number</label>
+            <input type="tel" name="contact" placeholder="09XXXXXXXXX"/>
+          </div>
+          <div>
+            <label class="label">Email Address</label>
+            <input type="email" name="email" placeholder="email@example.com"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <label class="label">Gender</label>
+            <select name="gender">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div>
+            <label class="label">Birthday</label>
+            <input type="date" name="birthday"/>
+          </div>
+          <div>
+            <label class="label">Birthplace</label>
+            <input type="text" name="birthplace"/>
+          </div>
+          <div>
+            <label class="label">Age</label>
+            <input type="text" name="age"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="label">Civil Status</label>
+            <select name="civil_status">
+              <option value="">Select</option>
+              <option>Single</option>
+              <option>Married</option>
+              <option>Widowed</option>
+              <option>Separated</option>
+            </select>
+          </div>
+          <div>
+            <label class="label">Citizenship</label>
+            <input type="text" name="citizenship" placeholder="Filipino"/>
+          </div>
+          <div>
+            <label class="label">Religion</label>
+            <input type="text" name="religion"/>
+          </div>
+        </div>
+        <div>
+          <label class="label">Educational Attainment</label>
+          <div class="flex flex-wrap gap-6 mt-2">
+            <label class="cb-row"><input type="radio" name="education" value="Elementary"/> Elementary</label>
+            <label class="cb-row"><input type="radio" name="education" value="High School (Jr)"/> High School (Jr)</label>
+            <label class="cb-row"><input type="radio" name="education" value="High School (Sr)"/> High School (Sr)</label>
+            <label class="cb-row"><input type="radio" name="education" value="College"/> College</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beneficiary -->
+    <div>
+      <div style="background:#154212;color:white;padding:8px 14px;border-radius:6px;font-weight:700;font-size:14px;margin-bottom:16px;">
+        Beneficiary
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:30px;">#</th>
+              <th>Complete Name</th>
+              <th>Birthday (MMDDYY)</th>
+              <th>Relationship</th>
+              <th>Age</th>
+              <th>Civil Status</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+                        <tr>
+              <td style="color:#42493e;font-weight:600;">1.</td>
+              <td><input type="text" name="ben_name_1"/></td>
+              <td><input type="text" name="ben_bday_1" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_1"/></td>
+              <td><input type="text" name="ben_age_1" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_1"/></td>
+              <td><input type="text" name="ben_gender_1"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">2.</td>
+              <td><input type="text" name="ben_name_2"/></td>
+              <td><input type="text" name="ben_bday_2" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_2"/></td>
+              <td><input type="text" name="ben_age_2" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_2"/></td>
+              <td><input type="text" name="ben_gender_2"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">3.</td>
+              <td><input type="text" name="ben_name_3"/></td>
+              <td><input type="text" name="ben_bday_3" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_3"/></td>
+              <td><input type="text" name="ben_age_3" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_3"/></td>
+              <td><input type="text" name="ben_gender_3"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">4.</td>
+              <td><input type="text" name="ben_name_4"/></td>
+              <td><input type="text" name="ben_bday_4" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_4"/></td>
+              <td><input type="text" name="ben_age_4" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_4"/></td>
+              <td><input type="text" name="ben_gender_4"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">5.</td>
+              <td><input type="text" name="ben_name_5"/></td>
+              <td><input type="text" name="ben_bday_5" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_5"/></td>
+              <td><input type="text" name="ben_age_5" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_5"/></td>
+              <td><input type="text" name="ben_gender_5"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">6.</td>
+              <td><input type="text" name="ben_name_6"/></td>
+              <td><input type="text" name="ben_bday_6" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_6"/></td>
+              <td><input type="text" name="ben_age_6" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_6"/></td>
+              <td><input type="text" name="ben_gender_6"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">7.</td>
+              <td><input type="text" name="ben_name_7"/></td>
+              <td><input type="text" name="ben_bday_7" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_7"/></td>
+              <td><input type="text" name="ben_age_7" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_7"/></td>
+              <td><input type="text" name="ben_gender_7"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">8.</td>
+              <td><input type="text" name="ben_name_8"/></td>
+              <td><input type="text" name="ben_bday_8" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_8"/></td>
+              <td><input type="text" name="ben_age_8" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_8"/></td>
+              <td><input type="text" name="ben_gender_8"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">9.</td>
+              <td><input type="text" name="ben_name_9"/></td>
+              <td><input type="text" name="ben_bday_9" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_9"/></td>
+              <td><input type="text" name="ben_age_9" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_9"/></td>
+              <td><input type="text" name="ben_gender_9"/></td>
+            </tr>
+            <tr>
+              <td style="color:#42493e;font-weight:600;">10.</td>
+              <td><input type="text" name="ben_name_10"/></td>
+              <td><input type="text" name="ben_bday_10" placeholder="MMDDYY"/></td>
+              <td><input type="text" name="ben_rel_10"/></td>
+              <td><input type="text" name="ben_age_10" style="width:50px;"/></td>
+              <td><input type="text" name="ben_civil_10"/></td>
+              <td><input type="text" name="ben_gender_10"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Emergency Contact -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="label">Emergency Contact Name</label>
+        <input type="text" name="emergency_name"/>
+      </div>
+      <div>
+        <label class="label">Emergency Contact Phone</label>
+        <input type="tel" name="emergency_phone"/>
+      </div>
+    </div>
+
+    <!-- Declaration -->
+    <div style="background:#f4f4ee;border:1px solid #c2c9bb;border-radius:8px;padding:20px;">
+      <p style="font-size:13px;margin-bottom:8px;">I hereby certify that all the above information is true and correct to the best of my knowledge.</p>
+      <p style="font-size:13px;">I hereby acknowledge that I have read, understood, and agree to abide by the terms and conditions outlined in this application form.</p>
+    </div>
+
+    <!-- Signature -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+      <div style="border-top:2px solid #1a1c19;padding-top:8px;text-align:center;font-size:12px;">
+        Applicant Signature over Printed Name
+      </div>
+      <div style="border-top:2px solid #1a1c19;padding-top:8px;text-align:center;font-size:12px;">
+        Approved By
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 pt-4 no-print">
+      <button type="submit"
+        style="background:#154212;color:white;padding:14px 32px;border-radius:8px;font-weight:700;font-size:15px;border:none;cursor:pointer;flex:1;"
+        onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+        Submit Application
+      </button>
+      <button type="button" onclick="window.print()"
+        style="background:white;color:#154212;border:2px solid #154212;padding:14px 32px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;flex:1;">
+        Print / Download Form
+      </button>
+    </div>
+
+  </form>
+
+  <!-- Membership Rules Summary -->
+  <div class="mt-16 space-y-8">
+    <div style="border-top:2px solid #154212;padding-top:24px;">
+      <h2 style="font-family:Chivo,sans-serif;font-size:18px;font-weight:800;color:#154212;margin-bottom:16px;">MEMBERSHIP TERMS</h2>
+      <ol class="space-y-4" style="font-size:13px;line-height:1.7;color:#42493e;list-style:decimal;padding-left:20px;">
+        <li><strong>Qualification of Members.</strong> Membership shall be open only to a Filipino Citizen who has resided at least six (6) months continuously in Zamboanga City, of legal age, actively engaged in farming, fishing, home crafts, agricultural, self-employed and/or with employee-employer relationship.</li>
+        <li><strong>Application for Membership.</strong> The applicant must make her application for membership in writing a form provided by the association. It shall be the duty and responsibility of the officers to approve or disapprove the application.</li>
+        <li><strong>Resignation.</strong> A member may resign by tendering a letter for resignation 10 days before the actual date of her resignation so that the officers will have enough time to assess the accountabilities of said member.</li>
+        <li><strong>Termination.</strong> Any member who fails to attend three (3) consecutive organization meetings or violates major policy may be fined, suspended or terminated from membership.</li>
+        <li><strong>Death.</strong> The death of a member shall automatically terminate her membership. The legitimate heirs shall have the same rights of the equities of the deceased.</li>
+      </ol>
+    </div>
+
+    <div style="border-top:2px solid #154212;padding-top:24px;">
+      <h2 style="font-family:Chivo,sans-serif;font-size:18px;font-weight:800;color:#154212;margin-bottom:16px;">ASSOCIATION FEES, DUES AND OTHERS</h2>
+      <ul class="space-y-3" style="font-size:13px;line-height:1.7;color:#42493e;">
+        <li><strong>Membership Fees.</strong> Upon admission, each member is required to pay a membership fee of <strong>Php 50.00</strong>.</li>
+        <li><strong>Annual Dues.</strong> Annual due of <strong>Php 100.00</strong> is required for every member to be paid on the 30th day of April every year.</li>
+        <li><strong>Monthly Dues.</strong> A monthly due of <strong>Php 20.00</strong> is required. Accumulated amount for the year in total of Php 240.00 to be paid on the 30th day of June.</li>
+        <li><strong>Contribution.</strong> The association may gather funds through contributions or donations from both members and non-members, either in cash, labor, or in kind.</li>
+        <li><strong>Savings Fund and Operation.</strong> The association shall establish a member-savings scheme. The accumulated fund shall be deposited in a chosen depositary bank.</li>
+      </ul>
+      <p style="font-size:13px;font-weight:700;margin-top:16px;color:#154212;">Note: All collection fees from the members are non-refundable.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary mt-16" style="background:#253f2e;">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 px-6 md:px-20 py-16 w-full">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+<span style="font-family:Chivo,sans-serif;font-size:16px;font-weight:700;color:white;">ZGIH – Zamboanga Green Innovation Hub</span>
+</div>
+<p style="font-size:13px;color:rgba(255,255,255,0.75);">A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.</p>
+</div>
+<div>
+<h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:16px;">Navigation</h4>
+<ul class="space-y-3">
+<li><a href="index.html" style="color:rgba(255,255,255,0.75);font-size:13px;">Home</a></li>
+<li><a href="members.html" style="color:rgba(255,255,255,0.75);font-size:13px;">Meet the Team</a></li>
+<li><a href="store.html" style="color:rgba(255,255,255,0.75);font-size:13px;">Store</a></li>
+<li><a href="blog.html" style="color:rgba(255,255,255,0.75);font-size:13px;">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:16px;">Contact</h4>
+<address class="not-italic space-y-2" style="font-size:13px;color:rgba(255,255,255,0.75);">
+<p>003 Toreme Drive Lower Cabatangan, Zamboanga City</p>
+<p>zgihub@gmail.com</p>
+<p>09452996695</p>
+</address>
+</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.5);">
+© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement
+</div>
+</footer>
+
+</body>
+</html>
