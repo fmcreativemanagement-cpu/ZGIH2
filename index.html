@@ -138,64 +138,42 @@
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
 <header class="bg-surface/95 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
-  <nav class="relative flex items-center justify-between w-full px-margin-mobile md:px-margin-desktop py-3">
-    <!-- Logo left -->
-    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
-      <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+  <nav class="relative flex items-center w-full px-6 md:px-16 py-3">
+    <!-- Logo LEFT -->
+    <a href="index.html" class="flex items-center gap-2 shrink-0 z-10">
+      <img alt="ZGIH Logo" class="h-9 w-9 object-contain" src="Logo-icon.png"/>
       <div class="hidden lg:flex flex-col leading-tight">
-        <span class="font-bold text-primary text-sm" style="font-family:Chivo,sans-serif;">ZGIH</span>
-        <span class="text-on-surface-variant" style="font-size:10px;font-family:Inter,sans-serif;">Zamboanga Green Innovation Hub</span>
+        <span style="font-family:Chivo,sans-serif;font-size:14px;font-weight:700;color:#154212;">ZGIH</span>
+        <span style="font-family:Inter,sans-serif;font-size:10px;color:#42493e;">Zamboanga Green Innovation Hub</span>
       </div>
-      <span class="font-bold text-primary text-base lg:hidden" style="font-family:Chivo,sans-serif;">ZGIH</span>
+      <span class="lg:hidden font-bold text-primary" style="font-family:Chivo,sans-serif;font-size:15px;">ZGIH</span>
     </a>
-    <!-- Nav absolutely centered -->
-    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
-      <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-0.5" href="index.html">Home</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="members.html">Members</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="store.html">Store</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="achievements.html">Achievements</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="education.html">Learn</a>
+    <!-- NAV CENTER — absolutely positioned so it's truly centered in the bar -->
+    <div class="hidden md:flex items-center gap-6 absolute left-0 right-0 justify-center pointer-events-none">
+      <div class="flex items-center gap-6 pointer-events-auto">
+        <a class="font-bold text-primary border-b-2 border-primary pb-0.5" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="index.html">Home</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="members.html">Members</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="store.html">Store</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="achievements.html">Achievements</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="blog.html">Blog</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:13px;letter-spacing:0.04em;" href="education.html">Learn</a>
+      </div>
     </div>
-    <!-- Contact right -->
-    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 bg-primary text-white px-5 py-2 rounded-full font-label-bold text-label-bold hover:bg-primary/90 transition-colors duration-300">
+    <!-- CONTACT RIGHT -->
+    <a href="mailto:zgihub@gmail.com" class="ml-auto shrink-0 z-10 text-white px-5 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-colors" style="background:#154212;font-family:Inter,sans-serif;">
       Contact Us
     </a>
   </nav>
 </header>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-[90vh] flex items-center overflow-hidden pt-12">
-<div class="absolute inset-0 hero-pattern"></div>
-<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-12 items-center relative z-10">
-<div class="space-y-8">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-label-bold">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                        DRIVING SUSTAINABLE INNOVATION
-                    </div>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-xl">
-                        Growing a <span class="text-secondary italic">greener,</span> smarter Zamboanga
-                    </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-                        Driving sustainable innovation, environmental action, and community empowerment in Zamboanga City and across the Peninsula.
-                    </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="education.html" class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:translate-x-1 transition-transform group">
-                            Explore &amp; Learn
-                            <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-</a>
-<a href="members.html" class="bg-soft-gray border border-outline text-primary px-8 py-4 rounded-lg font-label-bold text-label-bold hover:bg-surface-container transition-colors">
-                            Meet Our Team
-                        </a>
-</div>
-</div>
-<div class="relative hidden md:block">
-<div class="aspect-video rounded-2xl overflow-hidden shadow-2xl relative z-20">
-<img class="w-full h-full object-cover object-center" alt="ZGIH community members at an event" src="images/team-photo.jpg"/>
-</div>
-<div class="absolute top-1/2 -right-4 w-48 h-48 bg-secondary-container/20 rounded-full blur-3xl z-10"></div>
-</div>
-</div>
+<section class="w-full">
+  <img
+    src="images/hero-banner.png"
+    alt="ZGIH – Innovate. Educate. Act. Sustain. Building a greener, cleaner and more sustainable Zamboanga City."
+    class="w-full block"
+    style="width:100%;height:auto;display:block;"
+  />
 </section>
 <!-- Our Impact in Numbers -->
 <section class="py-24 bg-[#f5f3ee]">
