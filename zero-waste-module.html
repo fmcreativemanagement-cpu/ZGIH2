@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zero-Waste Communities Module | ZGIH Learn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: Inter, sans-serif; background: #fafaf4; color: #1a1c19; }
+  .lesson-card { background: white; border: 1px solid #e3e3de; border-radius: 16px; padding: 32px; margin-bottom: 24px; transition: box-shadow 0.2s; }
+  .lesson-card:hover { box-shadow: 0 8px 24px rgba(21,66,18,0.08); }
+  .lesson-num { background: #154212; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: font-weight:700; justify-content: center; font-weight: 700; font-size: 16px; shrink: 0; flex-shrink: 0; }
+  .tag { display: inline-block; background: #e8f5e9; color: #154212; border-radius: 99px; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; }
+  .callout { background: #f0f7ee; border-left: 4px solid #154212; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0; }
+  .callout-warn { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0; }
+  .quiz-option { border: 2px solid #e3e3de; border-radius: 10px; padding: 12px 16px; cursor: pointer; transition: all 0.2s; font-size: 14px; }
+  .quiz-option:hover { border-color: #154212; background: #f0f7ee; }
+  .quiz-option.correct { border-color: #22c55e; background: #f0fdf4; color: #15803d; }
+  .quiz-option.wrong { border-color: #ef4444; background: #fef2f2; color: #dc2626; }
+  .progress-bar { height: 6px; background: #e3e3de; border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #154212; border-radius: 99px; transition: width 0.5s ease; }
+  .step-dot { width: 12px; height: 12px; border-radius: 50%; background: #e3e3de; }
+  .step-dot.active { background: #154212; }
+  .step-dot.done { background: #4ade80; }
+  .bin-card { border-radius: 12px; padding: 16px; text-align: center; font-size: 13px; font-weight: 600; }
+  h1,h2,h3,h4 { font-family: Chivo, sans-serif; }
+  .sidebar-item { padding: 10px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap-10px; gap: 10px; transition: background 0.15s; }
+  .sidebar-item:hover { background: #f0f7ee; }
+  .sidebar-item.active { background: #154212; color: white; }
+  .sidebar-item.completed { color: #22c55e; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50" style="border-bottom:1px solid #e3e3de;">
+  <nav class="relative flex items-center justify-between w-full max-w-6xl mx-auto px-6 py-3">
+    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
+      <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+      <div class="hidden lg:flex flex-col leading-tight">
+        <span style="font-family:Chivo,sans-serif;font-size:15px;font-weight:800;color:#154212;">ZGIH</span>
+        <span style="font-size:10px;color:#42493e;">Zamboanga Green Innovation Hub</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+      <a href="index.html" style="font-size:15px;color:#42493e;font-weight:600;">Home</a>
+      <a href="members.html" style="font-size:15px;color:#42493e;font-weight:600;">Meet the Team</a>
+      <a href="store.html" style="font-size:15px;color:#42493e;font-weight:600;">Store</a>
+      <a href="achievements.html" style="font-size:15px;color:#42493e;font-weight:600;">Achievements</a>
+      <a href="blog.html" style="font-size:15px;color:#42493e;font-weight:600;">Blog</a>
+      <a href="education.html" style="font-size:15px;color:#154212;font-weight:700;border-bottom:2px solid #154212;padding-bottom:2px;">Learn</a>
+    </div>
+    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 text-white px-5 py-2 rounded-full font-bold" style="background:#154212;font-size:14px;">Contact Us</a>
+  </nav>
+</header>
+
+<!-- Module Hero -->
+<div style="background:linear-gradient(135deg,#154212 0%,#2d5a27 60%,#3b6934 100%);color:white;padding:48px 0 0;">
+  <div class="max-w-6xl mx-auto px-6">
+    <a href="education.html" style="color:rgba(255,255,255,0.7);font-size:13px;display:inline-flex;align-items:center;gap:4px;margin-bottom:20px;text-decoration:none;">
+      <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Learn
+    </a>
+    <div style="display:inline-block;background:rgba(255,255,255,0.15);color:#a1d494;border-radius:99px;padding:4px 14px;font-size:12px;font-weight:700;letter-spacing:0.08em;margin-bottom:16px;">MOST POPULAR · ECO-EDUCATION</div>
+    <h1 style="font-family:Chivo,sans-serif;font-size:40px;font-weight:800;margin-bottom:12px;line-height:1.15;">Zero-Waste Communities</h1>
+    <p style="color:rgba(255,255,255,0.8);font-size:16px;max-width:620px;line-height:1.7;margin-bottom:28px;">Learn practical waste segregation and upcycling systems for barangays and schools. Discover how to turn everyday trash into community resources — and help protect Zamboanga's environment.</p>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:32px;">
+      <span style="display:flex;align-items:center;gap:6px;"><span class="material-symbols-outlined" style="font-size:18px;">schedule</span> 6 Lessons · ~45 mins</span>
+      <span style="display:flex;align-items:center;gap:6px;"><span class="material-symbols-outlined" style="font-size:18px;">signal_cellular_alt</span> Beginner–Intermediate</span>
+      <span style="display:flex;align-items:center;gap:6px;"><span class="material-symbols-outlined" style="font-size:18px;">language</span> Filipino & English</span>
+      <span style="display:flex;align-items:center;gap:6px;"><span class="material-symbols-outlined" style="font-size:18px;">quiz</span> Quiz after each lesson</span>
+    </div>
+    <!-- Progress Bar -->
+    <div style="max-width:500px;margin-bottom:-1px;">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:6px;">
+        <span>Your Progress</span><span id="progressText">0 of 6 lessons</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="max-w-6xl mx-auto px-6 py-10 flex gap-8">
+
+  <!-- Sidebar -->
+  <aside style="width:260px;flex-shrink:0;" class="hidden md:block">
+    <div style="background:white;border:1px solid #e3e3de;border-radius:16px;padding:20px;position:sticky;top:80px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:14px;">Module Lessons</p>
+      <div id="sidebar" class="space-y-1">
+        <div class="sidebar-item active" onclick="showLesson(0)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 1. What is Zero-Waste?</div>
+        <div class="sidebar-item" onclick="showLesson(1)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 2. Waste Segregation</div>
+        <div class="sidebar-item" onclick="showLesson(2)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 3. The 9-Bin System</div>
+        <div class="sidebar-item" onclick="showLesson(3)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 4. Upcycling Basics</div>
+        <div class="sidebar-item" onclick="showLesson(4)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 5. Community Action</div>
+        <div class="sidebar-item" onclick="showLesson(5)"><span class="material-symbols-outlined" style="font-size:18px;">circle</span> 6. Final Assessment</div>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid #e3e3de;">
+        <p style="font-size:12px;color:#42493e;">🌿 Powered by ZGIH</p>
+        <p style="font-size:11px;color:#72796e;margin-top:4px;">Zamboanga City's official 9-bin color-coded system (EO KHYM 062-2025)</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content Area -->
+  <main style="flex:1;min-width:0;">
+
+    <!-- LESSON 0 -->
+    <div id="lesson-0" class="lesson-section">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">1</div>
+        <div>
+          <div class="tag">LESSON 1 OF 6</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">What is Zero-Waste?</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:12px;">🌍 Understanding the Zero-Waste Concept</h3>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;">
+          <strong>Zero-waste</strong> is a philosophy and a practical approach that aims to eliminate waste by redesigning how we use resources — so that nothing ends up in a landfill, incinerator, or the ocean.
+        </p>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;">
+          In Zamboanga City, we generate thousands of kilograms of waste every day. Much of it ends up in open dumpsites or our coastal waters — harming marine life, spreading disease, and polluting the air we breathe.
+        </p>
+        <div class="callout">
+          <strong style="color:#154212;">💡 Did you know?</strong><br/>
+          <span style="font-size:14px;color:#42493e;">The Philippines generates about <strong>35,000 metric tons</strong> of solid waste daily. Zamboanga City's coastal communities are among the most affected by improper waste disposal.</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:24px 0 12px;">The 5R Hierarchy</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px;">
+          <div style="background:#f0f7ee;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:6px;">🚫</div>
+            <div style="font-weight:800;color:#154212;font-size:16px;">REFUSE</div>
+            <div style="font-size:12px;color:#42493e;margin-top:4px;">Say no to what you don't need</div>
+          </div>
+          <div style="background:#e8f5e9;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:6px;">📉</div>
+            <div style="font-weight:800;color:#154212;font-size:16px;">REDUCE</div>
+            <div style="font-size:12px;color:#42493e;margin-top:4px;">Use less, buy less</div>
+          </div>
+          <div style="background:#f0f7ee;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:6px;">🔄</div>
+            <div style="font-weight:800;color:#154212;font-size:16px;">REUSE</div>
+            <div style="font-size:12px;color:#42493e;margin-top:4px;">Use items again and again</div>
+          </div>
+          <div style="background:#e8f5e9;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:6px;">♻️</div>
+            <div style="font-weight:800;color:#154212;font-size:16px;">RECYCLE</div>
+            <div style="font-size:12px;color:#42493e;margin-top:4px;">Process into new materials</div>
+          </div>
+          <div style="background:#f0f7ee;border-radius:12px;padding:16px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:6px;">🌱</div>
+            <div style="font-weight:800;color:#154212;font-size:16px;">ROT</div>
+            <div style="font-size:12px;color:#42493e;margin-top:4px;">Compost organic waste</div>
+          </div>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:24px 0 12px;">Why Does It Matter in Zamboanga?</h3>
+        <ul style="font-size:15px;line-height:2;color:#42493e;padding-left:20px;">
+          <li>Protects our <strong>coastal ecosystems</strong> and fishing communities</li>
+          <li>Reduces health risks from open dumping and burning</li>
+          <li>Creates <strong>livelihood opportunities</strong> through upcycling and recycling</li>
+          <li>Helps Zamboanga City comply with RA 9003 (Ecological Solid Waste Management Act)</li>
+          <li>Supports ZGIH's mission of sustainable community development</li>
+        </ul>
+      </div>
+      <!-- Quiz -->
+      <div style="background:#f0f7ee;border-radius:16px;padding:28px;margin-top:24px;">
+        <h3 style="font-weight:800;color:#154212;margin-bottom:6px;">📝 Quick Check — Lesson 1</h3>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">Which of the 5Rs should you practice FIRST before all others?</p>
+        <div id="q0" class="space-y-3">
+          <div class="quiz-option" onclick="checkAnswer(this,'q0',false)">A. Recycle — send everything to the recycling bin</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q0',false)">B. Reduce — buy fewer things</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q0',true)">C. Refuse — don't accept what you don't need</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q0',false)">D. Reuse — keep all old items</div>
+        </div>
+        <div id="q0-result" style="display:none;margin-top:16px;font-size:14px;font-weight:600;"></div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-top:24px;">
+        <button onclick="nextLesson(0)" style="background:#154212;color:white;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">
+          Next Lesson <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- LESSON 1 -->
+    <div id="lesson-1" class="lesson-section" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">2</div>
+        <div>
+          <div class="tag">LESSON 2 OF 6</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">Waste Segregation</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:12px;">🗑️ Why Segregate at Source?</h3>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;">
+          Waste segregation means <strong>separating your waste into categories before it leaves your home</strong>. This is the single most important habit in a zero-waste community.
+        </p>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;">
+          When waste is mixed together, recyclable materials become contaminated and must go to the landfill. When waste is segregated, each type can go to the right destination — composting, recycling, or proper disposal.
+        </p>
+        <div class="callout-warn">
+          <strong>⚠️ Common Mistake:</strong> Many households throw everything into one bag. This contaminates compostable materials with chemicals and makes recyclables unsaleable.
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:24px 0 12px;">The 3 Basic Categories</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;">
+          <div style="background:#f0fdf4;border:2px solid #22c55e;border-radius:14px;padding:20px;">
+            <div style="font-size:32px;margin-bottom:8px;">🍌</div>
+            <h4 style="font-weight:800;color:#15803d;margin-bottom:8px;">BIODEGRADABLE</h4>
+            <p style="font-size:13px;color:#42493e;line-height:1.6;">Food scraps, fruit peels, leaves, paper, garden waste. These can be composted into organic fertilizer.</p>
+          </div>
+          <div style="background:#eff6ff;border:2px solid #3b82f6;border-radius:14px;padding:20px;">
+            <div style="font-size:32px;margin-bottom:8px;">🥤</div>
+            <h4 style="font-weight:800;color:#1d4ed8;margin-bottom:8px;">NON-BIODEGRADABLE</h4>
+            <p style="font-size:13px;color:#42493e;line-height:1.6;">Plastics, metals, glass, rubber. These take hundreds of years to break down but many can be recycled or upcycled.</p>
+          </div>
+          <div style="background:#fff1f2;border:2px solid #f43f5e;border-radius:14px;padding:20px;">
+            <div style="font-size:32px;margin-bottom:8px;">☠️</div>
+            <h4 style="font-weight:800;color:#be123c;margin-bottom:8px;">HAZARDOUS / SPECIAL</h4>
+            <p style="font-size:13px;color:#42493e;line-height:1.6;">Batteries, paint, medicine, syringes, chemicals. These require special handling and must NEVER go in regular bins.</p>
+          </div>
+        </div>
+        <div class="callout">
+          <strong style="color:#154212;">🇵🇭 Philippine Law:</strong> Under <strong>RA 9003</strong>, all LGUs are required to implement a solid waste management program including mandatory waste segregation. Zamboanga City enforces this through Executive Order KHYM 062-2025.
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:24px 0 12px;">Practical Segregation Tips</h3>
+        <ul style="font-size:15px;line-height:2;color:#42493e;padding-left:20px;">
+          <li>Place <strong>at least 2 bins</strong> in your kitchen — one for biodegradable, one for recyclables</li>
+          <li>Rinse recyclables before placing them in the bin to avoid pests and odors</li>
+          <li>Keep a small sealed container for hazardous materials until collection day</li>
+          <li>Label your bins clearly — especially for children and household helpers</li>
+          <li>Never mix wet and dry waste</li>
+        </ul>
+      </div>
+      <div style="background:#f0f7ee;border-radius:16px;padding:28px;margin-top:24px;">
+        <h3 style="font-weight:800;color:#154212;margin-bottom:6px;">📝 Quick Check — Lesson 2</h3>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">Where should used batteries and old medicine be disposed of?</p>
+        <div id="q1" class="space-y-3">
+          <div class="quiz-option" onclick="checkAnswer(this,'q1',false)">A. In the biodegradable bin</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q1',false)">B. In the regular trash with other non-biodegradables</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q1',true)">C. In a special hazardous waste container for proper disposal</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q1',false)">D. In the compost pile</div>
+        </div>
+        <div id="q1-result" style="display:none;margin-top:16px;font-size:14px;font-weight:600;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button onclick="prevLesson(1)" style="background:white;color:#154212;border:2px solid #154212;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;">← Previous</button>
+        <button onclick="nextLesson(1)" style="background:#154212;color:white;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">Next Lesson <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </div>
+
+    <!-- LESSON 2 -->
+    <div id="lesson-2" class="lesson-section" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">3</div>
+        <div>
+          <div class="tag">LESSON 3 OF 6</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">The 9-Bin Color-Coded System</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:12px;">🟩 Zamboanga City's Official System</h3>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:20px;">
+          Under <strong>Executive Order KHYM 062-2025</strong>, Zamboanga City adopted a 9-bin color-coded waste segregation system. Each color represents a specific waste type. Knowing these colors is essential for every household and barangay.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:24px;">
+          <div class="bin-card" style="background:#d4edda;border:2px solid #28a745;">🟢<br/><strong style="color:#155724;">GREEN</strong><br/><span style="font-size:11px;color:#155724;">Biodegradable<br/>Food scraps, leaves, organic</span></div>
+          <div class="bin-card" style="background:#cce5ff;border:2px solid #004085;">🔵<br/><strong style="color:#004085;">BLUE</strong><br/><span style="font-size:11px;color:#004085;">Recyclable Paper<br/>Cardboard, newspapers, books</span></div>
+          <div class="bin-card" style="background:#fff3cd;border:2px solid #856404;">🟡<br/><strong style="color:#856404;">YELLOW</strong><br/><span style="font-size:11px;color:#856404;">Recyclable Plastic<br/>Bottles, sachets, containers</span></div>
+          <div class="bin-card" style="background:#f8d7da;border:2px solid #721c24;">🔴<br/><strong style="color:#721c24;">RED</strong><br/><span style="font-size:11px;color:#721c24;">Hazardous Waste<br/>Batteries, chemicals, paint</span></div>
+          <div class="bin-card" style="background:#e2e3e5;border:2px solid #383d41;">⚫<br/><strong style="color:#383d41;">BLACK</strong><br/><span style="font-size:11px;color:#383d41;">Residual Waste<br/>Non-recyclable, soiled items</span></div>
+          <div class="bin-card" style="background:#fce4ec;border:2px solid #880e4f;">🩷<br/><strong style="color:#880e4f;">PINK</strong><br/><span style="font-size:11px;color:#880e4f;">Sanitary / Biomedical<br/>Diapers, masks, sanitary pads</span></div>
+          <div class="bin-card" style="background:#fff9c4;border:2px solid #f9a825;">🟠<br/><strong style="color:#e65100;">ORANGE</strong><br/><span style="font-size:11px;color:#e65100;">Recyclable Metal<br/>Cans, scrap metal, foil</span></div>
+          <div class="bin-card" style="background:#e8eaf6;border:2px solid #283593;">🔷<br/><strong style="color:#283593;">VIOLET</strong><br/><span style="font-size:11px;color:#283593;">Recyclable Glass<br/>Bottles, jars, mirrors</span></div>
+          <div class="bin-card" style="background:#f3e5f5;border:2px solid #6a1b9a;">🟣<br/><strong style="color:#6a1b9a;">PURPLE</strong><br/><span style="font-size:11px;color:#6a1b9a;">E-Waste<br/>Old phones, wires, appliances</span></div>
+        </div>
+        <div class="callout">
+          <strong style="color:#154212;">📌 Memory Tip:</strong> Think of the bins by purpose — <span style="color:#28a745;font-weight:700;">GREEN for nature</span>, <span style="color:#004085;font-weight:700;">BLUE for paper</span>, <span style="color:#856404;font-weight:700;">YELLOW for plastic</span>, <span style="color:#721c24;font-weight:700;">RED for danger</span>, <span style="color:#383d41;font-weight:700;">BLACK for the rest</span>.
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:24px 0 12px;">Common Sorting Mistakes</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:#fff1f2;border-radius:10px;padding:14px;">
+            <p style="font-weight:700;color:#be123c;font-size:13px;margin-bottom:6px;">❌ Wrong</p>
+            <p style="font-size:13px;color:#42493e;">Placing styrofoam in the yellow (plastic) bin</p>
+          </div>
+          <div style="background:#f0fdf4;border-radius:10px;padding:14px;">
+            <p style="font-weight:700;color:#15803d;font-size:13px;margin-bottom:6px;">✅ Right</p>
+            <p style="font-size:13px;color:#42493e;">Styrofoam goes in the black (residual) bin — it is not recyclable</p>
+          </div>
+          <div style="background:#fff1f2;border-radius:10px;padding:14px;">
+            <p style="font-weight:700;color:#be123c;font-size:13px;margin-bottom:6px;">❌ Wrong</p>
+            <p style="font-size:13px;color:#42493e;">Putting soiled food containers in the yellow bin</p>
+          </div>
+          <div style="background:#f0fdf4;border-radius:10px;padding:14px;">
+            <p style="font-weight:700;color:#15803d;font-size:13px;margin-bottom:6px;">✅ Right</p>
+            <p style="font-size:13px;color:#42493e;">Rinse the container first, then place in yellow bin</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#f0f7ee;border-radius:16px;padding:28px;margin-top:24px;">
+        <h3 style="font-weight:800;color:#154212;margin-bottom:6px;">📝 Quick Check — Lesson 3</h3>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">Which bin should you use for an old broken smartphone?</p>
+        <div id="q2" class="space-y-3">
+          <div class="quiz-option" onclick="checkAnswer(this,'q2',false)">A. Black bin (residual)</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q2',false)">B. Red bin (hazardous)</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q2',true)">C. Purple bin (e-waste)</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q2',false)">D. Yellow bin (plastic)</div>
+        </div>
+        <div id="q2-result" style="display:none;margin-top:16px;font-size:14px;font-weight:600;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button onclick="prevLesson(2)" style="background:white;color:#154212;border:2px solid #154212;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;">← Previous</button>
+        <button onclick="nextLesson(2)" style="background:#154212;color:white;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">Next Lesson <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </div>
+
+    <!-- LESSON 3 -->
+    <div id="lesson-3" class="lesson-section" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">4</div>
+        <div>
+          <div class="tag">LESSON 4 OF 6</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">Upcycling Basics</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:12px;">♻️ From Trash to Treasure</h3>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;"><strong>Upcycling</strong> is the process of transforming waste or useless materials into new products of better quality or environmental value. Unlike recycling (which breaks materials down), upcycling <em>elevates</em> the item into something more useful or beautiful.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;">
+          <div style="background:#f0f7ee;border-radius:12px;padding:18px;">
+            <h4 style="color:#154212;font-weight:700;margin-bottom:8px;">♻️ Recycling</h4>
+            <p style="font-size:13px;color:#42493e;line-height:1.6;">Breaking down material into raw form (melting plastic, pulping paper) then manufacturing new products. Requires industrial processing.</p>
+          </div>
+          <div style="background:#e8f5e9;border-radius:12px;padding:18px;border:2px solid #4ade80;">
+            <h4 style="color:#154212;font-weight:700;margin-bottom:8px;">⬆️ Upcycling</h4>
+            <p style="font-size:13px;color:#42493e;line-height:1.6;">Creating something new and valuable directly from waste without breaking it down. Can be done at home or in the community. <strong>Higher value output!</strong></p>
+          </div>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:20px 0 14px;">ZGIH Upcycling Projects You Can Try</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:24px;">
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">🧴</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Plastic Bottle Planters</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Cut plastic bottles in half. Fill with soil. Grow herbs, vegetables, or flowers. String them together as a vertical garden.</p>
+          </div>
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">👜</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Woven Plastic Bags</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Cut plastic sachets and candy wrappers into strips. Weave into durable, colorful bags, mats, or baskets — a ZGIH signature product!</p>
+          </div>
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">🕯️</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Tin Can Lanterns</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Punch patterns into tin cans. Insert a candle or LED light. Beautiful decorative lanterns from food cans!</p>
+          </div>
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">📦</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Cardboard Furniture</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Layer and glue corrugated cardboard to make sturdy stools, shelves, or storage boxes. Lightweight and surprisingly strong!</p>
+          </div>
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">🛞</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Tire Garden Pots</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Old tires painted in bright colors become durable outdoor planters. Stack them as raised garden beds.</p>
+          </div>
+          <div style="border:1px solid #e3e3de;border-radius:12px;padding:16px;">
+            <div style="font-size:28px;margin-bottom:8px;">🪡</div>
+            <h4 style="font-weight:700;color:#154212;font-size:14px;margin-bottom:6px;">Fabric Scrap Rugs</h4>
+            <p style="font-size:12px;color:#42493e;line-height:1.5;">Braid or weave old clothing scraps into colorful floor mats and rugs. Zero fabric waste!</p>
+          </div>
+        </div>
+        <div class="callout">
+          <strong style="color:#154212;">💼 Livelihood Opportunity:</strong> ZGIH members sell upcycled products through the <a href="store.html" style="color:#154212;font-weight:700;">ZGIH Repurpose Store</a>. You can turn your upcycling skills into income while helping the environment!
+        </div>
+      </div>
+      <div style="background:#f0f7ee;border-radius:16px;padding:28px;margin-top:24px;">
+        <h3 style="font-weight:800;color:#154212;margin-bottom:6px;">📝 Quick Check — Lesson 4</h3>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">What is the main difference between upcycling and recycling?</p>
+        <div id="q3" class="space-y-3">
+          <div class="quiz-option" onclick="checkAnswer(this,'q3',false)">A. Upcycling uses industrial machines while recycling is done by hand</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q3',true)">B. Upcycling creates a new product directly from waste without breaking the material down</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q3',false)">C. Recycling is better for the environment than upcycling</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q3',false)">D. They are the same thing with different names</div>
+        </div>
+        <div id="q3-result" style="display:none;margin-top:16px;font-size:14px;font-weight:600;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button onclick="prevLesson(3)" style="background:white;color:#154212;border:2px solid #154212;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;">← Previous</button>
+        <button onclick="nextLesson(3)" style="background:#154212;color:white;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">Next Lesson <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </div>
+
+    <!-- LESSON 4 -->
+    <div id="lesson-4" class="lesson-section" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">5</div>
+        <div>
+          <div class="tag">LESSON 5 OF 6</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">Community Action</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:12px;">🤝 Zero-Waste Starts with the Community</h3>
+        <p style="font-size:15px;line-height:1.8;color:#42493e;margin-bottom:16px;">Individual habits matter — but real zero-waste change happens when whole communities act together. A barangay that practices proper segregation, composting, and upcycling creates a cleaner, healthier, and more prosperous neighborhood for everyone.</p>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:20px 0 12px;">How to Start a Zero-Waste Barangay Program</h3>
+        <div class="space-y-4" style="margin-bottom:24px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="background:#154212;color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;">1</div>
+            <div><h4 style="font-weight:700;color:#154212;font-size:15px;margin-bottom:4px;">Organize a Barangay Eco-Committee</h4><p style="font-size:14px;color:#42493e;line-height:1.6;">Form a small team of motivated residents — ideally including youth, women, and senior members. This committee leads waste programs and monitors compliance.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="background:#154212;color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;">2</div>
+            <div><h4 style="font-weight:700;color:#154212;font-size:15px;margin-bottom:4px;">Set Up Communal Segregation Points</h4><p style="font-size:14px;color:#42493e;line-height:1.6;">Place color-coded bins in high-traffic areas — sari-sari stores, waiting sheds, school entrances. Label them clearly with pictures for non-readers.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="background:#154212;color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;">3</div>
+            <div><h4 style="font-weight:700;color:#154212;font-size:15px;margin-bottom:4px;">Start a Community Compost Program</h4><p style="font-size:14px;color:#42493e;line-height:1.6;">Collect biodegradable waste and compost it in a shared area. The resulting fertilizer can be used in community gardens or sold to local farmers.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="background:#154212;color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;">4</div>
+            <div><h4 style="font-weight:700;color:#154212;font-size:15px;margin-bottom:4px;">Run Regular Clean-Up Drives</h4><p style="font-size:14px;color:#42493e;line-height:1.6;">Organize monthly or quarterly clean-up days involving all households. Document and report your collected waste — ZGIH can help you track your impact!</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="background:#154212;color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;">5</div>
+            <div><h4 style="font-weight:700;color:#154212;font-size:15px;margin-bottom:4px;">Partner with ZGIH</h4><p style="font-size:14px;color:#42493e;line-height:1.6;">ZGIH provides training, materials, and market access for barangays that want to start upcycling programs. Contact us to learn how to get started!</p></div>
+          </div>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#154212;margin:20px 0 12px;">ZGIH's Role in Your Barangay</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+          <div style="background:#f0f7ee;border-radius:12px;padding:14px;text-align:center;"><div style="font-size:24px;margin-bottom:6px;">🎓</div><p style="font-size:13px;font-weight:600;color:#154212;">Free Eco-Crafting Workshops</p></div>
+          <div style="background:#f0f7ee;border-radius:12px;padding:14px;text-align:center;"><div style="font-size:24px;margin-bottom:6px;">🛒</div><p style="font-size:13px;font-weight:600;color:#154212;">Market Access for Products</p></div>
+          <div style="background:#f0f7ee;border-radius:12px;padding:14px;text-align:center;"><div style="font-size:24px;margin-bottom:6px;">📋</div><p style="font-size:13px;font-weight:600;color:#154212;">Waste Audit Assistance</p></div>
+          <div style="background:#f0f7ee;border-radius:12px;padding:14px;text-align:center;"><div style="font-size:24px;margin-bottom:6px;">🤝</div><p style="font-size:13px;font-weight:600;color:#154212;">LGU Partnership Support</p></div>
+        </div>
+      </div>
+      <div style="background:#f0f7ee;border-radius:16px;padding:28px;margin-top:24px;">
+        <h3 style="font-weight:800;color:#154212;margin-bottom:6px;">📝 Quick Check — Lesson 5</h3>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">What is the FIRST step to starting a zero-waste barangay program?</p>
+        <div id="q4" class="space-y-3">
+          <div class="quiz-option" onclick="checkAnswer(this,'q4',false)">A. Buy expensive recycling equipment</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q4',true)">B. Organize a Barangay Eco-Committee of motivated residents</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q4',false)">C. Wait for the city government to provide bins</div>
+          <div class="quiz-option" onclick="checkAnswer(this,'q4',false)">D. Build a composting facility first</div>
+        </div>
+        <div id="q4-result" style="display:none;margin-top:16px;font-size:14px;font-weight:600;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button onclick="prevLesson(4)" style="background:white;color:#154212;border:2px solid #154212;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;">← Previous</button>
+        <button onclick="nextLesson(4)" style="background:#154212;color:white;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">Final Assessment <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </div>
+
+    <!-- LESSON 5 — Final Assessment -->
+    <div id="lesson-5" class="lesson-section" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div class="lesson-num">6</div>
+        <div>
+          <div class="tag">LESSON 6 OF 6 · FINAL ASSESSMENT</div>
+          <h2 style="font-size:28px;font-weight:800;color:#154212;margin-top:6px;">Final Assessment</h2>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 style="font-size:20px;font-weight:700;color:#154212;margin-bottom:8px;">🏆 Test Your Knowledge</h3>
+        <p style="font-size:15px;color:#42493e;margin-bottom:24px;">Answer all 5 questions to complete the Zero-Waste Communities module. You need at least 4/5 to pass!</p>
+        <!-- Q1 -->
+        <div style="margin-bottom:24px;padding:20px;background:#fafaf4;border-radius:12px;">
+          <p style="font-weight:700;font-size:14px;color:#1a1c19;margin-bottom:14px;">1. Which law mandates solid waste management in the Philippines?</p>
+          <div id="fq0" class="space-y-2">
+            <div class="quiz-option" onclick="checkAnswer(this,'fq0',false)" style="font-size:13px;">A. RA 7160 — Local Government Code</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq0',true)" style="font-size:13px;">B. RA 9003 — Ecological Solid Waste Management Act</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq0',false)" style="font-size:13px;">C. RA 6969 — Toxic Substances Act</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq0',false)" style="font-size:13px;">D. RA 8749 — Clean Air Act</div>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div style="margin-bottom:24px;padding:20px;background:#fafaf4;border-radius:12px;">
+          <p style="font-weight:700;font-size:14px;color:#1a1c19;margin-bottom:14px;">2. What color bin is used for recyclable glass in Zamboanga City's 9-bin system?</p>
+          <div id="fq1" class="space-y-2">
+            <div class="quiz-option" onclick="checkAnswer(this,'fq1',false)" style="font-size:13px;">A. Blue</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq1',false)" style="font-size:13px;">B. Yellow</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq1',true)" style="font-size:13px;">C. Violet</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq1',false)" style="font-size:13px;">D. Orange</div>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div style="margin-bottom:24px;padding:20px;background:#fafaf4;border-radius:12px;">
+          <p style="font-weight:700;font-size:14px;color:#1a1c19;margin-bottom:14px;">3. You have leftover rice and fruit peels. Which bin do they go into?</p>
+          <div id="fq2" class="space-y-2">
+            <div class="quiz-option" onclick="checkAnswer(this,'fq2',true)" style="font-size:13px;">A. Green (Biodegradable)</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq2',false)" style="font-size:13px;">B. Black (Residual)</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq2',false)" style="font-size:13px;">C. Yellow (Plastic)</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq2',false)" style="font-size:13px;">D. Red (Hazardous)</div>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div style="margin-bottom:24px;padding:20px;background:#fafaf4;border-radius:12px;">
+          <p style="font-weight:700;font-size:14px;color:#1a1c19;margin-bottom:14px;">4. ZGIH members weave old plastic sachets into bags. This practice is called:</p>
+          <div id="fq3" class="space-y-2">
+            <div class="quiz-option" onclick="checkAnswer(this,'fq3',false)" style="font-size:13px;">A. Recycling</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq3',false)" style="font-size:13px;">B. Composting</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq3',true)" style="font-size:13px;">C. Upcycling</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq3',false)" style="font-size:13px;">D. Landfilling</div>
+          </div>
+        </div>
+        <!-- Q5 -->
+        <div style="margin-bottom:24px;padding:20px;background:#fafaf4;border-radius:12px;">
+          <p style="font-weight:700;font-size:14px;color:#1a1c19;margin-bottom:14px;">5. What does "zero-waste" mean?</p>
+          <div id="fq4" class="space-y-2">
+            <div class="quiz-option" onclick="checkAnswer(this,'fq4',false)" style="font-size:13px;">A. Producing absolutely no waste at all, ever</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq4',false)" style="font-size:13px;">B. Only using items made of recycled materials</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq4',true)" style="font-size:13px;">C. A philosophy aimed at eliminating waste by redesigning resource use so nothing goes to a landfill</div>
+            <div class="quiz-option" onclick="checkAnswer(this,'fq4',false)" style="font-size:13px;">D. Burning all waste to reduce its volume</div>
+          </div>
+        </div>
+        <button onclick="submitFinal()" id="submitBtn" style="background:#154212;color:white;padding:14px 36px;border-radius:10px;font-weight:700;font-size:16px;border:none;cursor:pointer;width:100%;margin-top:8px;">
+          Submit Assessment 🏆
+        </button>
+        <div id="finalResult" style="display:none;margin-top:24px;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:24px;">
+        <button onclick="prevLesson(5)" style="background:white;color:#154212;border:2px solid #154212;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;">← Previous</button>
+        <a href="education.html" style="background:#42493e;color:white;padding:14px 24px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Back to Learn <span class="material-symbols-outlined" style="font-size:18px;">school</span></a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer style="background:#253f2e;color:white;margin-top:60px;">
+  <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <img src="Logo-icon.png" alt="ZGIH" style="height:36px;width:36px;object-fit:contain;"/>
+        <span style="font-family:Chivo,sans-serif;font-weight:700;font-size:14px;">ZGIH – Zamboanga Green Innovation Hub</span>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Building a greener, cleaner, and more sustainable Zamboanga City.</p>
+    </div>
+    <div>
+      <h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;">Navigation</h4>
+      <ul style="list-style:none;padding:0;space-y:8px;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="education.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Learn</a></li>
+        <li style="margin-bottom:8px;"><a href="store.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Store</a></li>
+        <li><a href="members.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Meet the Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;">Contact</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;">zgihub@gmail.com<br/>09452996695<br/>003 Toreme Drive, Lower Cabatangan, Zamboanga City</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.4);">
+    © 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement
+  </div>
+</footer>
+
+<script>
+let completedLessons = new Set();
+let quizAnswered = {};
+const totalLessons = 6;
+
+function showLesson(index) {
+  document.querySelectorAll('.lesson-section').forEach(el => el.style.display = 'none');
+  document.getElementById('lesson-' + index).style.display = 'block';
+  document.querySelectorAll('#sidebar .sidebar-item').forEach((el, i) => {
+    el.classList.remove('active');
+    if (completedLessons.has(i)) el.classList.add('completed');
+    else el.classList.remove('completed');
+  });
+  document.querySelectorAll('#sidebar .sidebar-item')[index].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function nextLesson(current) {
+  completedLessons.add(current);
+  updateProgress();
+  showLesson(current + 1);
+}
+
+function prevLesson(current) {
+  showLesson(current - 1);
+}
+
+function updateProgress() {
+  const pct = Math.round((completedLessons.size / totalLessons) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = completedLessons.size + ' of ' + totalLessons + ' lessons';
+}
+
+function checkAnswer(el, qid, isCorrect) {
+  if (quizAnswered[qid]) return;
+  quizAnswered[qid] = true;
+  const options = document.querySelectorAll('#' + qid + ' .quiz-option');
+  options.forEach(o => o.style.pointerEvents = 'none');
+  if (isCorrect) {
+    el.classList.add('correct');
+    el.innerHTML += ' ✅';
+    showResult(qid, '✅ Correct! Well done.', '#15803d');
+  } else {
+    el.classList.add('wrong');
+    el.innerHTML += ' ❌';
+    options.forEach(o => { if (o.onclick.toString().includes('true')) { o.classList.add('correct'); o.innerHTML += ' ✅'; } });
+    showResult(qid, '❌ Not quite — the correct answer is highlighted above.', '#dc2626');
+  }
+}
+
+function showResult(qid, msg, color) {
+  const r = document.getElementById(qid + '-result');
+  if (r) { r.style.display = 'block'; r.style.color = color; r.textContent = msg; }
+}
+
+// Final assessment
+const finalAnswers = { fq0: false, fq1: false, fq2: false, fq3: false, fq4: false };
+
+function submitFinal() {
+  let score = 0;
+  ['fq0','fq1','fq2','fq3','fq4'].forEach(qid => {
+    if (quizAnswered[qid]) {
+      const correct = document.querySelector('#' + qid + ' .quiz-option.correct');
+      if (correct) score++;
+    }
+  });
+  // Force all unanswered to highlight correct
+  ['fq0','fq1','fq2','fq3','fq4'].forEach(qid => {
+    if (!quizAnswered[qid]) {
+      document.querySelectorAll('#' + qid + ' .quiz-option').forEach(o => {
+        o.style.pointerEvents = 'none';
+        if (o.onclick.toString().includes(',true)')) o.classList.add('correct');
+      });
+    }
+  });
+
+  const result = document.getElementById('finalResult');
+  result.style.display = 'block';
+  const passed = score >= 4;
+  result.innerHTML = passed
+    ? `<div style="background:#f0fdf4;border:2px solid #22c55e;border-radius:14px;padding:28px;text-align:center;">
+        <div style="font-size:48px;margin-bottom:8px;">🎉</div>
+        <h3 style="font-family:Chivo,sans-serif;font-size:24px;font-weight:800;color:#15803d;margin-bottom:8px;">Congratulations!</h3>
+        <p style="font-size:16px;color:#42493e;margin-bottom:4px;">You scored <strong>${score}/5</strong> — Module Completed!</p>
+        <p style="font-size:14px;color:#42493e;margin-bottom:20px;">You are now a certified Zero-Waste Community Champion. 🌿</p>
+        <a href="education.html" style="background:#154212;color:white;padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">Explore More Modules</a>
+      </div>`
+    : `<div style="background:#fff1f2;border:2px solid #f43f5e;border-radius:14px;padding:28px;text-align:center;">
+        <div style="font-size:48px;margin-bottom:8px;">💪</div>
+        <h3 style="font-family:Chivo,sans-serif;font-size:22px;font-weight:800;color:#be123c;margin-bottom:8px;">Keep Trying!</h3>
+        <p style="font-size:15px;color:#42493e;margin-bottom:16px;">You scored <strong>${score}/5</strong>. You need at least 4 to pass. Review the lessons and try again!</p>
+        <button onclick="location.reload()" style="background:#be123c;color:white;padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;border:none;cursor:pointer;">Retry Module</button>
+      </div>`;
+
+  completedLessons.add(5);
+  updateProgress();
+  document.getElementById('submitBtn').style.display = 'none';
+}
+</script>
+</body>
+</html>
