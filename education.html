@@ -214,16 +214,18 @@
 <div class="bento-grid">
 <!-- Feature Card 1 -->
 <div class="bento-card col-span-12 md:col-span-8 flex flex-col md:flex-row gap-8 items-center overflow-hidden">
-<div class="w-full md:w-1/2">
+<div class="w-full md:w-1/2" style="position:relative;z-index:10;">
 <span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-bold text-[12px] mb-4">MOST POPULAR</span>
 <h3 class="font-headline-md text-headline-md text-primary mb-4">Zero-Waste Communities</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6">Learn practical waste segregation and upcycling systems for barangays and schools. This module covers the lifecycle of materials and how to turn trash into community resources.</p>
-<a href="https://zgih.vercel.app/zero-waste-module.html" class="inline-flex items-center gap-2 font-label-bold text-label-bold text-white px-5 py-2.5 rounded-lg hover:opacity-90 transition-all" style="background:#154212;margin-top:8px;">
-                                BEGIN MODULE <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+<a href="zero-waste-module.html"
+   onclick="window.location.href='zero-waste-module.html'; return false;"
+   style="display:inline-flex;align-items:center;gap:8px;background:#154212;color:white;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;position:relative;z-index:20;cursor:pointer;">
+  BEGIN MODULE <span class="material-symbols-outlined" style="font-size:18px;">chevron_right</span>
 </a>
 </div>
-<div class="w-full md:w-1/2 h-64 md:h-full min-h-[300px]">
-<div class="w-full h-full bg-soft-gray rounded-xl bg-cover bg-center" data-alt="A brightly lit, modern community workshop in Zamboanga where diverse people are learning to upcycle waste into beautiful craft items. The atmosphere is warm and hopeful, with soft morning sunlight streaming through windows, highlighting textures of recycled fabrics and organic materials. The UI aesthetic is reflected in the clean organization and green natural tones throughout the space."></div>
+<div class="w-full md:w-1/2 h-64 md:h-full min-h-[300px]" style="pointer-events:none;">
+<div class="w-full h-full bg-soft-gray rounded-xl bg-cover bg-center" data-alt="A brightly lit, modern community workshop in Zamboanga where diverse people are learning to upcycle waste into beautiful craft items."></div>
 </div>
 </div>
 <!-- Small Card 2 -->
