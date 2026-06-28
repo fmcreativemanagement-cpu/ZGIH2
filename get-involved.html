@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Get Involved | ZGIH – Zamboanga Green Innovation Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: Inter, sans-serif; background: #fafaf4; color: #1a1c19; }
+  h1,h2,h3,h4 { font-family: Chivo, sans-serif; }
+  .card { background: white; border: 1px solid #e3e3de; border-radius: 20px; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
+  .card:hover { box-shadow: 0 12px 40px rgba(21,66,18,0.12); transform: translateY(-4px); }
+  .card-header { padding: 36px 36px 24px; }
+  .card-body { padding: 0 36px 36px; }
+  .icon-box { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #154212; color: white; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: opacity 0.2s; border: none; cursor: pointer; width: 100%; justify-content: center; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: white; color: #154212; border: 2px solid #154212; padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s; width: 100%; justify-content: center; }
+  .btn-outline:hover { background: #f0f7ee; }
+  .benefit-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #42493e; }
+  .divider { height: 1px; background: #e3e3de; margin: 20px 0; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: white; border-radius: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 40px; position: relative; }
+  input, select, textarea { width: 100%; border: 1px solid #c2c9bb; border-radius: 8px; padding: 10px 14px; font-size: 14px; font-family: Inter, sans-serif; margin-top: 4px; outline: none; transition: border-color 0.2s; }
+  input:focus, select:focus, textarea:focus { border-color: #154212; }
+  label { font-size: 13px; font-weight: 700; color: #1a1c19; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50" style="border-bottom:1px solid #e3e3de;">
+  <nav class="relative flex items-center justify-between w-full max-w-6xl mx-auto px-6 py-3">
+    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
+      <img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
+      <div class="hidden lg:flex flex-col leading-tight">
+        <span style="font-family:Chivo,sans-serif;font-size:15px;font-weight:800;color:#154212;">ZGIH</span>
+        <span style="font-size:10px;color:#42493e;">Zamboanga Green Innovation Hub</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+      <a href="index.html" style="font-size:15px;color:#42493e;font-weight:600;">Home</a>
+      <a href="members.html" style="font-size:15px;color:#42493e;font-weight:600;">Meet the Team</a>
+      <a href="store.html" style="font-size:15px;color:#42493e;font-weight:600;">Store</a>
+      <a href="achievements.html" style="font-size:15px;color:#42493e;font-weight:600;">Achievements</a>
+      <a href="blog.html" style="font-size:15px;color:#42493e;font-weight:600;">Blog</a>
+      <a href="education.html" style="font-size:15px;color:#42493e;font-weight:600;">Learn</a>
+      <a href="get-involved.html" style="font-size:15px;color:#154212;font-weight:700;border-bottom:2px solid #154212;padding-bottom:2px;">Get Involved</a>
+    </div>
+    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 text-white px-5 py-2 rounded-full font-bold hover:opacity-90 transition-colors" style="background:#154212;font-size:14px;">Contact Us</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section style="background:linear-gradient(135deg,#154212 0%,#2d5a27 60%,#3b6934 100%);color:white;padding:72px 24px;">
+  <div style="max-width:800px;margin:0 auto;text-align:center;">
+    <div style="display:inline-block;background:rgba(255,255,255,0.15);color:#a1d494;border-radius:99px;padding:4px 16px;font-size:12px;font-weight:700;letter-spacing:0.08em;margin-bottom:20px;">JOIN THE MOVEMENT</div>
+    <h1 style="font-size:48px;font-weight:800;margin-bottom:16px;line-height:1.1;">Get Involved with ZGIH</h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;max-width:600px;margin:0 auto;">Whether you want to volunteer, become a member, partner with us, or donate — every contribution helps build a greener, more sustainable Zamboanga City.</p>
+  </div>
+</section>
+
+<!-- Cards -->
+<section style="max-width:1200px;margin:0 auto;padding:72px 24px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
+
+    <!-- VOLUNTEER -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-box" style="background:#e8f5e9;">
+          <span class="material-symbols-outlined" style="color:#154212;font-size:32px;font-variation-settings:'FILL' 1;">volunteer_activism</span>
+        </div>
+        <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Volunteer</h3>
+        <p style="font-size:14px;color:#42493e;line-height:1.7;">Give your time and skills to support ZGIH's programs. From clean-up drives to eco-workshops, there's a role for everyone.</p>
+      </div>
+      <div class="card-body">
+        <div class="divider"></div>
+        <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">What you'll do</p>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Join community clean-up drives</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Assist in eco-crafting workshops</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Help with environmental campaigns</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Support livelihood programs</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Share skills in education programs</div>
+        <div style="margin-top:24px;">
+          <button class="btn-primary" onclick="openModal('volunteer-modal')">
+            <span class="material-symbols-outlined" style="font-size:18px;">edit_document</span>
+            Apply as Volunteer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORGANIZATION MEMBER -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-box" style="background:#e3f2fd;">
+          <span class="material-symbols-outlined" style="color:#1565c0;font-size:32px;font-variation-settings:'FILL' 1;">groups</span>
+        </div>
+        <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Organization Member</h3>
+        <p style="font-size:14px;color:#42493e;line-height:1.7;">Become an official ZGIH member and be part of the community driving sustainable change in Zamboanga City.</p>
+      </div>
+      <div class="card-body">
+        <div class="divider"></div>
+        <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">Member benefits</p>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Access to livelihood programs</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Free eco-crafting training</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Market access for products</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Voting rights in the organization</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Priority in ZGIH projects</div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+          <a href="membership-form.html" class="btn-primary">
+            <span class="material-symbols-outlined" style="font-size:18px;">assignment</span>
+            Apply for Membership
+          </a>
+          <p style="font-size:12px;color:#72796e;text-align:center;">Membership fee: Php 50.00 · Annual dues: Php 100.00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTNER -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-box" style="background:#fff8e1;">
+          <span class="material-symbols-outlined" style="color:#f57f17;font-size:32px;font-variation-settings:'FILL' 1;">handshake</span>
+        </div>
+        <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Partner with Us</h3>
+        <p style="font-size:14px;color:#42493e;line-height:1.7;">Collaborate with ZGIH as an organization, business, government agency, or academic institution to amplify environmental impact.</p>
+      </div>
+      <div class="card-body">
+        <div class="divider"></div>
+        <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">Partnership types</p>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Government agencies (LGU, DOLE, DENR)</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>NGOs and civil society groups</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Schools and academic institutions</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Businesses and corporations (CSR)</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Community organizations</div>
+        <div style="margin-top:24px;">
+          <button class="btn-primary" onclick="openModal('partner-modal')">
+            <span class="material-symbols-outlined" style="font-size:18px;">send</span>
+            Submit Partnership Inquiry
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONATE -->
+    <div class="card" style="border:2px solid #154212;">
+      <div class="card-header" style="background:linear-gradient(135deg,#154212,#2d5a27);color:white;border-radius:18px 18px 0 0;">
+        <div class="icon-box" style="background:rgba(255,255,255,0.2);">
+          <span class="material-symbols-outlined" style="color:#a1d494;font-size:32px;font-variation-settings:'FILL' 1;">favorite</span>
+        </div>
+        <h3 style="font-size:24px;font-weight:800;color:white;margin-bottom:8px;">Donate</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7;">Your donation directly supports ZGIH's environmental programs, livelihood projects, and community empowerment initiatives.</p>
+      </div>
+      <div class="card-body" style="padding-top:24px;">
+        <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">Your donation supports</p>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Eco-crafting materials for members</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Community clean-up drives</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Environmental education programs</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Livelihood support for members</div>
+        <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Waste diversion projects</div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+          <button class="btn-primary" onclick="openModal('donate-modal')">
+            <span class="material-symbols-outlined" style="font-size:18px;">favorite</span>
+            Donate Now
+          </button>
+          <p style="font-size:12px;color:#72796e;text-align:center;">All donations go directly to ZGIH programs</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section style="background:#f0f7ee;padding:60px 24px;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <h2 style="font-size:30px;font-weight:800;color:#154212;margin-bottom:12px;">Have questions?</h2>
+    <p style="font-size:16px;color:#42493e;line-height:1.7;margin-bottom:28px;">We'd love to hear from you. Reach out to our team and we'll help you find the best way to get involved.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <a href="mailto:zgihub@gmail.com" class="btn-primary" style="width:auto;">
+        <span class="material-symbols-outlined" style="font-size:18px;">mail</span>
+        zgihub@gmail.com
+      </a>
+      <a href="tel:09452996695" class="btn-outline" style="width:auto;">
+        <span class="material-symbols-outlined" style="font-size:18px;">phone</span>
+        09452996695
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER MODAL -->
+<div class="modal-overlay" id="volunteer-modal">
+  <div class="modal">
+    <button onclick="closeModal('volunteer-modal')" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:#42493e;">
+      <span class="material-symbols-outlined" style="font-size:24px;">close</span>
+    </button>
+    <h2 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:6px;">Volunteer Application</h2>
+    <p style="font-size:14px;color:#42493e;margin-bottom:24px;">Fill out this form and our team will reach out within 3–5 business days.</p>
+    <form onsubmit="submitForm(event,'volunteer-modal','Thank you for applying! We will contact you soon.')">
+      <div style="margin-bottom:14px;">
+        <label>Full Name *</label>
+        <input type="text" required placeholder="Juan dela Cruz"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Email Address *</label>
+        <input type="email" required placeholder="juan@email.com"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Contact Number *</label>
+        <input type="tel" required placeholder="09XXXXXXXXX"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Barangay / Address</label>
+        <input type="text" placeholder="Barangay, Zamboanga City"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Area of Interest *</label>
+        <select required>
+          <option value="">Select one</option>
+          <option>Clean-up Drives</option>
+          <option>Eco-Crafting Workshops</option>
+          <option>Environmental Education</option>
+          <option>Community Outreach</option>
+          <option>Social Media / Communications</option>
+          <option>Any / Open to all</option>
+        </select>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Availability</label>
+        <select>
+          <option>Weekdays</option>
+          <option>Weekends</option>
+          <option>Both weekdays and weekends</option>
+          <option>Flexible</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label>Why do you want to volunteer with ZGIH?</label>
+        <textarea rows="3" placeholder="Tell us a bit about yourself and your motivation..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<!-- PARTNER MODAL -->
+<div class="modal-overlay" id="partner-modal">
+  <div class="modal">
+    <button onclick="closeModal('partner-modal')" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:#42493e;">
+      <span class="material-symbols-outlined" style="font-size:24px;">close</span>
+    </button>
+    <h2 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:6px;">Partnership Inquiry</h2>
+    <p style="font-size:14px;color:#42493e;margin-bottom:24px;">Tell us about your organization and how you'd like to collaborate with ZGIH.</p>
+    <form onsubmit="submitForm(event,'partner-modal','Thank you for your inquiry! Our team will get back to you soon.')">
+      <div style="margin-bottom:14px;">
+        <label>Organization Name *</label>
+        <input type="text" required placeholder="Your organization name"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Contact Person *</label>
+        <input type="text" required placeholder="Full name"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Email Address *</label>
+        <input type="email" required placeholder="contact@organization.com"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Contact Number</label>
+        <input type="tel" placeholder="09XXXXXXXXX"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Organization Type *</label>
+        <select required>
+          <option value="">Select one</option>
+          <option>Government Agency (LGU, DOLE, DENR, etc.)</option>
+          <option>NGO / Civil Society</option>
+          <option>Academic / School</option>
+          <option>Business / Corporation</option>
+          <option>Community Organization</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Type of Partnership Proposed *</label>
+        <select required>
+          <option value="">Select one</option>
+          <option>Program Collaboration</option>
+          <option>CSR / Corporate Partnership</option>
+          <option>Research / Academic Partnership</option>
+          <option>Resource / Equipment Sharing</option>
+          <option>Financial Support</option>
+          <option>Open for Discussion</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label>Message / Details</label>
+        <textarea rows="3" placeholder="Describe what you have in mind for a partnership with ZGIH..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Submit Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<!-- DONATE MODAL -->
+<div class="modal-overlay" id="donate-modal">
+  <div class="modal">
+    <button onclick="closeModal('donate-modal')" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:#42493e;">
+      <span class="material-symbols-outlined" style="font-size:24px;">close</span>
+    </button>
+    <h2 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:6px;">Donate to ZGIH</h2>
+    <p style="font-size:14px;color:#42493e;margin-bottom:20px;">Your support makes a real difference. To donate, please reach out to us directly.</p>
+
+    <div style="background:#f0f7ee;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <p style="font-size:13px;font-weight:700;color:#154212;margin-bottom:12px;">How to donate:</p>
+      <div style="font-size:14px;color:#42493e;line-height:2;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="material-symbols-outlined" style="color:#154212;font-size:18px;">mail</span>
+          <span>Email: <strong>zgihub@gmail.com</strong></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="material-symbols-outlined" style="color:#154212;font-size:18px;">phone</span>
+          <span>Call/Text: <strong>09452996695</strong></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="material-symbols-outlined" style="color:#154212;font-size:18px;">location_on</span>
+          <span>Visit: <strong>003 Toreme Drive, Lower Cabatangan, Zamboanga City</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:#154212;margin-bottom:12px;">Or send us your donation details:</p>
+    <form onsubmit="submitForm(event,'donate-modal','Thank you for your generosity! We will contact you with donation details.')">
+      <div style="margin-bottom:14px;">
+        <label>Your Name *</label>
+        <input type="text" required placeholder="Full name"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Email Address *</label>
+        <input type="email" required placeholder="your@email.com"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Contact Number</label>
+        <input type="tel" placeholder="09XXXXXXXXX"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Donation Type</label>
+        <select>
+          <option>Cash Donation</option>
+          <option>In-Kind (Materials, Equipment)</option>
+          <option>Skills / Professional Services</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label>Message (optional)</label>
+        <textarea rows="2" placeholder="Any specific program you'd like your donation to support?"></textarea>
+      </div>
+      <button type="submit" class="btn-primary">
+        <span class="material-symbols-outlined" style="font-size:18px;">favorite</span>
+        Send Donation Intent
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="background:#253f2e;color:white;margin-top:0;">
+  <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <img src="Logo-icon.png" alt="ZGIH" style="height:36px;width:36px;object-fit:contain;"/>
+        <span style="font-family:Chivo,sans-serif;font-weight:700;font-size:14px;">ZGIH – Zamboanga Green Innovation Hub</span>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Building a greener, cleaner, and more sustainable Zamboanga City.</p>
+    </div>
+    <div>
+      <h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;">Navigation</h4>
+      <ul style="list-style:none;padding:0;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="members.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Meet the Team</a></li>
+        <li style="margin-bottom:8px;"><a href="education.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Learn</a></li>
+        <li style="margin-bottom:8px;"><a href="store.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Store</a></li>
+        <li><a href="get-involved.html" style="color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;">Get Involved</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;">Contact</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;">zgihub@gmail.com<br/>09452996695<br/>003 Toreme Drive, Lower Cabatangan, Zamboanga City</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.4);">
+    © 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement
+  </div>
+</footer>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) closeModal(this.id);
+  });
+});
+function submitForm(e, modalId, successMsg) {
+  e.preventDefault();
+  closeModal(modalId);
+  const toast = document.createElement('div');
+  toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#154212;color:white;padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.2);';
+  toast.textContent = successMsg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 4000);
+}
+</script>
+</body>
+</html>
