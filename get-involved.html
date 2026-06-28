@@ -201,14 +201,17 @@
     </button>
     <h2 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:6px;">Volunteer Application</h2>
     <p style="font-size:14px;color:#42493e;margin-bottom:24px;">Fill out this form and our team will reach out within 3–5 business days.</p>
-    <form onsubmit="submitForm(event,'volunteer-modal','Thank you for applying! We will contact you soon.')">
+    <form action="https://formspree.io/f/xpqgrlky" method="POST">
+      <input type="hidden" name="_subject" value="New Volunteer Application — ZGIH"/>
+      <input type="hidden" name="_autoresponse" value="Thank you for applying to volunteer with ZGIH! We have received your application and our team will contact you within 3–5 business days. Together, let us build a greener Zamboanga City! 🌿 — ZGIH Team"/>
+      <input type="hidden" name="_next" value="https://zgih.vercel.app/get-involved.html"/>
       <div style="margin-bottom:14px;">
         <label>Full Name *</label>
         <input type="text" required placeholder="Juan dela Cruz"/>
       </div>
       <div style="margin-bottom:14px;">
         <label>Email Address *</label>
-        <input type="email" required placeholder="juan@email.com"/>
+        <input type="email" required name="email" id="vol-email" placeholder="juan@email.com"/>
       </div>
       <div style="margin-bottom:14px;">
         <label>Contact Number *</label>
@@ -256,7 +259,10 @@
     </button>
     <h2 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:6px;">Partnership Inquiry</h2>
     <p style="font-size:14px;color:#42493e;margin-bottom:24px;">Tell us about your organization and how you'd like to collaborate with ZGIH.</p>
-    <form onsubmit="submitForm(event,'partner-modal','Thank you for your inquiry! Our team will get back to you soon.')">
+    <form action="https://formspree.io/f/xvzjrqdd" method="POST">
+      <input type="hidden" name="_subject" value="New Partnership Inquiry — ZGIH"/>
+      <input type="hidden" name="_autoresponse" value="Thank you for your partnership inquiry with ZGIH! We have received your message and our team will get back to you soon. We look forward to collaborating with you! 🤝 — ZGIH Team"/>
+      <input type="hidden" name="_next" value="https://zgih.vercel.app/get-involved.html"/>
       <div style="margin-bottom:14px;">
         <label>Organization Name *</label>
         <input type="text" required placeholder="Your organization name"/>
@@ -267,7 +273,7 @@
       </div>
       <div style="margin-bottom:14px;">
         <label>Email Address *</label>
-        <input type="email" required placeholder="contact@organization.com"/>
+        <input type="email" required name="email" placeholder="contact@organization.com"/>
       </div>
       <div style="margin-bottom:14px;">
         <label>Contact Number</label>
@@ -334,14 +340,17 @@
     </div>
 
     <p style="font-size:13px;font-weight:700;color:#154212;margin-bottom:12px;">Or send us your donation details:</p>
-    <form onsubmit="submitForm(event,'donate-modal','Thank you for your generosity! We will contact you with donation details.')">
+    <form action="https://formspree.io/f/xwvdbqay" method="POST">
+      <input type="hidden" name="_subject" value="New Donation Intent — ZGIH"/>
+      <input type="hidden" name="_autoresponse" value="Thank you for your generous support of ZGIH! We have received your donation intent and will reach out to you shortly with next steps. Your contribution makes a real difference for Zamboanga City! 💚 — ZGIH Team"/>
+      <input type="hidden" name="_next" value="https://zgih.vercel.app/get-involved.html"/>
       <div style="margin-bottom:14px;">
         <label>Your Name *</label>
         <input type="text" required placeholder="Full name"/>
       </div>
       <div style="margin-bottom:14px;">
         <label>Email Address *</label>
-        <input type="email" required placeholder="your@email.com"/>
+        <input type="email" required name="email" placeholder="your@email.com"/>
       </div>
       <div style="margin-bottom:14px;">
         <label>Contact Number</label>
