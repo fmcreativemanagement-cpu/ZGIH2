@@ -12,8 +12,8 @@
   h1,h2,h3,h4 { font-family: Chivo, sans-serif; }
   .card { background: white; border: 1px solid #e3e3de; border-radius: 20px; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
   .card:hover { box-shadow: 0 12px 40px rgba(21,66,18,0.12); transform: translateY(-4px); }
-  .card-header { padding: 36px 36px 24px; }
-  .card-body { padding: 0 36px 36px; }
+  .card-header { padding: 24px 24px 16px; }
+  .card-body { padding: 0 24px 24px; }
   .icon-box { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
   .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #154212; color: white; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: opacity 0.2s; border: none; cursor: pointer; width: 100%; justify-content: center; }
   .btn-primary:hover { opacity: 0.88; }
@@ -65,10 +65,10 @@
 
 <!-- Cards -->
 <section style="max-width:1200px;margin:0 auto;padding:72px 24px;">
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start;">
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:stretch;">
 
     <!-- VOLUNTEER -->
-    <div class="card">
+    <div class="card" style="display:flex;flex-direction:column;">
       <div class="card-header">
         <div class="icon-box" style="background:#e8f5e9;">
           <span class="material-symbols-outlined" style="color:#154212;font-size:32px;font-variation-settings:'FILL' 1;">volunteer_activism</span>
@@ -76,7 +76,7 @@
         <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Volunteer</h3>
         <p style="font-size:14px;color:#42493e;line-height:1.7;">Give your time and skills to support ZGIH's programs. From clean-up drives to eco-workshops, there's a role for everyone.</p>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;">
         <div class="divider"></div>
         <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">What you'll do</p>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Join community clean-up drives</div>
@@ -84,7 +84,7 @@
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Help with environmental campaigns</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Support livelihood programs</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Share skills in education programs</div>
-        <div style="margin-top:24px;">
+        <div style="margin-top:auto;padding-top:24px;">
           <button class="btn-primary" onclick="openModal('volunteer-modal')">
             <span class="material-symbols-outlined" style="font-size:18px;">edit_document</span>
             Apply as Volunteer
@@ -94,7 +94,7 @@
     </div>
 
     <!-- ORGANIZATION MEMBER -->
-    <div class="card">
+    <div class="card" style="display:flex;flex-direction:column;">
       <div class="card-header">
         <div class="icon-box" style="background:#e3f2fd;">
           <span class="material-symbols-outlined" style="color:#1565c0;font-size:32px;font-variation-settings:'FILL' 1;">groups</span>
@@ -102,7 +102,7 @@
         <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Organization Member</h3>
         <p style="font-size:14px;color:#42493e;line-height:1.7;">Become an official ZGIH member and be part of the community driving sustainable change in Zamboanga City.</p>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;">
         <div class="divider"></div>
         <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">Member benefits</p>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Access to livelihood programs</div>
@@ -110,7 +110,7 @@
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Market access for products</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Voting rights in the organization</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Priority in ZGIH projects</div>
-        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+        <div style="margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
           <a href="membership-form.html" class="btn-primary">
             <span class="material-symbols-outlined" style="font-size:18px;">assignment</span>
             Apply for Membership
@@ -121,7 +121,7 @@
     </div>
 
     <!-- PARTNER -->
-    <div class="card">
+    <div class="card" style="display:flex;flex-direction:column;">
       <div class="card-header">
         <div class="icon-box" style="background:#fff8e1;">
           <span class="material-symbols-outlined" style="color:#f57f17;font-size:32px;font-variation-settings:'FILL' 1;">handshake</span>
@@ -129,7 +129,7 @@
         <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">Partner with Us</h3>
         <p style="font-size:14px;color:#42493e;line-height:1.7;">Collaborate with ZGIH as an organization, business, government agency, or academic institution to amplify environmental impact.</p>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;">
         <div class="divider"></div>
         <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">Partnership types</p>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Government agencies (LGU, DOLE, DENR)</div>
@@ -137,7 +137,7 @@
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Schools and academic institutions</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Businesses and corporations (CSR)</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Community organizations</div>
-        <div style="margin-top:24px;">
+        <div style="margin-top:auto;padding-top:24px;">
           <button class="btn-primary" onclick="openModal('partner-modal')">
             <span class="material-symbols-outlined" style="font-size:18px;">send</span>
             Submit Partnership Inquiry
@@ -148,7 +148,7 @@
 
 
     <!-- CSR SERVICES -->
-    <div class="card" style="border:2px solid #f57f17;">
+    <div class="card" style="border:2px solid #f57f17;display:flex;flex-direction:column;">
       <div class="card-header">
         <div class="icon-box" style="background:#fff8e1;">
           <span class="material-symbols-outlined" style="color:#f57f17;font-size:32px;font-variation-settings:'FILL' 1;">corporate_fare</span>
@@ -156,7 +156,7 @@
         <h3 style="font-size:24px;font-weight:800;color:#154212;margin-bottom:8px;">CSR Services</h3>
         <p style="font-size:14px;color:#42493e;line-height:1.7;">Partner with ZGIH for your Corporate Social Responsibility programs. We offer structured packages for businesses looking to make a meaningful environmental impact in Zamboanga City.</p>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;">
         <div class="divider"></div>
         <p style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#42493e;text-transform:uppercase;margin-bottom:12px;">What we offer</p>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Bronze, Silver &amp; Gold CSR packages</div>
@@ -164,7 +164,7 @@
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Community clean-up drives</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Environmental awareness campaigns</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Impact reports &amp; documentation</div>
-        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+        <div style="margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
           <a href="csr-services.html" class="btn-primary">
             <span class="material-symbols-outlined" style="font-size:18px;">open_in_new</span>
             View CSR Services &amp; Packages
@@ -178,7 +178,7 @@
     </div>
 
     <!-- DONATE -->
-    <div class="card" style="border:2px solid #154212;">
+    <div class="card" style="border:2px solid #154212;display:flex;flex-direction:column;">
       <div class="card-header" style="background:linear-gradient(135deg,#154212,#2d5a27);color:white;border-radius:18px 18px 0 0;">
         <div class="icon-box" style="background:rgba(255,255,255,0.2);">
           <span class="material-symbols-outlined" style="color:#a1d494;font-size:32px;font-variation-settings:'FILL' 1;">favorite</span>
@@ -193,7 +193,7 @@
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Environmental education programs</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Livelihood support for members</div>
         <div class="benefit-item"><span class="material-symbols-outlined" style="color:#154212;font-size:18px;flex-shrink:0;">check_circle</span>Waste diversion projects</div>
-        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+        <div style="margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
           <button class="btn-primary" onclick="openModal('donate-modal')">
             <span class="material-symbols-outlined" style="font-size:18px;">favorite</span>
             Donate Now
