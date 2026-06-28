@@ -1,462 +1,404 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Members &amp; News | Zamboanga Green Innovation Hub (ZGIH)</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Chivo:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-dim": "#dadad5",
-                    "on-error": "#ffffff",
-                    "surface-container-high": "#e8e8e3",
-                    "secondary-container": "#8cf5b2",
-                    "surface": "#fafaf4",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary-fixed": "#062011",
-                    "primary-container": "#2d5a27",
-                    "surface-bright": "#fafaf4",
-                    "surface-container-lowest": "#ffffff",
-                    "secondary-fixed-dim": "#73db9a",
-                    "primary-fixed": "#bcf0ae",
-                    "off-white": "#FDFDFB",
-                    "tertiary-fixed": "#cbead2",
-                    "tertiary-fixed-dim": "#b0ceb7",
-                    "on-secondary-container": "#007241",
-                    "on-secondary-fixed": "#00210f",
-                    "forest-mute": "#4A634E",
-                    "on-primary-fixed-variant": "#23501e",
-                    "on-primary-fixed": "#002201",
-                    "on-tertiary-container": "#accab3",
-                    "outline-variant": "#c2c9bb",
-                    "inverse-on-surface": "#f1f1ec",
-                    "on-tertiary": "#ffffff",
-                    "surface-container-low": "#f4f4ee",
-                    "on-primary": "#ffffff",
-                    "secondary": "#006d3e",
-                    "on-secondary-fixed-variant": "#00522d",
-                    "soft-gray": "#F2F4F2",
-                    "tertiary-container": "#3b5644",
-                    "outline": "#72796e",
-                    "inverse-primary": "#a1d494",
-                    "surface-container": "#eeeee9",
-                    "on-surface": "#1a1c19",
-                    "error": "#ba1a1a",
-                    "surface-container-highest": "#e3e3de",
-                    "on-primary-container": "#9dd090",
-                    "on-background": "#1a1c19",
-                    "background": "#fafaf4",
-                    "secondary-fixed": "#8ff8b4",
-                    "on-surface-variant": "#42493e",
-                    "primary-fixed-dim": "#a1d494",
-                    "surface-tint": "#3b6934",
-                    "surface-variant": "#e3e3de",
-                    "on-error-container": "#93000a",
-                    "primary": "#154212",
-                    "on-tertiary-fixed-variant": "#324d3b",
-                    "inverse-surface": "#2f312e",
-                    "tertiary": "#253f2e",
-                    "error-container": "#ffdad6"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "section-gap": "120px",
-                    "margin-desktop": "80px",
-                    "gutter": "24px",
-                    "margin-mobile": "16px",
-                    "base": "8px"
-            },
-            "fontFamily": {
-                    "body-md": ["Inter"],
-                    "stat-lg": ["Chivo"],
-                    "headline-md": ["Chivo"],
-                    "label-bold": ["Inter"],
-                    "headline-lg": ["Chivo"],
-                    "display-lg-mobile": ["Chivo"],
-                    "body-lg": ["Inter"],
-                    "display-lg": ["Chivo"]
-            },
-            "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "stat-lg": ["48px", {"lineHeight": "1.0", "fontWeight": "800"}],
-                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
-                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "800"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
-            }
-          },
-        },
-      }
-    </script>
+<link rel="icon" href="favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meet the Team | ZGIH – Zamboanga Green Innovation Hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
-      .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 24px;
-      }
-    </style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#f4f6f4;color:#1a1c19;}
+h1,h2,h3,h4{font-family:'Chivo',sans-serif;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #e3ebe3;}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:relative;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;z-index:10;}
+.nav-logo img{height:40px;width:40px;object-fit:contain;}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-logo-text .t1{font-family:'Chivo',sans-serif;font-size:15px;font-weight:800;color:#154212;}
+.nav-logo-text .t2{font-size:10px;color:#42493e;}
+.nav-links{display:flex;align-items:center;gap:24px;position:absolute;left:50%;transform:translateX(-50%);}
+.nav-links a{font-size:14px;font-weight:600;color:#42493e;text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#154212;}
+.nav-links a.active{border-bottom:2px solid #154212;padding-bottom:2px;}
+.nav-cta{background:#154212;color:white;padding:8px 20px;border-radius:99px;font-size:14px;font-weight:700;text-decoration:none;z-index:10;}
+.nav-cta:hover{opacity:.88;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d2e10 0%,#154212 50%,#1e5c18 100%);color:white;padding:80px 24px 72px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.12);color:#a1d494;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:99px;margin-bottom:20px;}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{color:#a1d494;}
+.hero p{font-size:17px;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;line-height:1.7;}
+
+/* SEARCH & FILTER */
+.controls{max-width:1280px;margin:0 auto;padding:40px 24px 0;}
+.search-wrap{position:relative;max-width:420px;margin:0 auto 24px;}
+.search-wrap input{width:100%;border:1.5px solid #d4e0d4;border-radius:12px;padding:12px 16px 12px 44px;font-size:14px;font-family:'Inter',sans-serif;background:white;outline:none;transition:border-color .2s;color:#1a1c19;}
+.search-wrap input:focus{border-color:#154212;}
+.search-wrap .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#72796e;font-size:20px;}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.filter-chip{padding:7px 18px;border-radius:99px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid #d4e0d4;background:white;color:#42493e;transition:all .2s;font-family:'Inter',sans-serif;}
+.filter-chip:hover{border-color:#154212;color:#154212;}
+.filter-chip.active{background:#154212;border-color:#154212;color:white;}
+
+/* SECTION */
+.team-section{max-width:1280px;margin:0 auto;padding:48px 24px 80px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#154212;margin-bottom:8px;}
+.section-title{font-size:26px;font-weight:800;color:#1a1c19;margin-bottom:32px;padding-bottom:12px;border-bottom:2px solid #e3ebe3;}
+
+/* GRID */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;}
+
+/* CARD */
+.member-card{background:white;border:1px solid #e8ede8;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease;opacity:0;transform:translateY(20px);}
+.member-card.visible{opacity:1;transform:translateY(0);}
+.member-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(21,66,18,.13);}
+.member-card:hover .card-photo img{transform:scale(1.06);}
+.member-card:hover .card-name{color:#154212;}
+.member-card.hidden-card{display:none;}
+
+/* CARD PHOTO */
+.card-photo{width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8f0e8;position:relative;}
+.card-photo img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .4s ease;display:block;}
+.role-badge{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(21,66,18,.88);color:white;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px;white-space:nowrap;backdrop-filter:blur(4px);}
+
+/* CARD BODY */
+.card-body{padding:18px 18px 20px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;}
+.card-name{font-family:'Chivo',sans-serif;font-size:16px;font-weight:700;color:#1a1c19;margin-bottom:5px;line-height:1.3;transition:color .2s;}
+.card-role{font-size:12px;font-weight:700;color:#154212;text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;}
+.card-actions{margin-top:auto;display:flex;gap:8px;width:100%;}
+.btn-email{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:8px;border-radius:8px;font-size:12px;font-weight:600;background:#f0f7f0;color:#154212;border:none;cursor:pointer;text-decoration:none;transition:background .2s;}
+.btn-email:hover{background:#e0f0e0;}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 24px;color:#72796e;font-size:15px;display:none;}
+.no-results.show{display:block;}
+
+/* JOIN CTA */
+.join-cta{background:#154212;color:white;padding:64px 24px;text-align:center;}
+.join-cta h2{font-size:30px;font-weight:800;margin-bottom:10px;}
+.join-cta p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:28px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto;}
+.join-btn{display:inline-flex;align-items:center;gap:8px;background:white;color:#154212;padding:13px 28px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:opacity .2s;}
+.join-btn:hover{opacity:.9;}
+
+/* FOOTER */
+footer{background:#1a3320;color:white;}
+.footer-inner{max-width:1280px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-brand img{height:34px;width:34px;object-fit:contain;}
+.footer-brand span{font-family:'Chivo',sans-serif;font-weight:700;font-size:14px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:8px;}
+.footer-col ul li a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;}
+.footer-col ul li a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:16px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,.3);}
+
+/* RESPONSIVE */
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr);} .nav-links{display:none;}}
+@media(max-width:480px){.team-grid{grid-template-columns:repeat(2,1fr);gap:14px;}}
+@media(max-width:360px){.team-grid{grid-template-columns:1fr;}}
+</style>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="bg-surface/95 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
-  <nav class="relative flex items-center justify-between w-full max-w-6xl mx-auto px-6 py-4">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
-      <img alt="ZGIH Logo" class="h-11 w-11 object-contain" src="Logo-icon.png"/>
-      <div class="hidden lg:flex flex-col leading-tight">
-        <span style="font-family:Chivo,sans-serif;font-size:16px;font-weight:800;color:#154212;">ZGIH</span>
-        <span style="font-family:Inter,sans-serif;font-size:11px;color:#42493e;">Zamboanga Green Innovation Hub</span>
-      </div>
-      <span class="lg:hidden font-bold text-primary" style="font-family:Chivo,sans-serif;font-size:17px;">ZGIH</span>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Logo-icon.png" alt="ZGIH Logo"/>
+      <div class="nav-logo-text"><span class="t1">ZGIH</span><span class="t2">Zamboanga Green Innovation Hub</span></div>
     </a>
-    <!-- Nav — centered inside the max-w-6xl container -->
-    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="index.html">Home</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="members.html">Meet the Team</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="store.html">Store</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="blog.html">Blog</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="education.html">Learn</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:15px;" href="get-involved.html">Get Involved</a>
-    </div>
-    <!-- Contact -->
-    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 text-white px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-colors" style="background:#154212;font-family:Inter,sans-serif;font-size:15px;">
-      Contact Us
-    </a>
-  </nav>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="members.html" class="active">Meet the Team</a>
+      <a href="store.html">Store</a>
+      <a href="blog.html">Blog</a>
+      <a href="education.html">Learn</a>
+      <a href="get-involved.html">Get Involved</a>
+    </nav>
+    <a href="mailto:zgihub@gmail.com" class="nav-cta">Contact Us</a>
+  </div>
 </header>
 
-<main>
-<!-- Hero Section -->
-<section class="relative py-section-gap px-margin-desktop bg-surface overflow-hidden">
-
-<div class="relative z-10 max-w-4xl">
-<h1 class="font-headline-lg text-headline-lg text-primary mb-6">Our Community &amp; Latest Updates</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                    Meet the team driving environmental innovation in Zamboanga and stay informed about our grassroots impact across the Peninsula.
-                </p>
-</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Our People</div>
+  <h1>Meet the People Behind<br/><span>Zamboanga Green Innovation Hub</span></h1>
+  <p>Dedicated officers and community leaders working together to build a greener, more sustainable Zamboanga City.</p>
 </section>
-<!-- Members & Team Section -->
-<section class="py-section-gap px-margin-desktop bg-off-white">
 
-  <div class="mb-12">
-    <span class="text-secondary font-label-bold uppercase tracking-widest text-sm">Leadership</span>
-    <h2 class="font-headline-lg text-headline-lg mt-2 text-primary">Innovation rooted in <span class="italic">community</span></h2>
-    <p class="text-on-surface-variant max-w-xl font-body-md mt-3">Our team brings together local professionals and community leaders to co-create sustainable solutions for Zamboanga City.</p>
+<!-- SEARCH & FILTER -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="material-symbols-outlined search-icon">search</span>
+    <input type="text" id="searchInput" placeholder="Search by name or position…" aria-label="Search team members"/>
   </div>
+  <div class="filters" role="group" aria-label="Filter by role">
+    <button class="filter-chip active" data-filter="all">All Officers</button>
+    <button class="filter-chip" data-filter="executive">Executive</button>
+    <button class="filter-chip" data-filter="finance">Finance</button>
+    <button class="filter-chip" data-filter="operations">Operations</button>
+  </div>
+</div>
 
-  <!-- Row 1: President, Vice President, Secretary, Treasurer -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Fatima_Mediante.jpg" alt="Fatima Mediante"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Fatima Mediante</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">President</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Mark_Christopher_Basaluddin.jpg" alt="Mark Christopher Basaluddin"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Mark Christopher Basaluddin</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Vice President</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Gideon_Singsing.jpg" alt="Gideon Singsing"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Gideon Singsing</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Secretary</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Henrietto_Joromat.jpg" alt="Henrietto Joromat"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Henrietto Joromat</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Treasurer</p>
-  </div>
-</div>
-  </div>
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="section-label">Leadership</div>
+  <h2 class="section-title">Executive Officers</h2>
 
-  <!-- Row 2: Auditor, PIO, Business Manager, Project Manager -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Tatad_Ho_Kalbit.jpg" alt="Tatad Ho Kalbit"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Tatad Ho Kalbit</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Auditor</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Dennis_Gerodias.jpg" alt="Dennis Gerodias"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Dennis Gerodias</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">PIO</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Michael_Mediante.jpg" alt="Michael Mediante"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Michael Mediante</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Business Manager</p>
-  </div>
-</div>
-    <div class="group rounded-xl bg-surface border border-soft-gray overflow-hidden hover:border-primary hover:shadow-md transition-all duration-300">
-  <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#e8e8e3;">
-    <img src="images/Samir_Baddiri.jpg" alt="Samir Baddiri"
-         style="width:100%;height:100%;object-fit:contain;display:block;"
-         class="grayscale group-hover:grayscale-0 transition-all duration-500"/>
-  </div>
-  <div class="p-4">
-    <h3 style="font-family:Chivo,sans-serif;font-size:20px;font-weight:700;color:#1a1c19;margin-bottom:3px;">Samir Baddiri</h3>
-    <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;color:#006d3e;text-transform:uppercase;margin-bottom:8px;">Project Manager</p>
-  </div>
-</div>
-  </div>
+  <div class="team-grid" id="teamGrid">
 
-</section>
-<!-- News Feed Bento Section -->
-<section class="py-section-gap px-margin-desktop bg-surface">
-<div class="mb-16">
-<h2 class="font-headline-lg text-headline-lg text-primary">Latest News &amp; Stories</h2>
-<div class="h-1 w-24 bg-secondary mt-4 rounded-full"></div>
-</div>
-<div class="bento-grid">
-<!-- Main Featured Story -->
-<div class="col-span-12 md:col-span-8 group cursor-pointer overflow-hidden rounded-xl bg-off-white border border-soft-gray transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="grid md:grid-cols-2 h-full">
-<div class="relative min-h-[300px]">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A panoramic photograph of a vibrant coastal clean-up event in Zamboanga. Dozens of diverse volunteers in colorful green shirts are gathering plastic waste along a beautiful white sand beach at sunrise. The lighting is golden and hopeful, with the turquoise sea in the background. High-quality environmental photojournalism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-pMNfN8XNznpAKkybg1cZ_Cn4LK91y4Tpl_bN4_50w2cTxXxic_J9PgvcB-3CwcQuXwZLq1xhCdPuD_6C_j76_m9VEwYv7lci1MIpr3F8sfJWvHFkur4ZbxfZyxxa94GED-R-UPw62xyFPgdQ6xumI3SttJ9rLoqMk_S8_9KbS6wM6DclHDxNRmxNlQRBtyGxWnzfm9thytotwo8s3KANycBqfWl5oVU6kDD3SoAg_2hvEahh-hn1BHFbbnNd_I3HEWNWsqbah7tT"/>
-<div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-xs font-label-bold uppercase">Conservation</div>
-</div>
-<div class="p-8 flex flex-col justify-center">
-<span class="font-label-bold text-outline text-xs uppercase mb-2">June 10, 2026</span>
-<h3 class="font-headline-md text-headline-md mb-4 leading-tight">Coastal Clean-Up Drive Collects 1.2 Tons of Plastic</h3>
-<p class="text-on-surface-variant text-body-md mb-8">Over 200 volunteers joined our quarterly coastal clean-up along Zamboanga's shoreline, removing plastic waste and marine debris to protect our local biodiversity.</p>
-<a class="flex items-center gap-2 text-primary font-label-bold group-hover:translate-x-2 transition-transform" href="#">Read Full Story <span class="material-symbols-outlined">arrow_forward</span></a>
-</div>
-</div>
-</div>
-<!-- News Item 2 -->
-<div class="col-span-12 md:col-span-4 group cursor-pointer overflow-hidden rounded-xl bg-off-white border border-soft-gray p-8 transition-all hover:shadow-xl">
-<span class="font-label-bold text-secondary text-xs uppercase mb-4 block">Livelihood</span>
-<h3 class="font-headline-md text-2xl mb-4">30 Women Graduate from Green Livelihood Program</h3>
-<p class="text-on-surface-variant text-body-md mb-6">Participants from Barangay Canelar completed six weeks of training in upcycled product-making and eco-entrepreneurship.</p>
-<div class="flex items-center justify-between mt-auto">
-<span class="text-xs text-outline font-label-bold">May 28, 2026</span>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">east</span>
-</div>
-</div>
-<!-- News Item 3 -->
-<div class="col-span-12 md:col-span-4 group cursor-pointer overflow-hidden rounded-xl bg-off-white border border-soft-gray p-8 transition-all hover:shadow-xl">
-<span class="font-label-bold text-secondary text-xs uppercase mb-4 block">Education</span>
-<h3 class="font-headline-md text-2xl mb-4">ZGIH Launches Solid Waste Module in 5 Schools</h3>
-<p class="text-on-surface-variant text-body-md mb-6">Our new eco-education curriculum is now active in five public schools, reaching over 800 students in Grades 7 to 10.</p>
-<div class="flex items-center justify-between mt-auto">
-<span class="text-xs text-outline font-label-bold">May 15, 2026</span>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">east</span>
-</div>
-</div>
-<!-- Impact Stat Box (Asymmetric Bento Element) -->
-<div class="col-span-12 md:col-span-4 bg-tertiary text-on-tertiary p-8 rounded-xl flex flex-col justify-center">
-<span class="material-symbols-outlined text-4xl mb-4 opacity-50">eco</span>
-<div class="font-stat-lg text-stat-lg text-secondary-fixed mb-2">500+</div>
-<p class="font-body-md text-body-md">Community members reached through green programs across the peninsula.</p>
-</div>
-<!-- News Item 4 -->
-<div class="col-span-12 md:col-span-4 group cursor-pointer overflow-hidden rounded-xl bg-off-white border border-soft-gray p-8 transition-all hover:shadow-xl">
-<span class="font-label-bold text-secondary text-xs uppercase mb-4 block">Research</span>
-<h3 class="font-headline-md text-2xl mb-4">New Marine Biodiversity Study Published</h3>
-<p class="text-on-surface-variant text-body-md mb-6">In partnership with local universities, we've documented 12 new coral health indicators in Zamboanga coastal waters.</p>
-<div class="flex items-center justify-between mt-auto">
-<span class="text-xs text-outline font-label-bold">May 02, 2026</span>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">east</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Volunteer/Member Signup Section -->
-<section class="py-section-gap px-margin-desktop bg-off-white relative overflow-hidden">
-<div class="absolute top-0 right-0 w-1/3 h-full bg-secondary-container opacity-10 skew-x-12 translate-x-1/2"></div>
-<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-section-gap relative z-10">
-
-  <!-- Left: info -->
-  <div>
-    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Be part of the <span class="italic">change</span></h2>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
-      Join the Zamboanga Green Innovation Hub and be part of a growing community working towards a greener, more sustainable Zamboanga City. Membership is open to all Filipino citizens residing in Zamboanga City who share our vision.
-    </p>
-    
-  </div>
-
-  <!-- Right: CTA card -->
-  <div class="glass-card p-10 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center">
-    <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-      <span class="material-symbols-outlined text-primary" style="font-size:40px;">assignment</span>
+    <!-- Fatima Mediante -->
+    <div class="member-card" data-name="fatima mediante" data-role="president" data-category="executive">
+      <div class="card-photo">
+        <img src="images/Fatima_Mediante.jpg" alt="Fatima Mediante — President" loading="lazy"/>
+        <span class="role-badge">President</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Fatima Mediante</h3>
+        <p class="card-role">President</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Fatima Mediante">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
     </div>
-    <h3 class="font-headline-md text-headline-md text-primary mb-4">Ready to Join?</h3>
-    <p class="text-on-surface-variant font-body-md mb-8 max-w-sm">
-      Fill out the official ZGIH Membership Application Form to start your journey with us. The form includes your personal details, beneficiary information, and membership agreement.
-    </p>
-    <a href="membership-form.html"
-       style="background:#154212;color:white;padding:16px 36px;border-radius:10px;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:opacity 0.2s;"
-       onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-      <span class="material-symbols-outlined" style="font-size:22px;">edit_document</span>
-      Apply for Membership
-    </a>
-    <p class="text-on-surface-variant text-sm mt-6">
-      Questions? Email us at <a href="mailto:zgihub@gmail.com" style="color:#154212;font-weight:600;">zgihub@gmail.com</a>
-    </p>
+
+    <!-- Mark Christopher Basaluddin -->
+    <div class="member-card" data-name="mark christopher basaluddin" data-role="vice president" data-category="executive">
+      <div class="card-photo">
+        <img src="images/Mark_Christopher_Basaluddin.jpg" alt="Mark Christopher Basaluddin — Vice President" loading="lazy"/>
+        <span class="role-badge">Vice President</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Mark Christopher Basaluddin</h3>
+        <p class="card-role">Vice President</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Mark Christopher Basaluddin">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gideon Singsing -->
+    <div class="member-card" data-name="gideon singsing" data-role="secretary" data-category="executive">
+      <div class="card-photo">
+        <img src="images/Gideon_Singsing.jpg" alt="Gideon Singsing — Secretary" loading="lazy"/>
+        <span class="role-badge">Secretary</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Gideon Singsing</h3>
+        <p class="card-role">Secretary</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Gideon Singsing">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Henrietto Joromat -->
+    <div class="member-card" data-name="henrietto joromat" data-role="treasurer" data-category="finance">
+      <div class="card-photo">
+        <img src="images/Henrietto_Joromat.jpg" alt="Henrietto Joromat — Treasurer" loading="lazy"/>
+        <span class="role-badge">Treasurer</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Henrietto Joromat</h3>
+        <p class="card-role">Treasurer</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Henrietto Joromat">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tatad Ho Kalbit -->
+    <div class="member-card" data-name="tatad ho kalbit" data-role="auditor" data-category="finance">
+      <div class="card-photo">
+        <img src="images/Tatad_Ho_Kalbit.jpg" alt="Tatad Ho Kalbit — Auditor" loading="lazy"/>
+        <span class="role-badge">Auditor</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Tatad Ho Kalbit</h3>
+        <p class="card-role">Auditor</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Tatad Ho Kalbit">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dennis Gerodias -->
+    <div class="member-card" data-name="dennis gerodias" data-role="pio" data-category="operations">
+      <div class="card-photo">
+        <img src="images/Dennis_Gerodias.jpg" alt="Dennis Gerodias — PIO" loading="lazy"/>
+        <span class="role-badge">PIO</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Dennis Gerodias</h3>
+        <p class="card-role">Public Information Officer</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Dennis Gerodias">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Michael Mediante -->
+    <div class="member-card" data-name="michael mediante" data-role="business manager" data-category="operations">
+      <div class="card-photo">
+        <img src="images/Michael_Mediante.jpg" alt="Michael Mediante — Business Manager" loading="lazy"/>
+        <span class="role-badge">Business Manager</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Michael Mediante</h3>
+        <p class="card-role">Business Manager</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Michael Mediante">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Samir Baddiri -->
+    <div class="member-card" data-name="samir baddiri" data-role="project manager" data-category="operations">
+      <div class="card-photo">
+        <img src="images/Samir_Baddiri.jpg" alt="Samir Baddiri — Project Manager" loading="lazy"/>
+        <span class="role-badge">Project Manager</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Samir Baddiri</h3>
+        <p class="card-role">Project Manager</p>
+        <div class="card-actions">
+          <a href="mailto:zgihub@gmail.com" class="btn-email" aria-label="Email Samir Baddiri">
+            <span class="material-symbols-outlined" style="font-size:15px;">mail</span> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-</div>
+  <div class="no-results" id="noResults" role="status">
+    No members found matching your search. Try a different name or position.
+  </div>
 </section>
-</main>
-<!-- Footer -->
-<footer class="bg-tertiary dark:bg-on-tertiary-fixed-variant text-on-tertiary">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full">
-<div class="space-y-6">
-<div class="flex items-center gap-3">
-<img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
-<span class="font-headline-md text-headline-md font-bold text-on-tertiary">ZGIH – Zamboanga Green Innovation Hub</span>
-</div>
-<p class="font-body-md text-body-md text-on-tertiary/80">
-A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.
-</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">face_nod</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="mailto:zgihub@gmail.com">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Navigation</h4>
-<ul class="space-y-4">
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="members.html">Meet the Team</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
-<li></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="blog.html">Blog</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="education.html">Learn</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Programs</h4>
-<ul class="space-y-4">
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Contact</h4>
-<address class="not-italic space-y-4">
-<p class="font-body-md text-on-tertiary/80 flex items-start gap-3">
-<span class="material-symbols-outlined text-[20px]">location_on</span>
-003 Toreme Drive Lower Cabatangan, Zamboanga City
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-zgihub@gmail.com
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">phone</span>
-09452996695
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">public</span>
-Facebook: Zamboanga Green Innovation Hub
-</p>
-</address>
-</div>
-</div>
-<div class="px-margin-mobile md:px-margin-desktop py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-body-md text-on-tertiary/60 text-sm">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</p>
-<div class="flex gap-6">
-<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Terms of Service</a>
-</div>
-</div>
+
+<!-- JOIN CTA -->
+<section class="join-cta">
+  <h2>Want to Join Our Team?</h2>
+  <p>ZGIH welcomes individuals who share our vision of a greener, more sustainable Zamboanga City.</p>
+  <a href="get-involved.html" class="join-btn">
+    <span class="material-symbols-outlined" style="font-size:18px;">groups</span>
+    Get Involved
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="Logo-icon.png" alt="ZGIH"/>
+        <span>ZGIH – Zamboanga Green Innovation Hub</span>
+      </div>
+      <p class="footer-tagline">Building a greener, cleaner, and more sustainable Zamboanga City.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Meet the Team</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="education.html">Learn</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="get-involved.html">Volunteer</a></li>
+        <li><a href="membership-form.html">Become a Member</a></li>
+        <li><a href="get-involved.html">Partner with Us</a></li>
+        <li><a href="csr-services.html">CSR Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li>
+        <li><a href="tel:09452996695">09452996695</a></li>
+        <li><a href="#">003 Toreme Drive, Lower Cabatangan, Zamboanga City</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</div>
 </footer>
+
 <script>
-        // Micro-interactions for form and cards
-        document.querySelectorAll('.group').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                // Potential subtle hover logic here
-            });
-        });
+// Fade-in on scroll
+const cards = document.querySelectorAll('.member-card');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05 });
+cards.forEach(c => io.observe(c));
 
-        // Intersection Observer for revealing elements on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
+// Search
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', filterCards);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
+// Filter chips
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    filterCards();
+  });
+});
 
-        document.querySelectorAll('section > div').forEach(el => {
-            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
-            observer.observe(el);
-        });
-    </script>
-</body></html>
+function filterCards() {
+  const query = searchInput.value.toLowerCase().trim();
+  const activeFilter = document.querySelector('.filter-chip.active').dataset.filter;
+  let visible = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name || '';
+    const role = card.dataset.role || '';
+    const category = card.dataset.category || '';
+
+    const matchesSearch = !query || name.includes(query) || role.includes(query);
+    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+    if (matchesSearch && matchesFilter) {
+      card.classList.remove('hidden-card');
+      visible++;
+    } else {
+      card.classList.add('hidden-card');
+    }
+  });
+
+  document.getElementById('noResults').classList.toggle('show', visible === 0);
+}
+</script>
+</body>
+</html>
