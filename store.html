@@ -201,6 +201,11 @@ footer{background:#1a3320;color:white;}
       <span class="cat-name">All Products</span>
       <span class="cat-count" id="count-all">12 Products</span>
     </div>
+    <div class="cat-card" data-cat="construction" onclick="setCategory('construction',this)">
+      <div class="cat-icon" style="background:#e8f5e9;"><span class="material-symbols-outlined" style="color:#154212;font-size:26px;">construction</span></div>
+      <span class="cat-name">Construction Materials</span>
+      <span class="cat-count" id="count-construction">3 Products</span>
+    </div>
     <div class="cat-card" data-cat="decor" onclick="setCategory('decor',this)">
       <div class="cat-icon" style="background:#f3e5f5;"><span class="material-symbols-outlined" style="color:#7b1fa2;font-size:26px;">home</span></div>
       <span class="cat-name">Décor</span>
@@ -227,6 +232,7 @@ footer{background:#1a3320;color:white;}
 <!-- FILTER CHIPS -->
 <div class="filter-bar">
   <button class="chip active" data-filter="all" onclick="filterChip('all',this)">All Products</button>
+  <button class="chip" data-filter="construction" onclick="filterChip('construction',this)">Construction</button>
   <button class="chip" data-filter="decor" onclick="filterChip('decor',this)">Décor</button>
   <button class="chip" data-filter="fashion" onclick="filterChip('fashion',this)">Fashion</button>
   <button class="chip" data-filter="kitchen" onclick="filterChip('kitchen',this)">Kitchen & Food</button>
@@ -517,6 +523,76 @@ footer{background:#1a3320;color:white;}
       </div>
     </div>
 
+
+    <!-- EcoBrix -->
+    <div class="p-card" data-name="ecobrix eco bricks construction blocks" data-cat="construction">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="EcoBrix" loading="lazy"/>
+        <span class="p-cat-badge">Construction</span>
+        <button class="p-fav" aria-label="Save EcoBrix"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">EcoBrix</h3>
+        <p class="p-desc">Durable construction blocks made from compacted plastic waste. A sustainable alternative to traditional hollow blocks.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('EcoBrix','Construction Materials','Durable construction blocks made from compacted plastic waste. A sustainable alternative to traditional hollow blocks.','Compacted plastic waste','Standard block sizes available','Bulk orders available')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('EcoBrix','Construction Materials','Durable construction blocks made from compacted plastic waste. A sustainable alternative to traditional hollow blocks.','Compacted plastic waste','Standard block sizes available','Bulk orders available')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rubber Pavers -->
+    <div class="p-card" data-name="rubber pavers flooring tiles construction" data-cat="construction">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Rubber Pavers" loading="lazy"/>
+        <span class="p-cat-badge">Construction</span>
+        <button class="p-fav" aria-label="Save Rubber Pavers"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Rubber Pavers</h3>
+        <p class="p-desc">Non-slip outdoor pavers made from recycled tires. Ideal for pathways, gardens, and outdoor spaces.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Rubber Pavers','Construction Materials','Non-slip outdoor pavers made from recycled tires. Ideal for pathways, gardens, and outdoor spaces.','Recycled rubber tires','Standard & custom sizes','Weather-resistant')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Rubber Pavers','Construction Materials','Non-slip outdoor pavers made from recycled tires. Ideal for pathways, gardens, and outdoor spaces.','Recycled rubber tires','Standard & custom sizes','Weather-resistant')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plastic Lumber -->
+    <div class="p-card" data-name="plastic lumber boards plastic wood construction" data-cat="construction">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Plastic Lumber" loading="lazy"/>
+        <span class="p-cat-badge">Construction</span>
+        <button class="p-fav" aria-label="Save Plastic Lumber"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Plastic Lumber</h3>
+        <p class="p-desc">Rot-resistant boards and planks made from recycled plastic. A durable, eco-friendly replacement for traditional wood.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Plastic Lumber','Construction Materials','Rot-resistant boards and planks made from recycled plastic. A durable, eco-friendly replacement for traditional wood.','Recycled mixed plastics','Custom lengths & widths','No painting or sealing needed')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Plastic Lumber','Construction Materials','Rot-resistant boards and planks made from recycled plastic. A durable, eco-friendly replacement for traditional wood.','Recycled mixed plastics','Custom lengths & widths','No painting or sealing needed')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="no-results" id="noResults">No products found. Try a different search or category.</div>
 </section>
@@ -625,8 +701,8 @@ let activeCategory = 'all';
 
 // Category counts
 function updateCounts(){
-  const cats = ['decor','fashion','kitchen','giveaway'];
-  let totals = {all:0,decor:0,fashion:0,kitchen:0,giveaway:0};
+  const cats = ['decor','fashion','kitchen','giveaway','construction'];
+  let totals = {all:0,decor:0,fashion:0,kitchen:0,giveaway:0,construction:0};
   allCards.forEach(c => {
     const cat = c.dataset.cat;
     totals.all++;
