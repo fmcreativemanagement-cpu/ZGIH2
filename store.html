@@ -1,563 +1,745 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "primary": "#154212","secondary": "#006d3e","tertiary": "#253f2e",
-        "primary-container": "#2d5a27","secondary-container": "#8cf5b2",
-        "tertiary-container": "#3b5644","on-primary": "#ffffff",
-        "on-secondary": "#ffffff","on-tertiary": "#ffffff",
-        "on-primary-container": "#9dd090","on-secondary-container": "#007241",
-        "on-tertiary-container": "#accab3","surface": "#fafaf4",
-        "surface-dim": "#dadad5","surface-bright": "#fafaf4",
-        "surface-container-low": "#f4f4ee","surface-container": "#eeeee9",
-        "surface-container-high": "#e8e8e3","on-surface": "#1a1c19",
-        "on-surface-variant": "#42493e","outline": "#72796e",
-        "outline-variant": "#c2c9bb","inverse-primary": "#a1d494",
-        "secondary-fixed": "#8ff8b4","secondary-fixed-dim": "#73db9a",
-        "on-secondary-fixed": "#00210f","primary-fixed": "#bcf0ae",
-        "on-primary-fixed": "#002201","on-primary-fixed-variant": "#23501e",
-        "tertiary-fixed": "#cbead2","on-tertiary-fixed": "#062011",
-        "background": "#fafaf4","on-background": "#1a1c19",
-        "soft-gray": "#F2F4F2","off-white": "#FDFDFB","forest-mute": "#4A634E",
-        "inverse-surface": "#2f312e","inverse-on-surface": "#f1f1ec",
-        "error": "#ba1a1a","surface-variant": "#e3e3de",
-        "surface-container-lowest": "#ffffff","surface-container-highest": "#e3e3de",
-        "surface-tint": "#3b6934"
-      },
-      borderRadius: {"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
-      spacing: {"margin-mobile":"16px","base":"8px","margin-desktop":"80px","gutter":"24px","section-gap":"120px"},
-      fontFamily: {"body-lg":["Inter"],"body-md":["Inter"],"stat-lg":["Chivo"],"display-lg":["Chivo"],"display-lg-mobile":["Chivo"],"label-bold":["Inter"],"headline-lg":["Chivo"],"headline-md":["Chivo"]},
-      fontSize: {
-        "body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],
-        "body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],
-        "stat-lg":["48px",{"lineHeight":"1.0","fontWeight":"800"}],
-        "display-lg-mobile":["36px",{"lineHeight":"1.2","fontWeight":"800"}],
-        "display-lg":["56px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],
-        "label-bold":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"700"}],
-        "headline-lg":["40px",{"lineHeight":"1.2","fontWeight":"700"}],
-        "headline-md":["28px",{"lineHeight":"1.3","fontWeight":"700"}]
-      }
-    }
-  }
-}
-</script>
+<link rel="icon" href="favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZGIH Repurpose Store | Zamboanga Green Innovation Hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .impact-card { box-shadow: 0 4px 20px -2px rgba(45,90,39,0.08); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
-  .impact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -4px rgba(45,90,39,0.12); border-color: #154212; }
+:root{--green:#154212;--green-dark:#0d2e10;--green-mid:#2d7a2d;--green-light:#e8f5e9;--teal:#006d3e;--text:#1a1c19;--muted:#42493e;--border:#e8ede8;--bg:#f8faf7;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+h1,h2,h3,h4{font-family:'Chivo',sans-serif;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:relative;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;z-index:10;}
+.logo img{height:40px;width:40px;object-fit:contain;}
+.logo-txt{display:flex;flex-direction:column;line-height:1.2;}
+.logo-txt .t1{font-family:'Chivo',sans-serif;font-size:15px;font-weight:800;color:var(--green);}
+.logo-txt .t2{font-size:10px;color:var(--muted);}
+.nav-links{display:flex;gap:24px;position:absolute;left:50%;transform:translateX(-50%);}
+.nav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-links a.active{border-bottom:2px solid var(--green);padding-bottom:2px;}
+.nav-cta{background:var(--green);color:white;padding:8px 20px;border-radius:99px;font-size:14px;font-weight:700;text-decoration:none;z-index:10;}
+.nav-cta:hover{opacity:.88;}
+
+/* HERO BANNER */
+.hero-wrap{background:#0a2e0d;}
+.hero-wrap img{display:block;width:100%;max-width:1200px;margin:0 auto;height:auto;}
+
+/* SEARCH BAR */
+.search-section{background:white;border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:64px;z-index:90;}
+.search-inner{max-width:1280px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.search-box{position:relative;flex:1;min-width:200px;}
+.search-box input{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px 10px 42px;font-size:14px;font-family:'Inter',sans-serif;background:var(--bg);outline:none;transition:border-color .2s;}
+.search-box input:focus{border-color:var(--green);background:white;}
+.search-box .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#72796e;font-size:20px;}
+.sort-select{border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13px;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);outline:none;cursor:pointer;}
+
+/* CATEGORY CARDS */
+.cat-section{max-width:1280px;margin:0 auto;padding:56px 24px 0;}
+.section-badge{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.section-title{font-size:28px;font-weight:800;color:var(--text);margin-bottom:32px;}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:0;}
+.cat-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.cat-card:hover,.cat-card.active{border-color:var(--green);background:var(--green-light);transform:translateY(-4px);box-shadow:0 12px 32px rgba(21,66,18,.1);}
+.cat-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;}
+.cat-name{font-family:'Chivo',sans-serif;font-size:14px;font-weight:700;color:var(--text);}
+.cat-count{font-size:12px;color:#72796e;}
+
+/* FILTER CHIPS */
+.filter-bar{max-width:1280px;margin:32px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.chip{padding:7px 18px;border-radius:99px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--muted);transition:all .2s;font-family:'Inter',sans-serif;}
+.chip:hover{border-color:var(--green);color:var(--green);}
+.chip.active{background:var(--green);border-color:var(--green);color:white;}
+
+/* PRODUCTS SECTION */
+.products-section{max-width:1280px;margin:0 auto;padding:32px 24px 80px;}
+.products-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.products-header h2{font-size:22px;font-weight:800;color:var(--text);}
+.product-count{font-size:13px;color:#72796e;}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+
+/* PRODUCT CARD */
+.p-card{background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;opacity:1;}
+.p-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(21,66,18,.1);}
+.p-card:hover .p-img img{transform:scale(1.06);}
+.p-card.hidden{display:none;}
+.p-img{aspect-ratio:1/1;overflow:hidden;background:#eef4ee;position:relative;}
+.p-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block;}
+.p-cat-badge{position:absolute;top:10px;left:10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:99px;background:rgba(21,66,18,.85);color:white;backdrop-filter:blur(4px);}
+.p-fav{position:absolute;top:10px;right:10px;width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:background .2s;}
+.p-fav:hover{background:var(--green-light);}
+.p-fav .material-symbols-outlined{font-size:18px;color:var(--green);}
+.p-body{padding:18px;flex:1;display:flex;flex-direction:column;}
+.p-name{font-family:'Chivo',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;}
+.p-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;flex:1;}
+.p-maker{font-size:11px;color:#72796e;margin-bottom:14px;display:flex;align-items:center;gap:4px;}
+.p-price{font-size:14px;font-weight:700;color:var(--green);margin-bottom:14px;}
+.p-actions{display:flex;gap:8px;}
+.btn-inquiry{flex:1;background:var(--green);color:white;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.btn-inquiry:hover{background:var(--green-mid);}
+.btn-detail{background:var(--green-light);color:var(--green);border:none;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;display:flex;align-items:center;justify-content:center;}
+.btn-detail:hover{background:#d4eed4;}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 0;color:#72796e;display:none;}
+.no-results.show{display:block;}
+
+/* IMPACT SECTION */
+.impact-section{background:linear-gradient(135deg,var(--green-dark),var(--green));color:white;padding:72px 24px;}
+.impact-inner{max-width:1280px;margin:0 auto;text-align:center;}
+.impact-inner h2{font-size:32px;font-weight:800;margin-bottom:12px;}
+.impact-inner p{font-size:16px;color:rgba(255,255,255,.8);margin-bottom:48px;max-width:520px;margin-left:auto;margin-right:auto;}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;}
+.impact-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px 16px;text-align:center;backdrop-filter:blur(8px);}
+.impact-card .material-symbols-outlined{font-size:32px;color:#a1d494;margin-bottom:10px;display:block;}
+.impact-card p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.5;font-weight:500;}
+
+/* SELLER SECTION */
+.seller-section{background:var(--bg);padding:72px 24px;}
+.seller-inner{max-width:900px;margin:0 auto;text-align:center;}
+.seller-inner h2{font-size:30px;font-weight:800;color:var(--text);margin-bottom:12px;}
+.seller-inner p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px;max-width:580px;margin-left:auto;margin-right:auto;}
+.seller-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-sel-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:white;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.btn-sel-primary:hover{opacity:.88;}
+.btn-sel-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--green);color:var(--green);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:background .2s;}
+.btn-sel-outline:hover{background:var(--green-light);}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal{background:white;border-radius:24px;max-width:680px;width:100%;max-height:92vh;overflow-y:auto;position:relative;}
+.modal-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:24px 24px 0 0;background:#eef4ee;display:block;}
+.modal-body{padding:32px;}
+.modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.9);border:none;cursor:pointer;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal-close:hover{background:white;}
+.modal-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:8px;}
+.modal-name{font-size:26px;font-weight:800;color:var(--text);margin-bottom:10px;}
+.modal-desc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
+.modal-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+.meta-item{background:var(--bg);border-radius:10px;padding:12px 14px;}
+.meta-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#72796e;margin-bottom:4px;}
+.meta-value{font-size:13px;font-weight:600;color:var(--text);}
+.modal-btn{width:100%;background:var(--green);color:white;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;}
+.modal-btn:hover{background:var(--green-mid);}
+
+/* FOOTER */
+footer{background:#1a3320;color:white;}
+.footer-inner{max-width:1280px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-brand img{height:34px;width:34px;object-fit:contain;}
+.footer-brand span{font-family:'Chivo',sans-serif;font-weight:700;font-size:14px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.1em;color:#8ff8b4;text-transform:uppercase;margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:16px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,.3);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.product-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:820px){.product-grid{grid-template-columns:repeat(2,1fr);}.nav-links{display:none;}}
+@media(max-width:480px){.product-grid{grid-template-columns:1fr;}.modal-meta{grid-template-columns:1fr;}}
 </style>
-<title>Shop Green — ZGIH Repurpose Store</title>
 </head>
-<body class="bg-background text-on-background font-body-md overflow-x-hidden">
-<header class="bg-surface/95 backdrop-blur-md shadow-sm shadow-primary/5 sticky top-0 z-50">
-  <nav class="relative flex items-center justify-between w-full max-w-6xl mx-auto px-6 py-4">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-3 shrink-0 z-10">
-      <img alt="ZGIH Logo" class="h-11 w-11 object-contain" src="Logo-icon.png"/>
-      <div class="hidden lg:flex flex-col leading-tight">
-        <span style="font-family:Chivo,sans-serif;font-size:16px;font-weight:800;color:#154212;">ZGIH</span>
-        <span style="font-family:Inter,sans-serif;font-size:11px;color:#42493e;">Zamboanga Green Innovation Hub</span>
-      </div>
-      <span class="lg:hidden font-bold text-primary" style="font-family:Chivo,sans-serif;font-size:17px;">ZGIH</span>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="Logo-icon.png" alt="ZGIH"/>
+      <div class="logo-txt"><span class="t1">ZGIH</span><span class="t2">Zamboanga Green Innovation Hub</span></div>
     </a>
-    <!-- Nav — centered inside the max-w-6xl container -->
-    <div class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="index.html">Home</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="members.html">Meet the Team</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="store.html">Store</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="blog.html">Blog</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" style="font-family:Inter,sans-serif;font-size:15px;" href="education.html">Learn</a>
-      <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" style="font-family:Inter,sans-serif;font-size:15px;" href="get-involved.html">Get Involved</a>
-    </div>
-    <!-- Contact -->
-    <a href="mailto:zgihub@gmail.com" class="shrink-0 z-10 text-white px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-colors" style="background:#154212;font-family:Inter,sans-serif;font-size:15px;">
-      Contact Us
-    </a>
-  </nav>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="members.html">Meet the Team</a>
+      <a href="store.html" class="active">Store</a>
+      <a href="blog.html">Blog</a>
+      <a href="education.html">Learn</a>
+      <a href="get-involved.html">Get Involved</a>
+    </nav>
+    <a href="mailto:zgihub@gmail.com" class="nav-cta">Contact Us</a>
+  </div>
 </header>
 
-<main>
-
-<!-- Hero -->
-<section class="w-full flex justify-center bg-[#0a2e0d] py-6">
-  <img
-    src="images/store-banner.png"
-    alt="ZGIH Repurpose Store — Repurpose. Recreate. Rethink."
-    style="max-width:900px;width:100%;height:auto;display:block;border-radius:12px;"
-  />
+<!-- HERO BANNER -->
+<section class="hero-wrap">
+  <img src="images/store-banner.png" alt="ZGIH Repurpose Store — Repurpose. Recreate. Rethink."/>
 </section>
 
-<!-- Value Strip -->
-<section class="bg-tertiary py-6">
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
-    <p class="text-center font-label-bold text-label-bold text-secondary-fixed tracking-widest uppercase">Support Sustainable · Support Livelihood · Support ZGIH</p>
-  </div>
-</section>
-
-<!-- Products Grid -->
-<section class="py-section-gap bg-off-white" id="products">
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-16 space-y-4">
-      <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Our Repurpose Products</span>
-      <h2 class="font-headline-lg text-headline-lg text-primary">Handcrafted with Purpose</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Every item is handmade from upcycled and recycled materials by ZGIH community members. Each purchase directly supports local livelihoods in Zamboanga City.</p>
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-box">
+      <span class="material-symbols-outlined si">search</span>
+      <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products"/>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <select class="sort-select" id="sortSelect" aria-label="Sort products">
+      <option value="default">Sort: Default</option>
+      <option value="az">A – Z</option>
+      <option value="za">Z – A</option>
+    </select>
+  </div>
+</div>
 
-      <!-- Bottle Lamps -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">light</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Bottle Lamps</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Turned into stylish hanging or table lamps. Perfect for home décor, cafés, and offices.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Paper Weave Baskets -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">shopping_basket</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Paper Weave Baskets</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Handwoven using recycled paper into beautiful, functional storage baskets.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Planters & Décor -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">potted_plant</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Planters & Décor</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Handmade planters from upcycled materials. Adds a natural touch to any space.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Paper Roll Decor -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">interests</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Paper Roll Décor</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Creative home accents made from paper rolls. Unique wall art, mirrors, and organizers.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Upcycled Vases -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">local_florist</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Upcycled Vases</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">From bottles to beautiful décor. Elegant vases for homes, events, and gifting.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Eco-Friendly Totes -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">shopping_bag</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Eco-Friendly Totes</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Reusable totes for everyday use. Customizable with your logo — perfect for events and giveaways.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Custom Mugs -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">coffee</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Custom Mugs</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Personalized mugs for gifts or branding. Great for corporate giveaways and special occasions.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Glass Canisters -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">glass_cup</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Glass Canisters</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Perfect for food storage, coffee, snacks and more. Elegant and sustainable kitchen essentials.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Eco Gift Sets -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">redeem</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Eco Gift Sets</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Curated sets for corporate gifts and special occasions. Beautifully packaged and fully customizable.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Desk Organizers -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">desk</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Desk Organizers</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Functional and sustainable for any workspace. Made from upcycled materials with a natural finish.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Custom Giveaways -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">card_giftcard</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Custom Giveaways</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Personalized items for events, celebrations, and promotions. Add your logo or message.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Decorating Items -->
-      <div class="impact-card bg-surface rounded-2xl border border-outline-variant overflow-hidden flex flex-col group">
-        <div class="bg-surface-container-low aspect-square flex items-center justify-center p-8">
-          <span class="material-symbols-outlined text-[72px] text-primary opacity-40 group-hover:opacity-70 transition-opacity">palette</span>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Decorating Items</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">Beautiful handmade pieces for your home or office. Unique, eco-friendly, made with purpose.</p>
-          <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
-            <span class="font-label-bold text-label-bold text-secondary">Price on request</span>
-            <a href="mailto:zgihub@gmail.com" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-bold text-label-bold text-sm hover:bg-primary-container transition-colors">Inquire</a>
-          </div>
-        </div>
-      </div>
-
+<!-- CATEGORIES -->
+<div class="cat-section">
+  <p class="section-badge">Browse by Category</p>
+  <h2 class="section-title">Shop by Category</h2>
+  <div class="cat-grid">
+    <div class="cat-card active" data-cat="all" onclick="setCategory('all',this)">
+      <div class="cat-icon" style="background:#e8f5e9;"><span class="material-symbols-outlined" style="color:#154212;font-size:26px;">storefront</span></div>
+      <span class="cat-name">All Products</span>
+      <span class="cat-count" id="count-all">12 Products</span>
+    </div>
+    <div class="cat-card" data-cat="decor" onclick="setCategory('decor',this)">
+      <div class="cat-icon" style="background:#f3e5f5;"><span class="material-symbols-outlined" style="color:#7b1fa2;font-size:26px;">home</span></div>
+      <span class="cat-name">Décor</span>
+      <span class="cat-count" id="count-decor">5 Products</span>
+    </div>
+    <div class="cat-card" data-cat="fashion" onclick="setCategory('fashion',this)">
+      <div class="cat-icon" style="background:#e0f2f1;"><span class="material-symbols-outlined" style="color:#00796b;font-size:26px;">shopping_bag</span></div>
+      <span class="cat-name">Fashion</span>
+      <span class="cat-count" id="count-fashion">2 Products</span>
+    </div>
+    <div class="cat-card" data-cat="kitchen" onclick="setCategory('kitchen',this)">
+      <div class="cat-icon" style="background:#fff8e1;"><span class="material-symbols-outlined" style="color:#f57f17;font-size:26px;">kitchen</span></div>
+      <span class="cat-name">Kitchen & Food</span>
+      <span class="cat-count" id="count-kitchen">2 Products</span>
+    </div>
+    <div class="cat-card" data-cat="giveaway" onclick="setCategory('giveaway',this)">
+      <div class="cat-icon" style="background:#e8f5e9;"><span class="material-symbols-outlined" style="color:#154212;font-size:26px;">redeem</span></div>
+      <span class="cat-name">Giveaways & Gifts</span>
+      <span class="cat-count" id="count-giveaway">3 Products</span>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Perfect For -->
-<section class="py-section-gap bg-surface-container-low">
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-16 items-start">
-    <div class="space-y-8">
-      <div>
-        <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Perfect For</span>
-        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Great for Any Occasion</h2>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">home</span> Home Décor</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">business_center</span> Offices</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">celebration</span> Events & Parties</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">storefront</span> Businesses</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">school</span> Schools</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">restaurant</span> Cafés & Restaurants</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">cake</span> Birthdays & Weddings</div>
-        <div class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[22px]">volunteer_activism</span> Corporate Giveaways</div>
-      </div>
-    </div>
-    <div class="space-y-8">
-      <div>
-        <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Customization</span>
-        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Make It Yours</h2>
-      </div>
-      <div class="space-y-4">
-        <div class="flex items-start gap-4 p-4 bg-surface rounded-xl border border-outline-variant">
-          <span class="material-symbols-outlined text-primary text-[24px]">draw</span>
-          <div><h4 class="font-label-bold text-label-bold text-primary">Add Your Logo</h4><p class="font-body-md text-body-md text-on-surface-variant text-sm">Logo engraving or printing available on most products.</p></div>
-        </div>
-        <div class="flex items-start gap-4 p-4 bg-surface rounded-xl border border-outline-variant">
-          <span class="material-symbols-outlined text-primary text-[24px]">palette</span>
-          <div><h4 class="font-label-bold text-label-bold text-primary">Choose Your Design</h4><p class="font-body-md text-body-md text-on-surface-variant text-sm">Select colors, patterns, and styles that match your brand.</p></div>
-        </div>
-        <div class="flex items-start gap-4 p-4 bg-surface rounded-xl border border-outline-variant">
-          <span class="material-symbols-outlined text-primary text-[24px]">redeem</span>
-          <div><h4 class="font-label-bold text-label-bold text-primary">Custom Packaging</h4><p class="font-body-md text-body-md text-on-surface-variant text-sm">Eco-friendly packaging with personalized messages for branding or giveaways.</p></div>
-        </div>
-        <div class="flex items-start gap-4 p-4 bg-surface rounded-xl border border-outline-variant">
-          <span class="material-symbols-outlined text-primary text-[24px]">label</span>
-          <div><h4 class="font-label-bold text-label-bold text-primary">Sticker Labels</h4><p class="font-body-md text-body-md text-on-surface-variant text-sm">Custom sticker labels for a polished, branded finish.</p></div>
-        </div>
-      </div>
-    </div>
+<!-- FILTER CHIPS -->
+<div class="filter-bar">
+  <button class="chip active" data-filter="all" onclick="filterChip('all',this)">All Products</button>
+  <button class="chip" data-filter="decor" onclick="filterChip('decor',this)">Décor</button>
+  <button class="chip" data-filter="fashion" onclick="filterChip('fashion',this)">Fashion</button>
+  <button class="chip" data-filter="kitchen" onclick="filterChip('kitchen',this)">Kitchen & Food</button>
+  <button class="chip" data-filter="giveaway" onclick="filterChip('giveaway',this)">Giveaways & Gifts</button>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section">
+  <div class="products-header">
+    <h2>Our Products</h2>
+    <span class="product-count" id="productCount">Showing 12 products</span>
   </div>
-</section>
+  <div class="product-grid" id="productGrid">
 
-<!-- Corporate Packages -->
-<section class="py-section-gap bg-off-white" id="packages">
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-16 space-y-4">
-      <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Bulk Orders</span>
-      <h2 class="font-headline-lg text-headline-lg text-primary">Corporate Packages</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Ideal for companies, schools, and organizations looking for sustainable, meaningful bulk gifts with full customization options.</p>
+    <!-- Bottle Lamps -->
+    <div class="p-card" data-name="bottle lamps" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Bottle Lamps" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Bottle Lamps"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Bottle Lamps</h3>
+        <p class="p-desc">Turned into stylish hanging or table lamps. Perfect for home décor, cafés, and offices.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Bottle Lamps','Décor','Turned into stylish hanging or table lamps. Perfect for home décor, cafés, and offices.','Made from upcycled glass bottles','Customizable sizes','Available for order')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Bottle Lamps','Décor','Turned into stylish hanging or table lamps. Perfect for home décor, cafés, and offices.','Made from upcycled glass bottles','Customizable sizes','Available for order')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 
-      <!-- Bronze -->
-      <div class="impact-card bg-surface rounded-2xl border-2 border-outline-variant p-8 flex flex-col items-center text-center space-y-4">
-        <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: #cd7f32;">
-          <span class="material-symbols-outlined text-white text-[32px]">workspace_premium</span>
-        </div>
-        <h3 class="font-headline-lg text-headline-lg text-primary">Bronze</h3>
-        <p class="font-stat-lg text-stat-lg text-primary">20–50<span class="text-body-lg font-body-lg"> pcs</span></p>
-        <p class="font-body-md text-body-md text-on-surface-variant">Affordable and eco-conscious giveaways. Perfect for small events and starter orders.</p>
-        <ul class="text-left space-y-2 w-full font-body-md text-body-md text-on-surface-variant">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Basic customization</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Eco-friendly packaging</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Certificate of support</li>
-        </ul>
-        <a href="mailto:zgihub@gmail.com" class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-label-bold text-label-bold hover:bg-primary-container transition-colors inline-block text-center mt-auto">Get a Quote</a>
+    <!-- Paper Weave Baskets -->
+    <div class="p-card" data-name="paper weave baskets" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Paper Weave Baskets" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Paper Weave Baskets"><span class="material-symbols-outlined">favorite_border</span></button>
       </div>
-
-      <!-- Silver -->
-      <div class="impact-card bg-primary-container rounded-2xl border-2 border-primary p-8 flex flex-col items-center text-center space-y-4 relative">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full font-label-bold text-label-bold text-xs">MOST POPULAR</div>
-        <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: #aaa9ad;">
-          <span class="material-symbols-outlined text-white text-[32px]">workspace_premium</span>
+      <div class="p-body">
+        <h3 class="p-name">Paper Weave Baskets</h3>
+        <p class="p-desc">Handwoven using recycled paper into beautiful, functional storage baskets.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Paper Weave Baskets','Décor','Handwoven using recycled paper into beautiful, functional storage baskets.','100% recycled paper','Multiple sizes available','Made to order')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Paper Weave Baskets','Décor','Handwoven using recycled paper into beautiful, functional storage baskets.','100% recycled paper','Multiple sizes available','Made to order')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
         </div>
-        <h3 class="font-headline-lg text-headline-lg text-on-primary-container">Silver</h3>
-        <p class="font-stat-lg text-stat-lg text-on-primary-container">50–200<span class="text-body-lg font-body-lg"> pcs</span></p>
-        <p class="font-body-md text-body-md text-on-primary-container/80">Premium gifts with custom branding options. Great for corporate events and launches.</p>
-        <ul class="text-left space-y-2 w-full font-body-md text-body-md text-on-primary-container/80">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span> Logo engraving or printing</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span> Custom packaging</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span> Personalized message</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span> Impact report</li>
-        </ul>
-        <a href="mailto:zgihub@gmail.com" class="w-full bg-secondary-fixed text-on-secondary-fixed px-6 py-3 rounded-lg font-label-bold text-label-bold hover:scale-105 transition-transform inline-block text-center mt-auto">Get a Quote</a>
       </div>
-
-      <!-- Gold -->
-      <div class="impact-card bg-surface rounded-2xl border-2 border-outline-variant p-8 flex flex-col items-center text-center space-y-4">
-        <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: #d4af37;">
-          <span class="material-symbols-outlined text-white text-[32px]">workspace_premium</span>
-        </div>
-        <h3 class="font-headline-lg text-headline-lg text-primary">Gold</h3>
-        <p class="font-stat-lg text-stat-lg text-primary">200+<span class="text-body-lg font-body-lg"> pcs</span></p>
-        <p class="font-body-md text-body-md text-on-surface-variant">Fully customized sets with premium packaging. Best for large-scale brand activations.</p>
-        <ul class="text-left space-y-2 w-full font-body-md text-body-md text-on-surface-variant">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Full brand customization</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Premium eco-packaging</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Nationwide delivery</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Full impact documentation</li>
-        </ul>
-        <a href="mailto:zgihub@gmail.com" class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-label-bold text-label-bold hover:bg-primary-container transition-colors inline-block text-center mt-auto">Get a Quote</a>
-      </div>
-
     </div>
-    <p class="text-center font-label-bold text-label-bold text-secondary tracking-widest uppercase mt-12">Bulk Orders · Custom Designs · Nationwide Delivery</p>
+
+    <!-- Planters & Décor -->
+    <div class="p-card" data-name="planters décor" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Planters & Décor" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Planters"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Planters & Décor</h3>
+        <p class="p-desc">Handmade planters from upcycled materials. Adds a natural touch to any space.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Planters & Décor','Décor','Handmade planters from upcycled materials. Adds a natural touch to any space.','Upcycled tires & plastics','Indoor & outdoor options','Custom sizes available')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Planters & Décor','Décor','Handmade planters from upcycled materials. Adds a natural touch to any space.','Upcycled tires & plastics','Indoor & outdoor options','Custom sizes available')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Roll Décor -->
+    <div class="p-card" data-name="paper roll décor wall art" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Paper Roll Décor" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Paper Roll Décor"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Paper Roll Décor</h3>
+        <p class="p-desc">Creative home accents made from paper rolls. Unique wall art, mirrors, and organizers.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Paper Roll Décor','Décor','Creative home accents made from paper rolls. Unique wall art, mirrors, and organizers.','Recycled paper rolls','Various design options','Lightweight & durable')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Paper Roll Décor','Décor','Creative home accents made from paper rolls. Unique wall art, mirrors, and organizers.','Recycled paper rolls','Various design options','Lightweight & durable')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcycled Vases -->
+    <div class="p-card" data-name="upcycled vases bottles" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Upcycled Vases" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Upcycled Vases"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Upcycled Vases</h3>
+        <p class="p-desc">From bottles to beautiful décor. Elegant vases for homes, events, and gifting.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Upcycled Vases','Décor','From bottles to beautiful décor. Elegant vases for homes, events, and gifting.','Upcycled glass bottles','Hand-painted designs','Perfect for gifting')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Upcycled Vases','Décor','From bottles to beautiful décor. Elegant vases for homes, events, and gifting.','Upcycled glass bottles','Hand-painted designs','Perfect for gifting')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eco-Friendly Totes -->
+    <div class="p-card" data-name="eco-friendly totes bags upcycled" data-cat="fashion">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Eco-Friendly Totes" loading="lazy"/>
+        <span class="p-cat-badge">Fashion</span>
+        <button class="p-fav" aria-label="Save Totes"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Eco-Friendly Totes</h3>
+        <p class="p-desc">Reusable totes for everyday use. Customizable with your logo — perfect for events and giveaways.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Eco-Friendly Totes','Fashion','Reusable totes for everyday use. Customizable with your logo — perfect for events and giveaways.','Upcycled plastic sachets & fabric','Logo customization available','Bulk orders welcome')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Eco-Friendly Totes','Fashion','Reusable totes for everyday use. Customizable with your logo — perfect for events and giveaways.','Upcycled plastic sachets & fabric','Logo customization available','Bulk orders welcome')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Mugs -->
+    <div class="p-card" data-name="custom mugs personalized gifts" data-cat="giveaway">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Custom Mugs" loading="lazy"/>
+        <span class="p-cat-badge">Giveaways</span>
+        <button class="p-fav" aria-label="Save Custom Mugs"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Custom Mugs</h3>
+        <p class="p-desc">Personalized mugs for gifts or branding. Great for corporate giveaways and special occasions.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Custom Mugs','Giveaways & Gifts','Personalized mugs for gifts or branding. Great for corporate giveaways and special occasions.','Ceramic with eco-friendly printing','Custom logo & text','Minimum order applies')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Custom Mugs','Giveaways & Gifts','Personalized mugs for gifts or branding. Great for corporate giveaways and special occasions.','Ceramic with eco-friendly printing','Custom logo & text','Minimum order applies')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Glass Canisters -->
+    <div class="p-card" data-name="glass canisters food storage kitchen" data-cat="kitchen">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Glass Canisters" loading="lazy"/>
+        <span class="p-cat-badge">Kitchen & Food</span>
+        <button class="p-fav" aria-label="Save Glass Canisters"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Glass Canisters</h3>
+        <p class="p-desc">Perfect for food storage, coffee, snacks and more. Elegant and sustainable kitchen essentials.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Glass Canisters','Kitchen & Food','Perfect for food storage, coffee, snacks and more. Elegant and sustainable kitchen essentials.','Upcycled glass jars & lids','Food-safe materials','Various sizes available')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Glass Canisters','Kitchen & Food','Perfect for food storage, coffee, snacks and more. Elegant and sustainable kitchen essentials.','Upcycled glass jars & lids','Food-safe materials','Various sizes available')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eco Gift Sets -->
+    <div class="p-card" data-name="eco gift sets corporate giveaways customizable" data-cat="giveaway">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Eco Gift Sets" loading="lazy"/>
+        <span class="p-cat-badge">Giveaways</span>
+        <button class="p-fav" aria-label="Save Eco Gift Sets"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Eco Gift Sets</h3>
+        <p class="p-desc">Curated sets for corporate gifts and special occasions. Beautifully packaged and fully customizable.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Eco Gift Sets','Giveaways & Gifts','Curated sets for corporate gifts and special occasions. Beautifully packaged and fully customizable.','Mixed upcycled materials','Custom packaging & branding','Bulk pricing available')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Eco Gift Sets','Giveaways & Gifts','Curated sets for corporate gifts and special occasions. Beautifully packaged and fully customizable.','Mixed upcycled materials','Custom packaging & branding','Bulk pricing available')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desk Organizers -->
+    <div class="p-card" data-name="desk organizers workspace upcycled" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Desk Organizers" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Desk Organizers"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Desk Organizers</h3>
+        <p class="p-desc">Functional and sustainable for any workspace. Made from upcycled materials with a natural finish.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Desk Organizers','Décor','Functional and sustainable for any workspace. Made from upcycled materials with a natural finish.','Upcycled cardboard & plastic','Multiple compartments','Natural earth-tone finish')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Desk Organizers','Décor','Functional and sustainable for any workspace. Made from upcycled materials with a natural finish.','Upcycled cardboard & plastic','Multiple compartments','Natural earth-tone finish')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Giveaways -->
+    <div class="p-card" data-name="custom giveaways personalized events promotions" data-cat="giveaway">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Custom Giveaways" loading="lazy"/>
+        <span class="p-cat-badge">Giveaways</span>
+        <button class="p-fav" aria-label="Save Custom Giveaways"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Custom Giveaways</h3>
+        <p class="p-desc">Personalized items for events, celebrations, and promotions. Add your logo or message.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Custom Giveaways','Giveaways & Gifts','Personalized items for events, celebrations, and promotions. Add your logo or message.','Various eco-friendly materials','Full customization','Event planning support')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Custom Giveaways','Giveaways & Gifts','Personalized items for events, celebrations, and promotions. Add your logo or message.','Various eco-friendly materials','Full customization','Event planning support')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorating Items -->
+    <div class="p-card" data-name="decorating items handmade eco-friendly home office" data-cat="decor">
+      <div class="p-img">
+        <img src="images/team-photo.jpg" alt="Decorating Items" loading="lazy"/>
+        <span class="p-cat-badge">Décor</span>
+        <button class="p-fav" aria-label="Save Decorating Items"><span class="material-symbols-outlined">favorite_border</span></button>
+      </div>
+      <div class="p-body">
+        <h3 class="p-name">Decorating Items</h3>
+        <p class="p-desc">Beautiful handmade pieces for your home or office. Unique, eco-friendly, made with purpose.</p>
+        <p class="p-maker"><span class="material-symbols-outlined" style="font-size:14px;color:#154212;">eco</span> Made by ZGIH Community</p>
+        <p class="p-price">Price on Request</p>
+        <div class="p-actions">
+          <button class="btn-inquiry" onclick="openModal('Decorating Items','Décor','Beautiful handmade pieces for your home or office. Unique, eco-friendly, made with purpose.','Mixed upcycled materials','One-of-a-kind designs','Customizable for events')">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span> Inquire
+          </button>
+          <button class="btn-detail" onclick="openModal('Decorating Items','Décor','Beautiful handmade pieces for your home or office. Unique, eco-friendly, made with purpose.','Mixed upcycled materials','One-of-a-kind designs','Customizable for events')" aria-label="View details">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
+  <div class="no-results" id="noResults">No products found. Try a different search or category.</div>
 </section>
 
-<!-- How We Turn Waste into Wonder -->
-<section class="py-section-gap bg-surface-container-low">
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-16 space-y-4">
-      <span class="font-label-bold text-label-bold text-secondary tracking-widest uppercase">Our Process</span>
-      <h2 class="font-headline-lg text-headline-lg text-primary">How We Turn Waste into Wonder</h2>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-6 items-start">
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-primary-container text-[28px]">inventory_2</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">1. Collect</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">We source recyclable materials.</p>
-      </div>
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-secondary-container text-[28px]">cleaning_services</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">2. Transform</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">Carefully cut, clean and repurpose.</p>
-      </div>
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-primary-container text-[28px]">handyman</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">3. Create</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">Handmade with skill and passion.</p>
-      </div>
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-secondary-container text-[28px]">draw</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">4. Customize</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">Add your brand, logo or message.</p>
-      </div>
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-primary-container text-[28px]">package_2</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">5. Package</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">Eco-friendly packaging.</p>
-      </div>
-      <div class="text-center space-y-3">
-        <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-on-secondary-container text-[28px]">volunteer_activism</span></div>
-        <p class="font-label-bold text-label-bold text-primary text-sm">6. Gift & Inspire</p>
-        <p class="font-body-md text-body-md text-on-surface-variant text-xs">Delivered with purpose.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Order CTA -->
-<section class="py-section-gap relative overflow-hidden">
-  <div class="absolute inset-0 bg-primary-container z-0"></div>
-  <div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-on-primary">Let's create something <span class="italic text-secondary-fixed">meaningful</span> together!</h2>
-        <p class="font-body-lg text-body-lg text-on-primary/80">Send us a message for inquiries and custom orders. Every purchase supports livelihood. Every gift creates change.</p>
-        <div class="space-y-3">
-          <p class="font-body-md text-on-primary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-secondary-fixed">call</span> 09531342871</p>
-          <p class="font-body-md text-on-primary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-secondary-fixed">mail</span> zgihub@gmail.com</p>
-          <p class="font-body-md text-on-primary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-secondary-fixed">public</span> ZGIH Repurpose (Facebook)</p>
-          <p class="font-body-md text-on-primary/80 flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-secondary-fixed">alternate_email</span> @zgih.repurpose (Instagram)</p>
-        </div>
-      </div>
-      <div class="flex flex-col gap-4">
-        <a href="mailto:zgihub@gmail.com" class="bg-secondary-fixed text-on-secondary-fixed px-10 py-5 rounded-xl font-label-bold text-label-bold text-lg hover:scale-105 transition-transform text-center inline-block">Order Now →</a>
-        <a href="#packages" class="border-2 border-on-primary text-on-primary px-10 py-5 rounded-xl font-label-bold text-label-bold text-lg hover:bg-white/10 transition-colors text-center inline-block">View Corporate Packages</a>
-      </div>
+<!-- IMPACT SECTION -->
+<section class="impact-section">
+  <div class="impact-inner">
+    <h2>Every Purchase Creates Impact</h2>
+    <p>When you shop from ZGIH, you're not just buying a product — you're supporting a circular economy and community livelihoods in Zamboanga City.</p>
+    <div class="impact-grid">
+      <div class="impact-card"><span class="material-symbols-outlined">volunteer_activism</span><p>Supports community livelihoods & local artisans</p></div>
+      <div class="impact-card"><span class="material-symbols-outlined">recycling</span><p>Diverts plastic waste from landfills & oceans</p></div>
+      <div class="impact-card"><span class="material-symbols-outlined">autorenew</span><p>Promotes circular economy principles</p></div>
+      <div class="impact-card"><span class="material-symbols-outlined">lightbulb</span><p>Drives green innovation in Zamboanga City</p></div>
+      <div class="impact-card"><span class="material-symbols-outlined">groups</span><p>Empowers women, youth & solo parents</p></div>
     </div>
   </div>
 </section>
 
-</main>
-<footer class="bg-tertiary dark:bg-on-tertiary-fixed-variant text-on-tertiary">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full">
-<div class="space-y-6">
-<div class="flex items-center gap-3">
-<img alt="ZGIH Logo" class="h-10 w-10 object-contain" src="Logo-icon.png"/>
-<span class="font-headline-md text-headline-md font-bold text-on-tertiary">ZGIH – Zamboanga Green Innovation Hub</span>
+<!-- SELLER SECTION -->
+<section class="seller-section">
+  <div class="seller-inner">
+    <h2>Become a ZGIH Partner Seller</h2>
+    <p>Are you a local artisan, recycler, or community enterprise? Showcase your sustainable products through ZGIH's platform and reach more customers while creating positive environmental impact.</p>
+    <div class="seller-btns">
+      <a href="get-involved.html" class="btn-sel-primary">
+        <span class="material-symbols-outlined" style="font-size:18px;">store</span>
+        Apply as Seller
+      </a>
+      <a href="get-involved.html" class="btn-sel-outline">
+        <span class="material-symbols-outlined" style="font-size:18px;">handshake</span>
+        Partner with ZGIH
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">
+      <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+    </button>
+    <img class="modal-img" id="modalImg" src="images/team-photo.jpg" alt=""/>
+    <div class="modal-body">
+      <p class="modal-cat" id="modalCat"></p>
+      <h3 class="modal-name" id="modalName"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-meta">
+        <div class="meta-item"><p class="meta-label">Materials</p><p class="meta-value" id="modalMat"></p></div>
+        <div class="meta-item"><p class="meta-label">Availability</p><p class="meta-value" id="modalAvail"></p></div>
+        <div class="meta-item"><p class="meta-label">Customization</p><p class="meta-value" id="modalCustom"></p></div>
+        <div class="meta-item"><p class="meta-label">Price</p><p class="meta-value">Price on Request</p></div>
+      </div>
+      <a id="modalInquiry" href="mailto:zgihub@gmail.com" class="modal-btn">
+        <span class="material-symbols-outlined" style="font-size:18px;">mail</span>
+        Inquire About This Product
+      </a>
+    </div>
+  </div>
 </div>
-<p class="font-body-md text-body-md text-on-tertiary/80">
-A non-governmental organization dedicated to environmental sustainability and community-led innovation in Zamboanga City.
-</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">face_nod</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="mailto:zgihub@gmail.com">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Navigation</h4>
-<ul class="space-y-4">
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="index.html">Home</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="members.html">Meet the Team</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="store.html">Store</a></li>
-<li></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="blog.html">Blog</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="education.html">Learn</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Programs</h4>
-<ul class="space-y-4">
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Zero-Waste</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Green Livelihood</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Coastal Conservation</a></li>
-<li><a class="font-body-md text-on-tertiary/80 hover:text-secondary-fixed transition-colors" href="#">Eco-Education</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold mb-8 uppercase tracking-widest text-secondary-fixed">Contact</h4>
-<address class="not-italic space-y-4">
-<p class="font-body-md text-on-tertiary/80 flex items-start gap-3">
-<span class="material-symbols-outlined text-[20px]">location_on</span>
-003 Toreme Drive Lower Cabatangan, Zamboanga City
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-zgihub@gmail.com
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">phone</span>
-09452996695
-</p>
-<p class="font-body-md text-on-tertiary/80 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">public</span>
-Facebook: Zamboanga Green Innovation Hub
-</p>
-</address>
-</div>
-</div>
-<div class="px-margin-mobile md:px-margin-desktop py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-body-md text-on-tertiary/60 text-sm">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</p>
-<div class="flex gap-6">
-<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-md text-on-tertiary/60 text-sm hover:text-on-tertiary transition-colors" href="#">Terms of Service</a>
-</div>
-</div>
-</footer><script>
-document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('opacity-100','translate-y-0');
-        entry.target.classList.remove('opacity-0','translate-y-8');
-      }
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('section').forEach(s => {
-    s.classList.add('transition-all','duration-1000','opacity-0','translate-y-8');
-    observer.observe(s);
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><img src="Logo-icon.png" alt="ZGIH"/><span>ZGIH – Zamboanga Green Innovation Hub</span></div>
+      <p class="footer-tagline">Building a greener, cleaner, and more sustainable Zamboanga City.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Meet the Team</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="education.html">Learn</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Shop Categories</h4>
+      <ul>
+        <li><a href="#" onclick="setCategory('decor',document.querySelector('[data-cat=decor]'));return false;">Décor</a></li>
+        <li><a href="#" onclick="setCategory('fashion',document.querySelector('[data-cat=fashion]'));return false;">Fashion</a></li>
+        <li><a href="#" onclick="setCategory('kitchen',document.querySelector('[data-cat=kitchen]'));return false;">Kitchen & Food</a></li>
+        <li><a href="#" onclick="setCategory('giveaway',document.querySelector('[data-cat=giveaway]'));return false;">Giveaways & Gifts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:zgihub@gmail.com">zgihub@gmail.com</a></li>
+        <li><a href="tel:09452996695">09452996695</a></li>
+        <li><a href="#">003 Toreme Drive, Lower Cabatangan, Zamboanga City</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Zamboanga Green Innovation Hub. Built with 💚 for Zamboanga by FMcreativemanagement</div>
+</footer>
+
+<script>
+// Product data
+const allCards = document.querySelectorAll('.p-card');
+let activeCategory = 'all';
+
+// Category counts
+function updateCounts(){
+  const cats = ['decor','fashion','kitchen','giveaway'];
+  let totals = {all:0,decor:0,fashion:0,kitchen:0,giveaway:0};
+  allCards.forEach(c => {
+    const cat = c.dataset.cat;
+    totals.all++;
+    if(totals[cat] !== undefined) totals[cat]++;
+  });
+  document.getElementById('count-all').textContent = totals.all + ' Products';
+  cats.forEach(c => { const el = document.getElementById('count-'+c); if(el) el.textContent = totals[c] + ' Products'; });
+}
+updateCounts();
+
+// Set category
+function setCategory(cat, el){
+  activeCategory = cat;
+  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  // Sync filter chips
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.filter === cat);
+  });
+  applyFilters();
+}
+
+// Filter chips
+function filterChip(cat, el){
+  activeCategory = cat;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  // Sync category cards
+  document.querySelectorAll('.cat-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.cat === cat);
+  });
+  applyFilters();
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+// Sort
+document.getElementById('sortSelect').addEventListener('change', applyFilters);
+
+function applyFilters(){
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const sort = document.getElementById('sortSelect').value;
+  let cards = Array.from(allCards);
+
+  // Filter
+  cards.forEach(card => {
+    const nameMatch = card.dataset.name.includes(query);
+    const catMatch = activeCategory === 'all' || card.dataset.cat === activeCategory;
+    card.classList.toggle('hidden', !(nameMatch && catMatch));
+  });
+
+  // Sort visible cards
+  const grid = document.getElementById('productGrid');
+  const visible = cards.filter(c => !c.classList.contains('hidden'));
+  if(sort === 'az') visible.sort((a,b) => a.querySelector('.p-name').textContent.localeCompare(b.querySelector('.p-name').textContent));
+  if(sort === 'za') visible.sort((a,b) => b.querySelector('.p-name').textContent.localeCompare(a.querySelector('.p-name').textContent));
+  visible.forEach(c => grid.appendChild(c));
+
+  const count = visible.length;
+  document.getElementById('productCount').textContent = 'Showing ' + count + ' product' + (count !== 1 ? 's' : '');
+  document.getElementById('noResults').classList.toggle('show', count === 0);
+}
+
+// Modal
+function openModal(name, cat, desc, mat, custom, avail){
+  document.getElementById('modalName').textContent = name;
+  document.getElementById('modalCat').textContent = cat;
+  document.getElementById('modalDesc').textContent = desc;
+  document.getElementById('modalMat').textContent = mat;
+  document.getElementById('modalCustom').textContent = custom;
+  document.getElementById('modalAvail').textContent = avail;
+  document.getElementById('modalInquiry').href = 'mailto:zgihub@gmail.com?subject=Product Inquiry: ' + encodeURIComponent(name);
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('productModal').addEventListener('click', e => {
+  if(e.target === document.getElementById('productModal')) closeModal();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+// Favorite toggle
+document.querySelectorAll('.p-fav').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const isFav = icon.textContent === 'favorite';
+    icon.textContent = isFav ? 'favorite_border' : 'favorite';
+    icon.style.color = isFav ? '' : '#e53935';
   });
 });
-</script></body></html>
+
+// Fade in cards
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      e.target.style.transition = `opacity .5s ease ${i*0.06}s, transform .5s ease ${i*0.06}s`;
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.05});
+
+allCards.forEach(c => {
+  c.style.opacity = '0';
+  c.style.transform = 'translateY(20px)';
+  io.observe(c);
+});
+</script>
+</body>
+</html>
